@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://1ovtyteonutb"]
+
+[ext_resource type="Texture2D" uid="uid://w35t57v81n3e" path="res://assets/textures/placeholder_selection_box.png" id="1_05iqr"]
+
+[node name="SelectionBox" type="NinePatchRect" unique_id=1504091508]
+offset_left = 72.0
+offset_top = 74.0
+offset_right = 173.0
+offset_bottom = 136.0
+texture = ExtResource("1_05iqr")
+region_rect = Rect2(0, 0, 60, 60)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

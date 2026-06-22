@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://cd13dvb065bsg"]
 
+[ext_resource type="Texture2D" uid="uid://w35t57v81n3e" path="res://assets/textures/placeholder_selection_box.png" id="1_nnsk1"]
+
 [node name="World" type="Node2D" unique_id=2067929442]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=843032432]
+offset_left = 72.0
+offset_top = 74.0
+offset_right = 173.0
+offset_bottom = 136.0
+texture = ExtResource("1_nnsk1")
+region_rect = Rect2(0, 0, 60, 60)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
