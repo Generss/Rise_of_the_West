@@ -1,11 +1,3 @@
 [gd_scene format=3 uid="uid://cd13dvb065bsg"]
 
-[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/unit.tscn" id="1_nnsk1"]
-[ext_resource type="PackedScene" uid="uid://1ovtyteonutb" path="res://scenes/selection_box.tscn" id="2_rwgxs"]
-
 [node name="World" type="Node2D" unique_id=2067929442]
-
-[node name="Unit" parent="." unique_id=162373335 instance=ExtResource("1_nnsk1")]
-position = Vector2(179, 112)
-
-[node name="SelectionBox" parent="." unique_id=1504091508 instance=ExtResource("2_rwgxs")]

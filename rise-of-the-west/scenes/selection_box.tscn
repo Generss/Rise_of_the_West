@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://w35t57v81n3e" path="res://assets/textures/placeholder_selection_box.png" id="1_05iqr"]
 [ext_resource type="Script" uid="uid://21wilyvav0jl" path="res://scenes/selection_box.gd" id="2_qb2s7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
+size = Vector2(136, 126)
+
 [node name="SelectionBox" type="NinePatchRect" unique_id=1504091508]
 offset_left = 72.0
 offset_top = 74.0
@@ -21,3 +24,8 @@ script = ExtResource("2_qb2s7")
 [node name="Area2D" type="Area2D" parent="." unique_id=567525268]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1372523672]
+position = Vector2(69, 64)
+shape = SubResource("RectangleShape2D_pbcbn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://bt2m14hn1mw6c"]
 
+[ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="1_1jvru"]
 [ext_resource type="Script" uid="uid://dxui63avffb3" path="res://scripts/scene-scripts/unit.gd" id="1_k673f"]
 [ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="2_1jvru"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4t42"]
+shader = ExtResource("1_1jvru")
+shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
+shader_parameter/outline_width = 2.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fk5sa"]
 animations = [{
@@ -21,6 +27,7 @@ size = Vector2(24, 17)
 script = ExtResource("1_k673f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1527859584]
+material = SubResource("ShaderMaterial_k4t42")
 sprite_frames = SubResource("SpriteFrames_fk5sa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613858183]
