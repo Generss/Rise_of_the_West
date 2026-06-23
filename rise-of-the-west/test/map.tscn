@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://2i40l6ds35ry"]
 
 [ext_resource type="Texture2D" uid="uid://dmg28fmjfg6vb" path="res://assets/textures/terrain/dirt.png" id="1_c7s6e"]
-[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/unit.tscn" id="1_pbcbn"]
 [ext_resource type="Texture2D" uid="uid://drolgeoh2exc4" path="res://assets/textures/terrain/dirtrock2.png" id="2_e0an3"]
 [ext_resource type="Script" uid="uid://boa5scnw8xkf7" path="res://test/camera_2d.gd" id="2_wijl4"]
 [ext_resource type="Texture2D" uid="uid://cdeogptvkhais" path="res://assets/textures/terrain/dirtrock1.png" id="3_p5pve"]
 [ext_resource type="Texture2D" uid="uid://clbvnblmdrtii" path="res://assets/textures/terrain/sand.png" id="4_iw27f"]
 [ext_resource type="Texture2D" uid="uid://23xckvcyfnwu" path="res://assets/textures/terrain/sandrock.png" id="5_71pa8"]
-
-[ext_resource type="PackedScene" uid="uid://1ovtyteonutb" path="res://scenes/selection_box.tscn" id="8_k8ucj"]
+[ext_resource type="Script" uid="uid://chyk2iw0hcxl0" path="res://test/top_left_mark.gd" id="8_pbcbn"]
+[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/unit.tscn" id="9_k4t42"]
+[ext_resource type="Script" uid="uid://dedit727g4ets" path="res://test/bottom_right_mark.gd" id="9_k8ucj"]
+[ext_resource type="PackedScene" uid="uid://1ovtyteonutb" path="res://scenes/selection_box.tscn" id="10_8d3bm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -266,9 +267,6 @@ tile_set = SubResource("TileSet_6qrnp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55014958]
 script = ExtResource("2_wijl4")
 
-<<<<<<< HEAD
-[node name="Node2D" parent="." unique_id=683591798 instance=ExtResource("7_71pa8")]
-
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)
 script = ExtResource("8_pbcbn")
@@ -276,8 +274,7 @@ script = ExtResource("8_pbcbn")
 [node name="BottomRightMark" type="Node2D" parent="." unique_id=158807599]
 position = Vector2(1048, 1048)
 script = ExtResource("9_k8ucj")
-=======
-[node name="SelectionBox" parent="." unique_id=1504091508 instance=ExtResource("8_k8ucj")]
 
-[node name="Unit" parent="." unique_id=162373335 instance=ExtResource("1_pbcbn")]
->>>>>>> 8abc179 (added unit selection and deselection)
+[node name="Unit" parent="." unique_id=162373335 instance=ExtResource("9_k4t42")]
+
+[node name="SelectionBox" parent="." unique_id=1504091508 instance=ExtResource("10_8d3bm")]

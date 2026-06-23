@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1ovtyteonutb"]
 
 [ext_resource type="Texture2D" uid="uid://w35t57v81n3e" path="res://assets/textures/placeholder_selection_box.png" id="1_05iqr"]
-[ext_resource type="Script" uid="uid://21wilyvav0jl" path="res://scenes/selection_box.gd" id="2_qb2s7"]
+[ext_resource type="Script" uid="uid://21wilyvav0jl" path="res://scripts/scene-scripts/selection_box.gd" id="2_qb2s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
 size = Vector2(136, 126)
