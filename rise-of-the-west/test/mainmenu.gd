@@ -40,6 +40,7 @@ func _new_game():
 	map_instance = map_scene.instantiate()
 	var grandparent_node = get_parent().get_parent()
 	grandparent_node.add_child(map_instance)
+	toggle_menu()
 	
 
 func _cleanup_game():
