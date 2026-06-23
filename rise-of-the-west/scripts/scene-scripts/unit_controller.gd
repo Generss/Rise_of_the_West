@@ -3,11 +3,15 @@ extends Node2D
 var selected: Array[Unit] = []
 
 var spacing := 40.0
+var pressed := false
 
 func _process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and selected.size() != 0:
-		move_selected_units(get_global_mouse_position())
-
+		if not pressed:
+			move_selected_units(get_global_mouse_position())
+		pressed = true
+	else:
+		pressed = false
 
 func move_selected_units(center: Vector2) -> void:
 	var unit_count := selected.size()
@@ -29,7 +33,7 @@ func move_selected_units(center: Vector2) -> void:
 		for x in range(columns):
 			if unit_index >= unit_count:
 				return
-			var max_variation = 20
+			var max_variation = 20 # you should keep this below 40
 			var random_variation = Vector2(randf() * max_variation, randf() * max_variation)
 			var destination := top_left + Vector2(
 				x * spacing + random_variation.x,
