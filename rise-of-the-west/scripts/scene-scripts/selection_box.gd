@@ -1,19 +1,18 @@
 extends NinePatchRect
 
-var selecting := false
-var starting_position: Vector2
+
+signal selected_chosen(selected_list : Array[Unit])
 
 
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
 
+var selecting := false
+var starting_position: Vector2
 
 var selected: Array[Unit] = []
 var units_in_box: Array[Unit] = []
-
-
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +38,7 @@ func _process(delta: float) -> void:
 	else:
 		if selecting:
 			selected = units_in_box.duplicate()
+			selected_chosen.emit(selected.duplicate())
 		units_in_box.clear()
 		selecting = false
 		visible = false
@@ -69,9 +69,12 @@ func deselect_all(selected_units: Array[Unit]):
 	for unit in selected_units:
 		deselect_unit(unit)
 
+
 func select_unit(unit: Unit) -> void:
 		unit.selected = true
 		unit.set_outline(2.0)
+
+
 func deselect_unit(unit: Unit) -> void:
 	unit.selected = false
 	unit.set_outline(0.0)

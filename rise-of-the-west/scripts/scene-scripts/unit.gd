@@ -16,11 +16,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var click_occured = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
-	if selected and click_occured:
-		target = get_global_mouse_position()
-		following_target = true
-		click_occured = false
+	#var click_occured = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	#if selected and click_occured:
+	#	target = get_global_mouse_position()
+	#	following_target = true
+	#	click_occured = false
 	
 	if following_target:
 		if(global_position.distance_to(target) < 10):
@@ -33,4 +33,7 @@ func _process(delta: float) -> void:
 func set_outline(thickness: float):
 	shader_material.set_shader_parameter("outline_width", thickness)
 	shader_material.set_shader_parameter("outline_color", Color("#cfab4a"))
-	
+
+func move_to_target(new_target: Vector2):
+	target = new_target
+	following_target = true

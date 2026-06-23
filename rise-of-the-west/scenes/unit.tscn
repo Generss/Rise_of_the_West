@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="2_1jvru"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k4t42"]
+resource_local_to_scene = true
 shader = ExtResource("1_1jvru")
 shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
 shader_parameter/outline_width = 2.0

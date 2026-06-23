@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://cd13dvb065bsg"]
 
+[ext_resource type="PackedScene" uid="uid://db1wur5scgpm8" path="res://scenes/selection_controller.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/unit.tscn" id="2_4wyf3"]
+
 [node name="World" type="Node2D" unique_id=2067929442]
+
+[node name="SelectionController" parent="." unique_id=1705481236 instance=ExtResource("1_rwgxs")]
+
+[node name="Sortable" type="Node2D" parent="." unique_id=646730639]
+y_sort_enabled = true
+
+[node name="Unit" parent="Sortable" unique_id=162373335 instance=ExtResource("2_4wyf3")]
+position = Vector2(76, 158)
+
+[node name="Unit2" parent="Sortable" unique_id=943031473 instance=ExtResource("2_4wyf3")]
+position = Vector2(126, 215)
+
+[node name="Unit3" parent="Sortable" unique_id=1091633685 instance=ExtResource("2_4wyf3")]
+position = Vector2(155, 142)
+
+[node name="Unit4" parent="Sortable" unique_id=570827893 instance=ExtResource("2_4wyf3")]
+position = Vector2(100, 87)
