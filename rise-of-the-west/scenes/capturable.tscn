@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7p7ube8dmpgt"]
 
 [ext_resource type="Script" uid="uid://dtmlcdg4ral63" path="res://scenes/capturable.gd" id="1_cot13"]
-[ext_resource type="Texture2D" uid="uid://h5gsehkwfnhb" path="res://assets/CapturableAssets/neutralbox.png" id="1_wj3w4"]
+[ext_resource type="Texture2D" uid="uid://cey6mhfokhrly" path="res://assets/CapturableAssets/neutralbox.png" id="1_wj3w4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
 size = Vector2(136, 126)
@@ -29,6 +29,13 @@ shape = SubResource("RectangleShape2D_pbcbn")
 
 [node name="Timer" type="Timer" parent="." unique_id=712680960]
 autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=607117901]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+step = 1.0
+show_percentage = false
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
