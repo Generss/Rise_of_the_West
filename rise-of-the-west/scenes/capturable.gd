@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-@export var value: int = 0
+@export var value: int = 100
 
 @export var units_in_box: Array[Unit] = []
 
@@ -11,23 +11,23 @@ var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
+	$ProgressBar.value = value
 	pass # Replace with function body.
 
 func _on_timer_timeout() -> void:
-	if value < 100.0:
+	if value < 200:
 		var unit_count: int = units_in_box.size()
-		print(unit_count)
 		var potential = value + unit_count
-		if potential < 100.0:
+		if potential < 200.0:
 			print(value)
 			value = potential
 		else:
-			value = 100.0
+			value = 200.0
 			print("captured")
 			self.texture = _light
 			$Timer.stop()
 		# Optional: Cast to int for printing if you don't want decimals in your logs
-		print(int(value))
+		$ProgressBar.value = value
 	
 
 

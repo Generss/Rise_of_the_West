@@ -6,6 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
 size = Vector2(136, 126)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cot13"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpnhh"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
 [node name="Capturable" type="NinePatchRect" unique_id=1504091508]
 offset_left = 72.0
 offset_top = 74.0
@@ -30,10 +36,15 @@ shape = SubResource("RectangleShape2D_pbcbn")
 [node name="Timer" type="Timer" parent="." unique_id=712680960]
 autostart = true
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=607117901]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=980799211]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 136.0
+offset_bottom = 126.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cot13")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpnhh")
+max_value = 200.0
 step = 1.0
 show_percentage = false
 
