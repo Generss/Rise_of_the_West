@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db1wur5scgpm8"]
 
-[ext_resource type="Script" uid="uid://wwxwr0vw8w2q" path="res://scripts/scene-scripts/unit_controller.gd" id="1_fm6vu"]
-[ext_resource type="PackedScene" uid="uid://1ovtyteonutb" path="res://scenes/selection_box.tscn" id="2_kc3w4"]
+[ext_resource type="Script" uid="uid://wwxwr0vw8w2q" path="res://scripts/scene-scripts/Units/unit_controller.gd" id="1_fm6vu"]
+[ext_resource type="PackedScene" uid="uid://1ovtyteonutb" path="res://scenes/Selection/selection_box.tscn" id="2_kc3w4"]
 
 [node name="SelectionController" type="Node2D" unique_id=1705481236]
 script = ExtResource("1_fm6vu")

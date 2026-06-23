@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsqhltdbci3bd"]
 
-[ext_resource type="Script" uid="uid://bt1a40y22onit" path="res://test/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="Script" uid="uid://bt1a40y22onit" path="res://scripts/scene-scripts/mainmenu.gd" id="1_5mbse"]
 
 [sub_resource type="Theme" id="Theme_7q3kq"]
 Button/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
