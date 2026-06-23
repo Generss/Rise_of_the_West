@@ -11,8 +11,8 @@ signal selected_chosen(selected_list : Array[Unit])
 var selecting := false
 var starting_position: Vector2
 
-var selected: Array[Unit] = []
-var units_in_box: Array[Unit] = []
+@onready var selected: Array[Unit] = []
+@onready var units_in_box: Array[Unit] = []
 
 
 # Called when the node enters the scene tree for the first time.

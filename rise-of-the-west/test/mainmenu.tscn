@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dsqhltdbci3bd"]
+
+[ext_resource type="Script" uid="uid://bt1a40y22onit" path="res://test/mainmenu.gd" id="1_5mbse"]
+
+[sub_resource type="Theme" id="Theme_7q3kq"]
+Button/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/font_focus_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/font_hover_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/font_hover_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+Button/colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+Button/colors/font_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/icon_focus_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/icon_hover_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/icon_hover_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/icon_normal_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/colors/icon_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Button/font_sizes/font_size = 24
+Label/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+Label/colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+Label/font_sizes/font_size = 48
+
+[node name="Control" type="Control" unique_id=696042391]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7q3kq")
+script = ExtResource("1_5mbse")
+
+[node name="Menu" type="MarginContainer" parent="." unique_id=1682410968]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TitleMargin" type="MarginContainer" parent="Menu" unique_id=129266745]
+layout_mode = 2
+
+[node name="TitleHolder" type="Control" parent="Menu/TitleMargin" unique_id=1499025984]
+layout_mode = 2
+
+[node name="TitleText" type="Label" parent="Menu/TitleMargin/TitleHolder" unique_id=495127444]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 1280.0
+offset_bottom = 163.0
+text = "Rise of the West"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="MarginContainer" parent="Menu" unique_id=85330853]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Menu/MenuButtons" unique_id=1570356724]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Menu/MenuButtons/Control" unique_id=1189941674]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 220.0
+offset_right = 704.0
+offset_bottom = 428.0
+alignment = 1
+vertical = true
+
+[node name="Resume" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=1522206747]
+layout_mode = 2
+text = "Resume"
+
+[node name="Play" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=339163676]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=226766864]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=2104332644]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Exit" to="." method="_on_exit_pressed"]

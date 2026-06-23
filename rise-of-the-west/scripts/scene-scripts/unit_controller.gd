@@ -4,7 +4,6 @@ var selected: Array[Unit] = []
 
 var spacing := 40.0
 
-
 func _process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and selected.size() != 0:
 		move_selected_units(get_global_mouse_position())
