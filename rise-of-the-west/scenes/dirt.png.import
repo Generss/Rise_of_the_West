@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdeogptvkhais"
-path="res://.godot/imported/dirtrock1.png-cf98cdb4a29f06e1df919778530a3c2e.ctex"
+uid="uid://ceoyf68ewgc3e"
+path="res://.godot/imported/dirt.png-23bef3c8cab1cad72eff2a93522479e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/terrain/dirtrock1.png"
-dest_files=["res://.godot/imported/dirtrock1.png-cf98cdb4a29f06e1df919778530a3c2e.ctex"]
+source_file="res://scenes/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-23bef3c8cab1cad72eff2a93522479e5.ctex"]
 
 [params]
 
