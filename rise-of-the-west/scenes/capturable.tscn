@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://7p7ube8dmpgt"]
+
+[ext_resource type="Script" uid="uid://dtmlcdg4ral63" path="res://scenes/capturable.gd" id="1_cot13"]
+[ext_resource type="Texture2D" uid="uid://h5gsehkwfnhb" path="res://assets/CapturableAssets/neutralbox.png" id="1_wj3w4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
+size = Vector2(136, 126)
+
+[node name="Capturable" type="NinePatchRect" unique_id=1504091508]
+offset_left = 72.0
+offset_top = 74.0
+offset_right = 210.0
+offset_bottom = 202.0
+texture = ExtResource("1_wj3w4")
+region_rect = Rect2(0, 0, 62, 62)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+script = ExtResource("1_cot13")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=567525268]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1372523672]
+position = Vector2(69, 64)
+shape = SubResource("RectangleShape2D_pbcbn")
+
+[node name="Timer" type="Timer" parent="." unique_id=712680960]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
