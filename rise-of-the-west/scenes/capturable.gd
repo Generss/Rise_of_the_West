@@ -11,18 +11,35 @@ var _light = load("res://assets/CapturableAssets/lightbox.png")
 var _dark = load("res://assets/CapturableAssets/darkbox.png")
 var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 
+var soldier_scene = load("res://scenes/Units/unit.tscn")
+var _sortable_node: Node2D
+
 signal faction_change(faction: String)
+
+var _map_node: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
 	$ProgressBar.value = value
-	pass # Replace with function body.
+	var current_node = get_parent()
+	
+	while current_node != null:
+		if current_node.name == "Map":
+			_map_node = current_node
+			break
+		current_node = current_node.get_parent() # Move up one level
+	if _map_node != null:
+		print("parent found")
+	var sortable = current_node.get_node("Sortable")
+	_sortable_node = sortable
+	if _sortable_node != null:
+		print("sortable found")
 
 func _on_timer_timeout() -> void:
 	if value < 200:
 		var unit_count: int = units_in_box.size()
-		var potential = value + unit_count * 3
+		var potential = value + unit_count * 2
 		if potential < 200.0:
 			if unit_count > 0:
 				print(value)
@@ -46,3 +63,14 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Unit and visible:
 		units_in_box.append(area)
+
+
+func _on_recruitment_gui_input(event: InputEvent) -> void:
+	if value != 200:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var soldier_instance = soldier_scene.instantiate()
+		var dimensions: Vector2 = size
+		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
+		soldier_instance.position = global_position + random_variation
+		_sortable_node.add_child(soldier_instance)

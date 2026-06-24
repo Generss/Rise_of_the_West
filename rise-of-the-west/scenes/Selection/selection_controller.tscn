@@ -7,5 +7,6 @@
 script = ExtResource("1_fm6vu")
 
 [node name="SelectionBox" parent="." unique_id=1504091508 instance=ExtResource("2_kc3w4")]
+mouse_filter = 0
 
 [connection signal="selected_chosen" from="SelectionBox" to="." method="_on_selection_box_selected_chosen"]
