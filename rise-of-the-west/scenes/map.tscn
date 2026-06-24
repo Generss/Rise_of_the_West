@@ -14,6 +14,9 @@
 [ext_resource type="Script" uid="uid://dedit727g4ets" path="res://scripts/scene-scripts/Camera/bottom_right_mark.gd" id="9_k8ucj"]
 [ext_resource type="Texture2D" uid="uid://ey4ljjhxnkiy" path="res://assets/textures/shop_1.png" id="13_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://btygiguharvpd" path="res://assets/textures/shop_2.png" id="14_n1psn"]
+[ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
+[ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
+[ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -300,6 +303,26 @@ script = ExtResource("2_wijl4")
 [node name="Sortable" type="Node2D" parent="." unique_id=348796899]
 unique_name_in_owner = true
 y_sort_enabled = true
+
+[node name="Mining1" type="Sprite2D" parent="Sortable" unique_id=1208298380]
+position = Vector2(-366, -149)
+texture = ExtResource("15_c70he")
+
+[node name="Mining2" type="Sprite2D" parent="Sortable" unique_id=1368292391]
+position = Vector2(-165, -54)
+texture = ExtResource("16_mo32q")
+
+[node name="Mining3" type="Sprite2D" parent="Sortable" unique_id=1348879564]
+position = Vector2(-160, 115)
+texture = ExtResource("17_6k6j1")
+
+[node name="Mining4" type="Sprite2D" parent="Sortable" unique_id=833660847]
+position = Vector2(-631, -42)
+texture = ExtResource("17_6k6j1")
+
+[node name="Mining5" type="Sprite2D" parent="Sortable" unique_id=943277893]
+position = Vector2(-525, 130)
+texture = ExtResource("17_6k6j1")
 
 [node name="Unit6" parent="Sortable" unique_id=162373335 instance=ExtResource("9_k4t42")]
 
