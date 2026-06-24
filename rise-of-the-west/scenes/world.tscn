@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dsqhltdbci3bd" path="res://scenes/mainmenu.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://2i40l6ds35ry" path="res://scenes/map.tscn" id="2_k0juu"]
+[ext_resource type="Script" uid="uid://d3thxwoprxo1h" path="res://scripts/scene-scripts/music_handler.gd" id="3_4wyf3"]
 
 [node name="World" type="Node2D" unique_id=2067929442]
 
@@ -10,3 +11,9 @@ layer = 10
 
 [node name="Menu" parent="CanvasLayer" unique_id=696042391 instance=ExtResource("1_4wyf3")]
 map_scene = ExtResource("2_k0juu")
+
+[node name="MusicHandler" type="Node2D" parent="." unique_id=796383486]
+unique_name_in_owner = true
+script = ExtResource("3_4wyf3")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="MusicHandler" unique_id=1040734981]

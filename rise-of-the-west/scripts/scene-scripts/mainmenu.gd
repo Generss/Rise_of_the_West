@@ -6,6 +6,7 @@ var _active_game : bool = false
 
 func _ready() -> void:
 	$Menu/MenuButtons/Control/BoxContainer/Resume.hide()
+	%MusicHandler.change_track("title")
 
 # IN GAME PAUSING START
 func _on_resume_pressed() -> void:
@@ -41,6 +42,7 @@ func _new_game():
 	var grandparent_node = get_parent().get_parent()
 	grandparent_node.add_child(map_instance)
 	toggle_menu()
+	%MusicHandler.change_track("desert")
 	
 
 func _cleanup_game():
