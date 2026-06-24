@@ -12,29 +12,14 @@ var _dark = load("res://assets/CapturableAssets/darkbox.png")
 var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 
 var soldier_scene = load("res://scenes/Units/unit.tscn")
-var _sortable_node: Node2D
+@onready var _sortable_node: Node2D = %Sortable
 
 signal faction_change(faction: String)
-
-var _map_node: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
 	$ProgressBar.value = value
-	var current_node = get_parent()
-	
-	while current_node != null:
-		if current_node.name == "Map":
-			_map_node = current_node
-			break
-		current_node = current_node.get_parent() # Move up one level
-	if _map_node != null:
-		print("parent found")
-	var sortable = current_node.get_node("Sortable")
-	_sortable_node = sortable
-	if _sortable_node != null:
-		print("sortable found")
 
 func _on_timer_timeout() -> void:
 	if value < 200:

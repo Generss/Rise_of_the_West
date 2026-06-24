@@ -37,3 +37,7 @@ func set_outline(thickness: float):
 func move_to_target(new_target: Vector2):
 	target = new_target
 	following_target = true
+
+func die():
+	#Death animation goes here
+	pass

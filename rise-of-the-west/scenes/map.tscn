@@ -297,15 +297,8 @@ position = Vector2(-5, 5)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55014958]
 script = ExtResource("2_wijl4")
 
-[node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
-position = Vector2(-1248, -1248)
-script = ExtResource("8_pbcbn")
-
-[node name="BottomRightMark" type="Node2D" parent="." unique_id=158807599]
-position = Vector2(1048, 1048)
-script = ExtResource("9_k8ucj")
-
 [node name="Sortable" type="Node2D" parent="." unique_id=348796899]
+unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="Unit6" parent="Sortable" unique_id=162373335 instance=ExtResource("9_k4t42")]
@@ -343,3 +336,11 @@ texture = ExtResource("13_gw3fx")
 [node name="Shop5" type="Sprite2D" parent="Sortable" unique_id=604223365]
 position = Vector2(430, -624)
 texture = ExtResource("14_n1psn")
+
+[node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
+position = Vector2(-1248, -1248)
+script = ExtResource("8_pbcbn")
+
+[node name="BottomRightMark" type="Node2D" parent="." unique_id=158807599]
+position = Vector2(1048, 1048)
+script = ExtResource("9_k8ucj")

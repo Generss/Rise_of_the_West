@@ -47,3 +47,8 @@ func move_selected_units(center: Vector2) -> void:
 
 func _on_selection_box_selected_chosen(selected_list: Array[Unit]) -> void:
 	selected = selected_list
+
+
+func _on_selection_box_delete_unit(unit: Unit) -> void:
+	unit.die()
+	unit.free()
