@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dyjmc3srcukrc"]
+
+[ext_resource type="Script" uid="uid://b5xuk7fjburve" path="res://scenes/capturable_controller.gd" id="1_btnrq"]
+
+[node name="CapturableController" type="Node2D" unique_id=1575300650]
+script = ExtResource("1_btnrq")
