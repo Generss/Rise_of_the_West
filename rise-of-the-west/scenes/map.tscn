@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
 [ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="20_5u2yt"]
 [ext_resource type="PackedScene" uid="uid://cvm0drhvpf6y5" path="res://scenes/buildings/Town1.tscn" id="20_y2ir2"]
+[ext_resource type="PackedScene" uid="uid://jp8dvo8ilvd7" path="res://scenes/testing/testing_dummy.tscn" id="21_30iet"]
 [ext_resource type="Script" uid="uid://dgaffy8is2xpq" path="res://scripts/scene-scripts/sub_viewport.gd" id="25_5u2yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
@@ -406,6 +407,9 @@ position = Vector2(-72, 28)
 
 [node name="UnitBody4" parent="Sortable" unique_id=1136001754 instance=ExtResource("20_5u2yt")]
 position = Vector2(-24, 18)
+
+[node name="TestingDummy" parent="Sortable" unique_id=1829828116 instance=ExtResource("21_30iet")]
+position = Vector2(423, -758)
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)

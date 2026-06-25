@@ -11,9 +11,13 @@ bounce = 0.8
 radius = 7.0
 height = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fk5sa"]
+radius = 149.08386
+
 [node name="UnitBody" type="RigidBody2D" unique_id=763515188]
 physics_material_override = SubResource("PhysicsMaterial_sslqg")
 script = ExtResource("1_sslqg")
+vision_range = 800.0
 
 [node name="Unit" parent="." unique_id=162373335 instance=ExtResource("2_bu20w")]
 
@@ -24,4 +28,14 @@ debug_color = Color(0.9351401, 1.8674731e-05, 0.639722, 0.41960785)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2131939320]
 
+[node name="RangeArea" type="Area2D" parent="." unique_id=596151615]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" unique_id=1092216410]
+shape = SubResource("CircleShape2D_fk5sa")
+debug_color = Color(0.6589242, 0.5156477, 3.85046e-07, 0.41960785)
+
+[node name="CheckEnemiesTimer" type="Timer" parent="." unique_id=16374750]
+autostart = true
+
 [connection signal="movement_initiated" from="Unit" to="." method="_on_unit_movement_initiated"]
+[connection signal="timeout" from="CheckEnemiesTimer" to="." method="_on_check_enemies_timer_timeout"]
