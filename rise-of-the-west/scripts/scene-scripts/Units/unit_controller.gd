@@ -2,8 +2,13 @@ extends Node2D
 
 var selected: Array[Unit] = []
 
+@export var selected_ui: Node
+
 var spacing := 40.0
 var pressed := false
+
+func _ready():
+	get_node("SelectionBox").selected_ui = selected_ui
 
 func _process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and selected.size() != 0:
@@ -51,5 +56,6 @@ func _on_selection_box_selected_chosen(selected_list: Array[Unit]) -> void:
 
 func _on_selection_box_delete_unit(unit: Unit) -> void:
 	unit.die()
+	%SelectedUI.remove_unit(unit)
 	%EconomyUI.lost_unit()
 	unit.free()

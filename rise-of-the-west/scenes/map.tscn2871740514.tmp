@@ -271,7 +271,7 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
-[node name="Map" type="Node2D" unique_id=298777452]
+[node name="Map2" type="Node2D" unique_id=298777452]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=825612523]
 position = Vector2(225, 191)
@@ -301,9 +301,8 @@ offset_right = 445.0
 offset_bottom = -322.99997
 scale = Vector2(1.6020858, 3.2794623)
 
-[node name="SelectionController" parent="." unique_id=1705481236 node_paths=PackedStringArray("selected_ui") instance=ExtResource("1_8d3bm")]
+[node name="SelectionController" parent="." unique_id=1705481236 instance=ExtResource("1_8d3bm")]
 position = Vector2(-5, 5)
-selected_ui = NodePath("../CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55014958]
 script = ExtResource("2_wijl4")

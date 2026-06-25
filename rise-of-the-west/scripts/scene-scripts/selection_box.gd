@@ -7,6 +7,7 @@ signal selected_chosen(selected_list : Array[Unit])
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
+var selected_ui: Node
 
 var selecting := false
 var starting_position: Vector2
@@ -69,11 +70,13 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func deselect_all(selected_units: Array[Unit]):
 	for unit in selected_units:
 		deselect_unit(unit)
+	selected_ui.remove_units()
 
 
 func select_unit(unit: Unit) -> void:
 		unit.selected = true
 		unit.set_outline(2.0)
+		selected_ui.add_unit(unit)
 
 
 func deselect_unit(unit: Unit) -> void:
