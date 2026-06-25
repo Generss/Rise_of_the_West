@@ -11,7 +11,7 @@ var _light = load("res://assets/CapturableAssets/lightbox.png")
 var _dark = load("res://assets/CapturableAssets/darkbox.png")
 var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 
-var soldier_scene = load("res://scenes/Units/unit.tscn")
+var soldier_scene = load("res://scenes/Units/unit_body.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
 signal faction_change(location: capturable, faction: String)

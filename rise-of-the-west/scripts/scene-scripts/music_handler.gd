@@ -1,7 +1,7 @@
 extends Node2D
 
 var tracks: Dictionary[String, String] = {
-	"title": "res://assets/audio/music/title_placeholder.wav",
+	"title": "res://assets/audio/music/title.wav",
 	"desert": "res://assets/audio/music/desert_placeholder.wav",
 	"battle": "res://assets/audio/music/battle.wav"
 }

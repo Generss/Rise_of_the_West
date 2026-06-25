@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dbhm7lvykvulc"]
+
+[ext_resource type="Script" uid="uid://cvvw7qtyxbqv8" path="res://scripts/scene-scripts/Units/unit_body.gd" id="1_sslqg"]
+[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/Units/unit.tscn" id="2_bu20w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sslqg"]
+friction = 0.1
+bounce = 0.8
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5sa"]
+radius = 7.0
+height = 20.0
+
+[node name="UnitBody" type="RigidBody2D" unique_id=763515188]
+physics_material_override = SubResource("PhysicsMaterial_sslqg")
+script = ExtResource("1_sslqg")
+
+[node name="Unit" parent="." unique_id=162373335 instance=ExtResource("2_bu20w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1920399080]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_fk5sa")
+debug_color = Color(0.9351401, 1.8674731e-05, 0.639722, 0.41960785)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2131939320]
+
+[connection signal="movement_initiated" from="Unit" to="." method="_on_unit_movement_initiated"]

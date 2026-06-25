@@ -2,12 +2,13 @@ class_name Unit
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var shader_material: ShaderMaterial
 
 var selected := false
 var speed: float = 200.0
+
+signal movement_initiated(new_target: Vector2)
 
 
 func _ready() -> void:
@@ -18,13 +19,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if navigation_agent.is_navigation_finished():
-		return
-	var next_position := navigation_agent.get_next_path_position()
-	global_position = global_position.move_toward(
-		next_position,
-		speed * delta
-	)
+	pass
 
 
 func set_outline(thickness: float) -> void:
@@ -36,7 +31,7 @@ func set_outline(thickness: float) -> void:
 
 
 func move_to_target(new_target: Vector2) -> void:
-	navigation_agent.target_position = new_target
+	movement_initiated.emit(new_target)
 
 
 func die() -> void:

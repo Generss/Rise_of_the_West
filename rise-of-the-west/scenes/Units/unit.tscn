@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
-size = Vector2(24, 17)
+size = Vector2(24, 32)
 
 [node name="Unit" type="Area2D" unique_id=162373335]
 script = ExtResource("1_k673f")
@@ -32,7 +32,5 @@ material = SubResource("ShaderMaterial_k4t42")
 sprite_frames = SubResource("SpriteFrames_fk5sa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613858183]
-position = Vector2(2, 9.5)
+position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_fk5sa")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=88255228]
