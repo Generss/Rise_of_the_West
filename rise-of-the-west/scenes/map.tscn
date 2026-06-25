@@ -12,12 +12,20 @@
 [ext_resource type="Script" uid="uid://chyk2iw0hcxl0" path="res://scripts/scene-scripts/Camera/top_left_mark.gd" id="8_pbcbn"]
 [ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/Units/unit.tscn" id="9_k4t42"]
 [ext_resource type="Script" uid="uid://dedit727g4ets" path="res://scripts/scene-scripts/Camera/bottom_right_mark.gd" id="9_k8ucj"]
+[ext_resource type="Texture2D" uid="uid://clbmovk0uvbw8" path="res://assets/textures/fortress_3.png" id="10_m335s"]
+[ext_resource type="Texture2D" uid="uid://ca1pb2yaq21xf" path="res://assets/textures/fortress_2.png" id="11_sq6bu"]
+[ext_resource type="Texture2D" uid="uid://ccpxcfd7u151j" path="res://assets/textures/fortress_1.png" id="12_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://ey4ljjhxnkiy" path="res://assets/textures/shop_1.png" id="13_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://btygiguharvpd" path="res://assets/textures/shop_2.png" id="14_n1psn"]
 [ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
 [ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
 [ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dbk545qls52mp" path="res://scenes/economy_ui.gd" id="18_mo32q"]
+=======
+[ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="19_4b7dj"]
+[ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
+>>>>>>> cf1c3b4 (added the fortress sprites)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -282,11 +290,11 @@ offset_right = -305.0
 offset_bottom = 115.0
 
 [node name="Capturable2" parent="CapturableController" unique_id=955849362 instance=ExtResource("6_mlgqr")]
-offset_left = -477.0
-offset_top = 220.0
-offset_right = -339.0
-offset_bottom = 348.0
-scale = Vector2(2.5600014, 1.9599988)
+offset_left = -602.0
+offset_top = 386.00003
+offset_right = -464.0
+offset_bottom = 514.0
+scale = Vector2(0.96000135, 0.99999887)
 
 [node name="Capturable3" parent="CapturableController" unique_id=994216503 instance=ExtResource("6_mlgqr")]
 offset_left = 307.0
@@ -305,6 +313,19 @@ script = ExtResource("2_wijl4")
 unique_name_in_owner = true
 y_sort_enabled = true
 
+[node name="Fortress5" type="Sprite2D" parent="Sortable" unique_id=1825466663]
+position = Vector2(-728, 329)
+texture = ExtResource("10_m335s")
+
+[node name="Fortress2" type="Sprite2D" parent="Sortable" unique_id=1264453481]
+position = Vector2(-222, 439)
+texture = ExtResource("11_sq6bu")
+
+[node name="Fortress1" type="Sprite2D" parent="Sortable" unique_id=1205377821]
+position = Vector2(-331, 549)
+scale = Vector2(-1, 1)
+texture = ExtResource("12_4b7dj")
+
 [node name="Mining1" type="Sprite2D" parent="Sortable" unique_id=1208298380]
 position = Vector2(-366, -149)
 texture = ExtResource("15_c70he")
@@ -322,7 +343,7 @@ position = Vector2(-631, -42)
 texture = ExtResource("17_6k6j1")
 
 [node name="Mining5" type="Sprite2D" parent="Sortable" unique_id=943277893]
-position = Vector2(-525, 130)
+position = Vector2(-578, 22)
 texture = ExtResource("17_6k6j1")
 
 [node name="Unit6" parent="Sortable" unique_id=162373335 instance=ExtResource("9_k4t42")]
@@ -360,6 +381,27 @@ texture = ExtResource("13_gw3fx")
 [node name="Shop5" type="Sprite2D" parent="Sortable" unique_id=604223365]
 position = Vector2(430, -624)
 texture = ExtResource("14_n1psn")
+
+[node name="Fortress3" type="Sprite2D" parent="Sortable" unique_id=1210094952]
+position = Vector2(-726, 555)
+texture = ExtResource("12_4b7dj")
+
+[node name="Fortress4" type="Sprite2D" parent="Sortable" unique_id=213566153]
+position = Vector2(-831, 442)
+texture = ExtResource("11_sq6bu")
+
+[node name="Fortress6" type="Sprite2D" parent="Sortable" unique_id=1262754053]
+position = Vector2(-328, 326)
+scale = Vector2(-1, 1)
+texture = ExtResource("10_m335s")
+
+[node name="FortressTriangle1" type="Sprite2D" parent="Sortable" unique_id=119612665]
+position = Vector2(-531, 665)
+texture = ExtResource("19_4b7dj")
+
+[node name="FortressTriangle2" type="Sprite2D" parent="Sortable" unique_id=111867524]
+position = Vector2(-535, 232)
+texture = ExtResource("20_2cfcp")
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)
