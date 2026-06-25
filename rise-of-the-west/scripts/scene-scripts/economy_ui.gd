@@ -22,12 +22,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_capturable_faction_change(location: capturable, faction: String) -> void:
-	if faction == "player":
-		Towns += 1
-	Income = Towns * 10
-		
 func set_values(values: Array[int]):
 	var num: int = 0
 	for child in get_children():
@@ -37,12 +31,40 @@ func set_values(values: Array[int]):
 		pass
 
 func new_town(location: capturable):
-	Income += 10
-	Towns += 1
-	MaxPop += 5
+	match location.type:
+		"Town":
+			Towns += 1
+			MaxPop += 5
+			get_node("Towns").text = "Towns: "+str(Towns)
+			get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+		"Fort":
+			Forts += 1
+			MaxPop += 15
+			get_node("Forts").text = "Forts: "+str(Forts)
+			get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+		"Mine":
+			Mines += 1
+			get_node("Mines").text = "Mines: "+str(Mines)
+	Income += location.income
 	get_node("Income").text = "Income: "+str(Income)
-	get_node("Towns").text = "Towns: "+str(Towns)
-	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+
+func lose_town(location: capturable):
+	match location.type:
+		"Town":
+			Towns -= 1
+			MaxPop -= 5
+			get_node("Towns").text = "Towns: "+str(Towns)
+			get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+		"Fort":
+			Forts -= 1
+			MaxPop -= 15
+			get_node("Forts").text = "Forts: "+str(Forts)
+			get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+		"Mine":
+			Mines -= 1
+			get_node("Mines").text = "Mines: "+str(Mines)
+	Income -= location.income
+	get_node("Income").text = "Income: "+str(Income)
 
 func spend(money: int) -> bool:
 	if Balance - money > 0 and MaxPop > Units:

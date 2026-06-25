@@ -8,11 +8,13 @@ var max_steering_force: float = 1200.0
 
 
 @export var vision_range: float = 250.0
+@export var faction: String = "Ally"
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var vision_shape: CollisionShape2D = $RangeArea/CollisionShape2D
 @onready var range_area: Area2D = $RangeArea
 
+var UnitNode : Unit
 
 func _ready() -> void:
 	gravity_scale = 0.0
@@ -21,6 +23,8 @@ func _ready() -> void:
 	can_sleep = false
 	var circle := vision_shape.shape as CircleShape2D
 	circle.radius = vision_range
+	UnitNode = get_node("Unit")
+	UnitNode.faction = faction
 
 
 func _physics_process(_delta: float) -> void:

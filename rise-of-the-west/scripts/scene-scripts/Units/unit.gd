@@ -3,6 +3,8 @@ extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var faction: String = "Ally"
+
 var shader_material: ShaderMaterial
 
 var selected := false

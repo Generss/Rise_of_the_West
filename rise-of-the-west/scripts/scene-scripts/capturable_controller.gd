@@ -1,6 +1,5 @@
 extends Node2D
 
-var _hold_time = 10
 var _capturable_count = 0
 var _player_capturables = 0
 @onready var capturables: Array[capturable] = []

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://kecd5h0fqum0"]
+
+[ext_resource type="PackedScene" uid="uid://7p7ube8dmpgt" path="res://scenes/Capturables/capturable.tscn" id="1_end66"]
+
+[node name="Capturable" unique_id=1504091508 instance=ExtResource("1_end66")]
