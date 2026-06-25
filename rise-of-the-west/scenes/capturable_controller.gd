@@ -15,7 +15,8 @@ func _ready() -> void:
 			capturables.append(child)
 	print("Needed points: ", _capturable_count)
 
-func _on_capturable_faction_change(faction: String) -> void:
+func _on_capturable_faction_change(location: capturable, faction: String) -> void:
+	%EconomyUI.new_town(location)
 	print(faction)
 	if faction == "player":
 		_player_capturables += 1

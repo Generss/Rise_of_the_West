@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
 [ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
 [ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
+[ext_resource type="Script" uid="uid://dbk545qls52mp" path="res://scenes/economy_ui.gd" id="18_mo32q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -367,3 +368,78 @@ script = ExtResource("8_pbcbn")
 [node name="BottomRightMark" type="Node2D" parent="." unique_id=158807599]
 position = Vector2(1048, 1048)
 script = ExtResource("9_k8ucj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1065918561]
+layer = 10
+
+[node name="InGameUI" type="Control" parent="CanvasLayer" unique_id=462810905]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectedContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=1206910292]
+layout_mode = 0
+
+[node name="SelectedHolder" type="Control" parent="CanvasLayer/InGameUI/SelectedContainer" unique_id=1685536983]
+layout_mode = 2
+
+[node name="SelectedUI" type="BoxContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder" unique_id=983595589]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 926.0
+offset_top = 515.0
+offset_right = 1255.0
+offset_bottom = 582.0
+alignment = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1491963464]
+layout_mode = 2
+text = "Selected Units"
+
+[node name="IncomeContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=464987021]
+layout_mode = 0
+
+[node name="IncomeHolder" type="Control" parent="CanvasLayer/InGameUI/IncomeContainer" unique_id=1629481257]
+layout_mode = 2
+
+[node name="EconomyUI" type="BoxContainer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder" unique_id=1338486696]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 15.0
+offset_top = 518.0
+offset_right = 226.0
+offset_bottom = 940.0
+offset_transform_enabled = true
+vertical = true
+script = ExtResource("18_mo32q")
+
+[node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=34281480]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Balance:"
+
+[node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=583301466]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Income: "
+
+[node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1927552461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Towns:"
+
+[node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=928060319]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Mines:"
+
+[node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1689985127]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Forts:"
+
+[node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=32313255]
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI/IncomeTimer" to="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" method="_on_income_timer_timeout"]

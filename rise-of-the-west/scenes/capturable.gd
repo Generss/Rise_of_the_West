@@ -14,7 +14,7 @@ var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 var soldier_scene = load("res://scenes/Units/unit.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
-signal faction_change(faction: String)
+signal faction_change(location: capturable, faction: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +32,7 @@ func _on_timer_timeout() -> void:
 		else:
 			value = 200.0
 			faction = "player"
-			faction_change.emit(faction)
+			faction_change.emit(self, faction)
 			self.texture = _light
 			$Timer.stop()
 		# Optional: Cast to int for printing if you don't want decimals in your logs
@@ -54,6 +54,8 @@ func _on_recruitment_gui_input(event: InputEvent) -> void:
 	if value != 200:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if !%EconomyUI.spend(100):
+			return
 		var soldier_instance = soldier_scene.instantiate()
 		var dimensions: Vector2 = size
 		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
