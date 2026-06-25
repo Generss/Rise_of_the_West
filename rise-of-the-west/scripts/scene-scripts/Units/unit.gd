@@ -1,43 +1,44 @@
 class_name Unit
 extends Area2D
 
-@onready var shader_material := $AnimatedSprite2D.material as ShaderMaterial
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+
+var shader_material: ShaderMaterial
 
 var selected := false
-var target : Vector2
-var following_target := false
-var speed : float = 200
+var speed: float = 200.0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	shader_material.set_shader_parameter("outline_width", 0.0)
+	if animated_sprite.material != null:
+		animated_sprite.material = animated_sprite.material.duplicate()
+		shader_material = animated_sprite.material as ShaderMaterial
+	set_outline(0.0)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#var click_occured = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
-	#if selected and click_occured:
-	#	target = get_global_mouse_position()
-	#	following_target = true
-	#	click_occured = false
+func _physics_process(delta: float) -> void:
+	if navigation_agent.is_navigation_finished():
+		return
+	var next_position := navigation_agent.get_next_path_position()
+	global_position = global_position.move_toward(
+		next_position,
+		speed * delta
+	)
+
+
+func set_outline(thickness: float) -> void:
+	if shader_material == null:
+		return
 	
-	if following_target:
-		if(global_position.distance_to(target) < 10):
-			following_target = false
-		else: 
-			var true_speed : float = speed * delta
-			global_position = global_position.move_toward(target,true_speed) 
-		
-		
-func set_outline(thickness: float):
 	shader_material.set_shader_parameter("outline_width", thickness)
 	shader_material.set_shader_parameter("outline_color", Color("#cfab4a"))
 
-func move_to_target(new_target: Vector2):
-	target = new_target
-	following_target = true
 
-func die():
-	#Death animation goes here
+func move_to_target(new_target: Vector2) -> void:
+	navigation_agent.target_position = new_target
+
+
+func die() -> void:
+	# Death animation goes here
 	pass

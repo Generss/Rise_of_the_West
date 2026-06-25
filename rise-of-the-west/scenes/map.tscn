@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ca1pb2yaq21xf" path="res://assets/textures/fortress_2.png" id="11_sq6bu"]
 [ext_resource type="Texture2D" uid="uid://ccpxcfd7u151j" path="res://assets/textures/fortress_1.png" id="12_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://ey4ljjhxnkiy" path="res://assets/textures/shop_1.png" id="13_gw3fx"]
-[ext_resource type="Texture2D" uid="uid://btygiguharvpd" path="res://assets/textures/shop_2.png" id="14_n1psn"]
 [ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
 [ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
 [ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
@@ -24,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dbk545qls52mp" path="res://scenes/economy_ui.gd" id="18_mo32q"]
 [ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="19_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
+[ext_resource type="PackedScene" uid="uid://cvm0drhvpf6y5" path="res://scenes/buildings/Town1.tscn" id="20_y2ir2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -271,6 +271,11 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fk5sa"]
+vertices = PackedVector2Array(...)
+polygons = Array[PackedInt32Array]([...])
+outlines = Array[PackedVector2Array]([...])
+
 [node name="Map" type="Node2D" unique_id=298777452]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=825612523]
@@ -377,10 +382,6 @@ rotation = 3.1415927
 scale = Vector2(1, -1)
 texture = ExtResource("13_gw3fx")
 
-[node name="Shop5" type="Sprite2D" parent="Sortable" unique_id=604223365]
-position = Vector2(430, -624)
-texture = ExtResource("14_n1psn")
-
 [node name="Fortress3" type="Sprite2D" parent="Sortable" unique_id=1210094952]
 position = Vector2(-726, 555)
 texture = ExtResource("12_4b7dj")
@@ -401,6 +402,9 @@ texture = ExtResource("19_4b7dj")
 [node name="FortressTriangle2" type="Sprite2D" parent="Sortable" unique_id=111867524]
 position = Vector2(-535, 232)
 texture = ExtResource("20_2cfcp")
+
+[node name="Building1" parent="Sortable" unique_id=73986305 instance=ExtResource("20_y2ir2")]
+position = Vector2(416, -601)
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)
@@ -493,5 +497,24 @@ text = "Population:"
 
 [node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=32313255]
 autostart = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1179282085]
+navigation_polygon = SubResource("NavigationPolygon_fk5sa")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" unique_id=820930046]
+visible = false
+polygon = PackedVector2Array(308, -661, 309, -483, 524, -480, 527, -662)
+
+[node name="Polygon2D2" type="Polygon2D" parent="NavigationRegion2D" unique_id=1548567203]
+visible = false
+polygon = PackedVector2Array(674, -451, 902, -449, 900, -218, 894, -197, 898, -25, 661, -27, 661, -453)
+
+[node name="Polygon2D3" type="Polygon2D" parent="NavigationRegion2D" unique_id=1710842532]
+visible = false
+polygon = PackedVector2Array(-18, -492, 166, -491, 163, -476, 215, -473, 214, -245, 191, -243, 190, -12, -48, -7, -45, -255, -25, -256)
+
+[node name="Polygon2D4" type="Polygon2D" parent="NavigationRegion2D" unique_id=2027612097]
+visible = false
+polygon = PackedVector2Array(-880, 321, -575, 322, -577, 382, -780, 385, -782, 507, -573, 508, -574, 607, -877, 605)
 
 [connection signal="timeout" from="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI/IncomeTimer" to="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" method="_on_income_timer_timeout"]

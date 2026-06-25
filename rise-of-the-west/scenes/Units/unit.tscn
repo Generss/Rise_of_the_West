@@ -34,3 +34,5 @@ sprite_frames = SubResource("SpriteFrames_fk5sa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613858183]
 position = Vector2(2, 9.5)
 shape = SubResource("RectangleShape2D_fk5sa")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=88255228]

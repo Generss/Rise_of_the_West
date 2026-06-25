@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cvm0drhvpf6y5"]
+
+[ext_resource type="Texture2D" uid="uid://btygiguharvpd" path="res://assets/textures/shop_2.png" id="1_x3l4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
+size = Vector2(217, 182)
+
+[node name="Town1" type="Node2D" unique_id=73986305]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=838426845]
+texture = ExtResource("1_x3l4i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=365660884]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1367453327]
+position = Vector2(-0.5, 29)
+shape = SubResource("RectangleShape2D_fk5sa")
