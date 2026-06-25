@@ -20,13 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
 [ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
 [ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://dbk545qls52mp" path="res://scenes/economy_ui.gd" id="18_mo32q"]
-=======
 [ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="19_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
->>>>>>> cf1c3b4 (added the fortress sprites)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
 0:0/0 = 0
