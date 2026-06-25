@@ -286,6 +286,7 @@ tile_map_data = PackedByteArray("AAD5//3/AAAAAAAAAAD5//7/AAAAAAEAAAD5////AAAAAAI
 tile_set = SubResource("TileSet_6qrnp")
 
 [node name="CapturableController" type="Node2D" parent="." unique_id=1845870293]
+unique_name_in_owner = true
 script = ExtResource("6_wslke")
 
 [node name="Mine" parent="CapturableController" unique_id=1504091508 instance=ExtResource("6_mlgqr")]
@@ -414,6 +415,18 @@ position = Vector2(-24, 18)
 
 [node name="UnitBody5" parent="Sortable" unique_id=1058679272 instance=ExtResource("20_5u2yt")]
 position = Vector2(-368, 48)
+faction = "Enemy"
+
+[node name="UnitBody6" parent="Sortable" unique_id=2144830385 instance=ExtResource("20_5u2yt")]
+position = Vector2(-400, 48)
+faction = "Enemy"
+
+[node name="UnitBody7" parent="Sortable" unique_id=1050284138 instance=ExtResource("20_5u2yt")]
+position = Vector2(-400, 64)
+faction = "Enemy"
+
+[node name="UnitBody8" parent="Sortable" unique_id=220525900 instance=ExtResource("20_5u2yt")]
+position = Vector2(-384, 48)
 faction = "Enemy"
 
 [node name="TestingDummy" parent="Sortable" unique_id=1829828116 instance=ExtResource("21_30iet")]

@@ -3,6 +3,9 @@ extends Node2D
 var _capturable_count = 0
 var _player_capturables = 0
 @onready var capturables: Array[capturable] = []
+@onready var ally_capturables: Array[capturable] = []
+@onready var enemy_capturables: Array[capturable] = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,10 +17,23 @@ func _ready() -> void:
 			capturables.append(child)
 	print("Needed points: ", _capturable_count)
 
-func _on_capturable_faction_change(location: capturable, faction: String) -> void:
-	%EconomyUI.new_town(location)
-	print(faction)
-	if faction == "player":
-		_player_capturables += 1
-	if _player_capturables == _capturable_count:
-		print("Win")
+# This should only be called WHEN THE FACTION CHANGES
+func _on_capturable_faction_change(location: capturable) -> void:
+	if location.faction == "Neutral":
+		print("Formerly Neutral")
+		if location in ally_capturables:
+			print("Ally lost location")
+			ally_capturables.erase(location)
+			%EconomyUI.lose_town(location)
+			return
+		else:
+			print("Enemy lost location")
+			enemy_capturables.erase(location)
+			return
+	elif location.faction == "Ally":
+		print("Ally gained location")
+		ally_capturables.append(location)
+		%EconomyUI.new_town(location)
+	else:
+		print("Enemy gained location")
+		enemy_capturables.append(location)

@@ -5,7 +5,7 @@ extends NinePatchRect
 @export var income: int = 10
 @export var income_fixed: bool = true
 @export var type: String = "Town"
-@export var faction: String = "neutral"
+@export var faction: String = "Neutral"
 
 @export var ally_units_in_box: Array[Unit] = []
 @export var enemy_units_in_box: Array[Unit] = []
@@ -18,34 +18,42 @@ var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 var soldier_scene = load("res://scenes/Units/unit_body.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
-signal faction_change(location: capturable, faction: String)
+signal faction_change(location: capturable)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
 	$ProgressBar.value = value
 
+# Should only emit faction change signal WHEN IT CHANGES
 func _on_timer_timeout() -> void:
-	if value < 200:
-		var unit_count: int = ally_units_in_box.size() - enemy_units_in_box.size()
-		var potential = value + unit_count * 2
-		if potential < 200.0 and potential > 0.0:
-			if unit_count > 0:
-				print(value)
-			value = potential
-		elif potential >= 200.0:
-			value = 200.0
-			faction = "player"
-			faction_change.emit(self, faction)
-			self.texture = _light
-			$Timer.stop()
-		else:
-			value = 0.0
-			faction = "enemy"
-			self.texture = _dark
-			$Timer.stop()
-		# Optional: Cast to int for printing if you don't want decimals in your logs
-		$ProgressBar.value = value
+	var unit_count: int = ally_units_in_box.size() - enemy_units_in_box.size()
+	
+	#First set of checks determine if point is fully captured
+	if unit_count == 0:
+		return
+	if value == 200.0 and unit_count >= 0:
+		return
+	if value == 0.0 and unit_count <= 0:
+		return
+	
+	var potential = value + unit_count * 8
+	if potential < 200.0 and potential > 0.0:
+		if faction == "Ally" or faction == "Enemy":
+			faction = "Neutral"
+			faction_change.emit(self)
+		value = potential
+	elif potential >= 200.0:
+		value = 200.0
+		faction = "Ally"
+		faction_change.emit(self)
+		self.texture = _light
+	else:
+		value = 0.0
+		faction = "Enemy"
+		faction_change.emit(self)
+		self.texture = _dark
+	$ProgressBar.value = value
 	
 
 
