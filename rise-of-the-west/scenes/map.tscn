@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="19_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
 [ext_resource type="PackedScene" uid="uid://cvm0drhvpf6y5" path="res://scenes/buildings/Town1.tscn" id="20_y2ir2"]
+[ext_resource type="Script" uid="uid://dgaffy8is2xpq" path="res://scenes/sub_viewport.gd" id="25_5u2yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -271,7 +272,6 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fk5sa"]
 vertices = PackedVector2Array(-562.89844, 498.04688, 651, -17.078125, 908.2422, -14.90625, -564.10156, 617.0703, 537.1719, -672.0469, 2541.0313, -2571.039, 912.09375, -458.90625, 674.78125, -460.9922, 651, -464.65625, 2557.961, 2262.8672, 909.9922, -216.5625, 533.8281, -469.85938, 904.03125, -195.70313, -3376.3203, 2190.1172, 225.03906, -482.4375, 175.0625, -485.3125, 178.17969, -500.9297, 297.9375, -670.9531, 299.0625, -473.14063, 223.96094, -235.82813, -771.8281, 497.03906, -770.14844, 394.85156, -567.3203, 391.85938, -564.65625, 312.03125, 199.96094, -2.2109375, -3060.6328, -2598.9531, -27.710938, -502.04688, -34.71875, -265.52344, -54.890625, -264.52344, 200.96094, -233.82813, -58.117188, 3.2109375, -886.89844, 614.9297, -890.1094, 310.96875)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(6, 5, 9, 10), PackedInt32Array(11, 4, 8, 1), PackedInt32Array(12, 10, 9, 2), PackedInt32Array(2, 9, 13, 3), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(14, 17, 18, 19), PackedInt32Array(0, 20, 21, 22), PackedInt32Array(1, 0, 22, 23, 24), PackedInt32Array(13, 25, 5, 26), PackedInt32Array(26, 27, 28), PackedInt32Array(24, 29, 19, 1), PackedInt32Array(18, 11, 1, 19), PackedInt32Array(30, 24, 23), PackedInt32Array(31, 3, 13), PackedInt32Array(32, 31, 13), PackedInt32Array(28, 30, 23, 32), PackedInt32Array(17, 16, 26), PackedInt32Array(26, 28, 32), PackedInt32Array(5, 4, 17), PackedInt32Array(5, 17, 26), PackedInt32Array(13, 26, 32)])
@@ -415,22 +415,22 @@ script = ExtResource("8_pbcbn")
 position = Vector2(1048, 1048)
 script = ExtResource("9_k8ucj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1065918561]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=990572906]
 layer = 10
 
-[node name="InGameUI" type="Control" parent="CanvasLayer" unique_id=462810905]
+[node name="InGameUI" type="Control" parent="CanvasLayer" unique_id=2125671955]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SelectedContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=1206910292]
+[node name="SelectedContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=1698209993]
 layout_mode = 0
 
-[node name="SelectedHolder" type="Control" parent="CanvasLayer/InGameUI/SelectedContainer" unique_id=1685536983]
+[node name="SelectedHolder" type="Control" parent="CanvasLayer/InGameUI/SelectedContainer" unique_id=774406610]
 layout_mode = 2
 
-[node name="SelectedUI" type="BoxContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder" unique_id=983595589]
+[node name="SelectedUI" type="BoxContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder" unique_id=1673679695]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 926.0
@@ -440,20 +440,20 @@ offset_bottom = 582.0
 alignment = 2
 script = ExtResource("18_6k6j1")
 
-[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1491963464]
+[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=579390807]
 layout_mode = 2
 text = "Selected Units: "
 
-[node name="VScrollBar" type="VScrollBar" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=662788283]
+[node name="VScrollBar" type="VScrollBar" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1160381831]
 layout_mode = 2
 
-[node name="IncomeContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=464987021]
+[node name="IncomeContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=551547349]
 layout_mode = 0
 
-[node name="IncomeHolder" type="Control" parent="CanvasLayer/InGameUI/IncomeContainer" unique_id=1629481257]
+[node name="IncomeHolder" type="Control" parent="CanvasLayer/InGameUI/IncomeContainer" unique_id=1827078359]
 layout_mode = 2
 
-[node name="EconomyUI" type="BoxContainer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder" unique_id=1338486696]
+[node name="EconomyUI" type="BoxContainer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder" unique_id=1293303795]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 15.0
@@ -466,38 +466,53 @@ script = ExtResource("18_mo32q")
 Units = 6
 MaxPop = 10
 
-[node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=34281480]
+[node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=63628358]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Balance:"
 
-[node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=583301466]
+[node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1774128243]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Income: "
 
-[node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1927552461]
+[node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=188875587]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Towns:"
 
-[node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=928060319]
+[node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=181640697]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Mines:"
 
-[node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1689985127]
+[node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=14756718]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Forts:"
 
-[node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=2023554812]
+[node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=592756344]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Population:"
 
-[node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=32313255]
+[node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1290114189]
 autostart = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/InGameUI" unique_id=1580775677]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/InGameUI/SubViewportContainer" unique_id=89166669]
+handle_input_locally = false
+size = Vector2i(150, 150)
+size_2d_override = Vector2i(3000, 3000)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("25_5u2yt")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/InGameUI/SubViewportContainer/SubViewport" unique_id=223666721]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1179282085]
 navigation_polygon = SubResource("NavigationPolygon_fk5sa")
