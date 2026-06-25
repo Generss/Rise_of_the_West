@@ -51,4 +51,5 @@ func _on_selection_box_selected_chosen(selected_list: Array[Unit]) -> void:
 
 func _on_selection_box_delete_unit(unit: Unit) -> void:
 	unit.die()
+	%EconomyUI.lost_unit()
 	unit.free()

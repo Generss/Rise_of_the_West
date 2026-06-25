@@ -20,9 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://bqk0basv3n1u3" path="res://assets/textures/mining_1.png" id="15_c70he"]
 [ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="16_mo32q"]
 [ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="17_6k6j1"]
+[ext_resource type="Script" uid="uid://dbtlqyq31k5ud" path="res://scenes/selected_ui.gd" id="18_6k6j1"]
 [ext_resource type="Script" uid="uid://dbk545qls52mp" path="res://scenes/economy_ui.gd" id="18_mo32q"]
 [ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="19_4b7dj"]
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
 0:0/0 = 0
@@ -269,7 +271,7 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
-[node name="Map" type="Node2D" unique_id=298777452]
+[node name="Map2" type="Node2D" unique_id=298777452]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=825612523]
 position = Vector2(225, 191)
@@ -430,6 +432,7 @@ offset_top = 515.0
 offset_right = 1255.0
 offset_bottom = 582.0
 alignment = 2
+script = ExtResource("18_6k6j1")
 
 [node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1491963464]
 layout_mode = 2
@@ -451,6 +454,8 @@ offset_bottom = 940.0
 offset_transform_enabled = true
 vertical = true
 script = ExtResource("18_mo32q")
+Units = 6
+MaxPop = 10
 
 [node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=34281480]
 layout_mode = 2
@@ -476,6 +481,11 @@ text = "Mines:"
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Forts:"
+
+[node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=2023554812]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Population:"
 
 [node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=32313255]
 autostart = true
