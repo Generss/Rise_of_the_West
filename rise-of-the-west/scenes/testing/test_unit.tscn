@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ckdvps5x8bvgh"]
+
+[ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="1_ovcn8"]
+[ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="2_752cf"]
+[ext_resource type="Texture2D" uid="uid://cp8pid75ekpo" path="res://assets/textures/training_dummy.png" id="3_nwgki"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ye5et"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_752cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nwgki")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UnitBody" unique_id=763515188 instance=ExtResource("1_ovcn8")]
+
+[node name="CheckEnemiesTimer" parent="." index="4" unique_id=16374750]
+wait_time = 24.665000000000003
+
+[node name="AnimatedSprite2D" parent="." index="5" unique_id=2055758664]
+sprite_frames = SubResource("SpriteFrames_ye5et")

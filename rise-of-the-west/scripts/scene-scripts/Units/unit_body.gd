@@ -67,15 +67,16 @@ func _on_check_enemies_timer_timeout() -> void:
 	# so we don't have to create a raycast node
 	var space_state := get_world_2d().direct_space_state
 	for area in in_range:
-		if area is Enemy:
-			var enemy: Enemy = area as Enemy
-			var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create( global_position, enemy.global_position)
-			query.exclude = [self]
-			query.collision_mask = 2
-			var res := space_state.intersect_ray(query)
-			
-			if res.is_empty():
-				print("LINE OF SIGHT")
-			
-			
-			
+		if area is Unit:
+			var enemy : Unit = area as Unit
+			if enemy.faction != faction:
+				var query : PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create( global_position, enemy.global_position)
+				query.exclude = [self]
+				query.collision_mask = 2
+				var res := space_state.intersect_ray(query)
+				
+				if res.is_empty():
+					print("As " + faction + " LINE OF SIGHT on: " + enemy.faction )
+				
+				
+				

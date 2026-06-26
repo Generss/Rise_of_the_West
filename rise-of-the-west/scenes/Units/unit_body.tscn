@@ -1,11 +1,34 @@
 [gd_scene format=3 uid="uid://dbhm7lvykvulc"]
 
 [ext_resource type="Script" uid="uid://cvvw7qtyxbqv8" path="res://scripts/scene-scripts/Units/unit_body.gd" id="1_sslqg"]
-[ext_resource type="PackedScene" uid="uid://bt2m14hn1mw6c" path="res://scenes/Units/unit.tscn" id="2_bu20w"]
+[ext_resource type="Script" uid="uid://dxui63avffb3" path="res://scripts/scene-scripts/Units/unit.gd" id="2_amlfv"]
+[ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="3_ncyc6"]
+[ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="4_6ga2b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sslqg"]
 friction = 0.1
 bounce = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yijwm"]
+resource_local_to_scene = true
+shader = ExtResource("3_ncyc6")
+shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ve6wg"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6ga2b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
+size = Vector2(24, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5sa"]
 radius = 7.0
@@ -19,7 +42,16 @@ physics_material_override = SubResource("PhysicsMaterial_sslqg")
 script = ExtResource("1_sslqg")
 vision_range = 800.0
 
-[node name="Unit" parent="." unique_id=162373335 instance=ExtResource("2_bu20w")]
+[node name="Unit" type="Area2D" parent="." unique_id=162373335]
+script = ExtResource("2_amlfv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Unit" unique_id=1527859584]
+material = SubResource("ShaderMaterial_yijwm")
+sprite_frames = SubResource("SpriteFrames_ve6wg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unit" unique_id=613858183]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_fk5sa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1920399080]
 position = Vector2(0, 10)
