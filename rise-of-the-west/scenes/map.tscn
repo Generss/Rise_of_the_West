@@ -465,9 +465,13 @@ offset_bottom = 582.0
 alignment = 2
 script = ExtResource("18_6k6j1")
 
-[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=579390807]
+[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1121507228]
 layout_mode = 2
-text = "Selected Units: "
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 18
 
 [node name="VScrollBar" type="VScrollBar" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1160381831]
 layout_mode = 2
@@ -493,33 +497,57 @@ MaxPop = 10
 
 [node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=63628358]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
 text = "Balance:"
 
-[node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1774128243]
+[node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1577619839]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Income: "
+text = "Balance:"
 
-[node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=188875587]
+[node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1202877466]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Towns:"
+text = "Balance:"
 
-[node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=181640697]
+[node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1625693081]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Mines:"
+text = "Balance:"
 
-[node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=14756718]
+[node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1314766911]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Forts:"
+text = "Balance:"
 
-[node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=592756344]
+[node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1718884745]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Population:"
+text = "Balance:"
 
 [node name="IncomeTimer" type="Timer" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1290114189]
 autostart = true

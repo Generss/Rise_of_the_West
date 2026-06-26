@@ -35,6 +35,7 @@ func _on_play_pressed() -> void:
 	else:
 		_new_game()
 		_active_game = true
+		%MainMenuBackGround.visible = false
 		$Menu/MenuButtons/Control/BoxContainer/Resume.show()
 		
 func _new_game():
