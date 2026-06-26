@@ -1,5 +1,6 @@
 extends BoxContainer
 
+@onready var ally_units: Array[Unit] = []
 @onready var selected: Array[Unit] = []
 
 func _process(delta: float) -> void:

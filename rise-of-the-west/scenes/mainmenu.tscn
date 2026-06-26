@@ -24,14 +24,38 @@ Label/font_sizes/font_size = 48
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_natt5"]
 bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h73c4"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvfd"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mbse"]
 bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uui5l"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfy5j"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3g3c"]
 bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hago"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85riq"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vvtq"]
 bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjjcl"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf3n4"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 
 [node name="Control" type="Control" unique_id=696042391]
 process_mode = 3
@@ -91,25 +115,46 @@ vertical = true
 layout_mode = 2
 theme = SubResource("Theme_5mbse")
 theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_focus_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_colors/font_disabled_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_normal_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/icon_focus_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/icon_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/icon_hover_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 theme_override_colors/icon_disabled_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_natt5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h73c4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7yvfd")
 text = "Resume"
 
 [node name="Play" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=339163676]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_5mbse")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uui5l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dfy5j")
 text = "Play"
 
 [node name="Options" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=226766864]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_r3g3c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hago")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85riq")
 text = "Options"
 
 [node name="Exit" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=2104332644]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_3vvtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gjjcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wf3n4")
 text = "Exit"
 
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Resume" to="." method="_on_resume_pressed"]
