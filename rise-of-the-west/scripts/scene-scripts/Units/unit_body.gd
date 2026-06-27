@@ -34,7 +34,7 @@ func _ready() -> void:
 	
 	gravity_scale = 0.0
 	lock_rotation = true
-	linear_damp = 4.5
+	linear_damp = 6
 	can_sleep = false
 	var circle := vision_shape.shape as CircleShape2D
 	circle.radius = vision_range
