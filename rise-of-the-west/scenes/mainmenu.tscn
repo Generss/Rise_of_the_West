@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://dsqhltdbci3bd"]
 
 [ext_resource type="Script" uid="uid://bt1a40y22onit" path="res://scripts/scene-scripts/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="Texture2D" uid="uid://cff2mu7f3247a" path="res://assets/checked.png" id="2_3vvtq"]
+[ext_resource type="Texture2D" uid="uid://btp3myns7qx4w" path="res://assets/grabber.png" id="2_natt5"]
+[ext_resource type="Texture2D" uid="uid://ctymgmopoog64" path="res://assets/grabberheld.png" id="3_r3g3c"]
+[ext_resource type="Texture2D" uid="uid://cwjgysk6i460m" path="res://assets/unchecked.png" id="3_s5g8n"]
+[ext_resource type="Texture2D" uid="uid://wtxctdve7wh8" path="res://assets/selectarrow.png" id="4_7yvfd"]
+[ext_resource type="Script" uid="uid://cdf0mve7wbls6" path="res://scenes/full_screen.gd" id="4_dfy5j"]
+[ext_resource type="Script" uid="uid://dnh5f6wcm0jht" path="res://scenes/resolution.gd" id="6_85riq"]
+[ext_resource type="Script" uid="uid://dd4chdsv7xwrw" path="res://scenes/volume.gd" id="7_wf3n4"]
 
 [sub_resource type="Theme" id="Theme_7q3kq"]
 Button/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
@@ -57,6 +65,37 @@ bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf3n4"]
 bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn6ym"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gr43c"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj5y3"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6643n"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c50wd"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5diu1"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkpmc"]
+bg_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prb5i"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsdjo"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
 [node name="Control" type="Control" unique_id=696042391]
 process_mode = 3
 layout_mode = 3
@@ -71,6 +110,7 @@ theme = SubResource("Theme_7q3kq")
 script = ExtResource("1_5mbse")
 
 [node name="Menu" type="MarginContainer" parent="." unique_id=1682410968]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -97,6 +137,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MenuButtons" type="MarginContainer" parent="Menu" unique_id=85330853]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Control" type="Control" parent="Menu/MenuButtons" unique_id=1570356724]
@@ -157,6 +198,177 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_gjjcl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wf3n4")
 text = "Exit"
 
+[node name="Options" type="MarginContainer" parent="Menu" unique_id=563020433]
+unique_name_in_owner = true
+visible = false
+visibility_layer = 2
+layout_mode = 2
+
+[node name="MainMenuBackGround" type="ColorRect" parent="Menu/Options" unique_id=887727073]
+layout_mode = 2
+color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[node name="TitleMargin" type="MarginContainer" parent="Menu/Options" unique_id=2134265990]
+layout_mode = 2
+
+[node name="TitleHolder" type="Control" parent="Menu/Options/TitleMargin" unique_id=966216792]
+layout_mode = 2
+
+[node name="TitleText" type="Label" parent="Menu/Options/TitleMargin/TitleHolder" unique_id=287694951]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 1280.0
+offset_bottom = 163.0
+theme_override_constants/outline_size = 6
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="MarginContainer" parent="Menu/Options" unique_id=2120356225]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Menu/Options/MenuButtons" unique_id=1999246644]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Menu/Options/MenuButtons/Control" unique_id=1432728115]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 507.0
+offset_right = 704.0
+offset_bottom = 715.0
+alignment = 1
+vertical = true
+
+[node name="Back" type="Button" parent="Menu/Options/MenuButtons/Control/BoxContainer" unique_id=60642019]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3vvtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gjjcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wf3n4")
+text = "Back"
+
+[node name="Window" type="BoxContainer" parent="Menu/Options/MenuButtons/Control" unique_id=1528782668]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 232.0
+offset_right = 880.0
+offset_bottom = 440.0
+alignment = 1
+vertical = true
+
+[node name="FullScreen" type="CheckBox" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1219953915]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_disabled_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_icons/checked = ExtResource("2_3vvtq")
+theme_override_icons/unchecked = ExtResource("3_s5g8n")
+text = "Full Screen"
+script = ExtResource("4_dfy5j")
+
+[node name="ResolutionLabel" type="Label" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1748730672]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="Menu/Options/MenuButtons/Control/Window" unique_id=483889169]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_focus_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_normal_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_focus_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_colors/icon_disabled_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hn6ym")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gr43c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gj5y3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6643n")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_c50wd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5diu1")
+theme_override_icons/arrow = ExtResource("4_7yvfd")
+selected = 1
+item_count = 3
+popup/item_0/text = "720x480"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+script = ExtResource("6_85riq")
+
+[node name="VolumeContainer" type="BoxContainer" parent="Menu/Options/MenuButtons/Control" unique_id=1541749767]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 232.0
+offset_right = 560.0
+offset_bottom = 440.0
+alignment = 1
+vertical = true
+script = ExtResource("7_wf3n4")
+
+[node name="MasterVolumeLabel" type="Label" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=1548381250]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Master Volume"
+
+[node name="MasterVolume" type="HSlider" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=1238696118]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_natt5")
+theme_override_icons/grabber_highlight = ExtResource("3_r3g3c")
+theme_override_styles/slider = SubResource("StyleBoxFlat_nkpmc")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_prb5i")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fsdjo")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="SFXVolumeLabel" type="Label" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=2051068278]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SFX Volume"
+
+[node name="SFXVolume" type="HSlider" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=454853047]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_natt5")
+theme_override_icons/grabber_highlight = ExtResource("3_r3g3c")
+theme_override_styles/slider = SubResource("StyleBoxFlat_nkpmc")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_prb5i")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fsdjo")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="MusicVolumeLabel" type="Label" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=87130042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music Volume"
+
+[node name="MusicVolume" type="HSlider" parent="Menu/Options/MenuButtons/Control/VolumeContainer" unique_id=169779927]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_natt5")
+theme_override_icons/grabber_highlight = ExtResource("3_r3g3c")
+theme_override_styles/slider = SubResource("StyleBoxFlat_nkpmc")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_prb5i")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fsdjo")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Menu/Options/MenuButtons/Control/BoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/Options/MenuButtons/Control/Window/FullScreen" to="Menu/Options/MenuButtons/Control/Window/FullScreen" method="_on_pressed"]
+[connection signal="item_selected" from="Menu/Options/MenuButtons/Control/Window/Resolution" to="Menu/Options/MenuButtons/Control/Window/Resolution" method="_on_item_selected"]
+[connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/MasterVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/SFXVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/MusicVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_music_volume_value_changed"]

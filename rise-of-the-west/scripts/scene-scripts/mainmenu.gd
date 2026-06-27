@@ -26,7 +26,8 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	%Options.visible = true
+	%MenuButtons.visible=false
 
 func _on_play_pressed() -> void: 
 	if _active_game:
@@ -48,3 +49,8 @@ func _new_game():
 
 func _cleanup_game():
 	map_instance.queue_free()
+
+
+func _on_back_pressed() -> void:
+	%Options.visible = false
+	%MenuButtons.visible=true
