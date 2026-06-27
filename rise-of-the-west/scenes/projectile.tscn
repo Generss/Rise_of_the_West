@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://h52ymkpdbsip"]
+
+[ext_resource type="Script" uid="uid://ce1l58vv7iesu" path="res://scripts/projectile.gd" id="1_uxn4k"]
+[ext_resource type="Texture2D" uid="uid://c2g76emmtd3h3" path="res://assets/textures/bullet.png" id="2_bmw2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
+size = Vector2(8, 2)
+
+[node name="Projectile" type="Area2D" unique_id=650861888]
+script = ExtResource("1_uxn4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268998248]
+shape = SubResource("RectangleShape2D_fk5sa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487114063]
+position = Vector2(-0.25000006, -0.25000006)
+scale = Vector2(0.9615385, 0.90000004)
+texture = ExtResource("2_bmw2d")
+
+[node name="Lifetime_Timer" type="Timer" parent="." unique_id=592678387]
+wait_time = 20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Lifetime_Timer" to="." method="_on_lifetime_timer_timeout"]

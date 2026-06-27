@@ -2,16 +2,17 @@ class_name Unit
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 @export var faction: String = "Ally"
 
-var shader_material: ShaderMaterial
 
+
+var shader_material: ShaderMaterial
 var selected := false
-var speed: float = 200.0
+
 
 signal movement_initiated(new_target: Vector2)
-
+signal damge_taken(damage: int) 
+signal get_pushed(direction : Vector2, magnitude: float)
 
 func _ready() -> void:
 	if animated_sprite.material != null:
@@ -39,3 +40,10 @@ func move_to_target(new_target: Vector2) -> void:
 func die() -> void:
 	# Death animation goes here
 	pass
+	
+func push_unit(new_direction : Vector2, magnitude: float) -> void:
+	get_pushed.emit(new_direction, magnitude)
+	
+func take_damage(new_damage: int) -> void:
+	damge_taken.emit(new_damage)
+	
