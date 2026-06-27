@@ -45,7 +45,6 @@ func _process(delta: float) -> void:
 		selecting = false
 		visible = false
 
-
 func update_collision_shape(rect_size: Vector2) -> void:
 	var rectangle_shape := collision_shape.shape as RectangleShape2D
 

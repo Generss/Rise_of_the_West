@@ -312,6 +312,7 @@ offset_top = -451.0
 offset_right = 445.0
 offset_bottom = -322.99997
 scale = Vector2(1.6020858, 3.2794623)
+income = 100
 
 [node name="SelectionController" parent="." unique_id=1705481236 node_paths=PackedStringArray("selected_ui") instance=ExtResource("1_8d3bm")]
 position = Vector2(-5, 5)
@@ -458,18 +459,17 @@ layout_mode = 2
 [node name="SelectedUI" type="BoxContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder" unique_id=1673679695]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 640.0
-offset_top = 576.0
-offset_right = 969.0
-offset_bottom = 643.0
-alignment = 2
+offset_left = 240.0
+offset_top = 552.0
+offset_right = 569.0
+offset_bottom = 619.0
 script = ExtResource("18_6k6j1")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1358716375]
 layout_mode = 2
 theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 60
-columns = 10
+columns = 30
 
 [node name="IncomeContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=551547349]
 layout_mode = 0
@@ -487,8 +487,10 @@ offset_bottom = 940.0
 offset_transform_enabled = true
 vertical = true
 script = ExtResource("18_mo32q")
+Balance = 5000000
+Income = 500
 Units = 4
-MaxPop = 10
+MaxPop = 999
 
 [node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=63628358]
 layout_mode = 2
