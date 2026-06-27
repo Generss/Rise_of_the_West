@@ -46,15 +46,19 @@ func _physics_process(_delta: float) -> void:
 
 	apply_central_force(steering_force)
 	
+	if !is_instance_valid(UnitNode):
+		return
+	
 	# to handle the sprite facing the right direction
 	if(linear_velocity.x > 0):
-		$Unit.scale.x = abs(scale.x)
+		UnitNode.scale.x = abs(scale.x)
 	else:
-		$Unit.scale.x = -abs(scale.x)
+		UnitNode.scale.x = -abs(scale.x)
 
 
 func die() -> void:
-	queue_free()
+	set_physics_process(false)
+	call_deferred("queue_free")
 
 
 func _on_unit_movement_initiated(new_target: Vector2) -> void:
