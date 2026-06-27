@@ -458,23 +458,18 @@ layout_mode = 2
 [node name="SelectedUI" type="BoxContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder" unique_id=1673679695]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 926.0
-offset_top = 515.0
-offset_right = 1255.0
-offset_bottom = 582.0
+offset_left = 640.0
+offset_top = 576.0
+offset_right = 969.0
+offset_bottom = 643.0
 alignment = 2
 script = ExtResource("18_6k6j1")
 
-[node name="Title" type="Label" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1121507228]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1358716375]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
-theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 18
-
-[node name="VScrollBar" type="VScrollBar" parent="CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI" unique_id=1160381831]
-layout_mode = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 60
+columns = 10
 
 [node name="IncomeContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=551547349]
 layout_mode = 0
@@ -559,7 +554,7 @@ offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/InGameUI/SubViewportContainer" unique_id=89166669]
 handle_input_locally = false
-size = Vector2i(150, 150)
+size = Vector2i(160, 160)
 size_2d_override = Vector2i(3000, 3000)
 size_2d_override_stretch = true
 render_target_update_mode = 4
