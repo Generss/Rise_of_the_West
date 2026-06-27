@@ -103,8 +103,6 @@ func _on_selection_box_delete_unit(unit: Unit) -> void:
 	if selected_ui != null:
 		selected_ui.remove_unit(unit.get_parent())
 	
-	%EconomyUI.lost_unit()
-	
 	var body := unit.get_parent() as UnitBody
 	
 	if body != null and is_instance_valid(body):

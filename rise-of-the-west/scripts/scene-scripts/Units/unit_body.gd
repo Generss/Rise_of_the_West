@@ -89,6 +89,10 @@ func _physics_process(_delta: float) -> void:
 
 
 func die() -> void:
+	if faction == "Ally":
+		%EconomyUI.lost_unit()
+	elif faction == "Enemy":
+		%EconomyUI.enemy_lost_unit()
 	set_physics_process(false)
 	call_deferred("queue_free")
 
@@ -168,7 +172,7 @@ func run_AI() -> void:
 		
 	match current_state:
 		AI_State.LOOKING:
-			print("looking")
+			#print("looking")
 			var possible_capturables: Array[capturable] = capturable_controller.capturables.filter(
 				func(capture: capturable):
 					return capture.faction == "Ally" or capture.faction == "Neutral"
@@ -196,12 +200,12 @@ func run_AI() -> void:
 			_on_unit_movement_initiated(current_capturable.get_global_rect().get_center())
 			
 		AI_State.GOING:
-			print("GOING")
+			#print("GOING")
 			if navigation_agent.is_navigation_finished():
 				current_state = AI_State.CAPTURING
 			
 		AI_State.CAPTURING:
-			print("CAPTURING")
+			#print("CAPTURING")
 			if current_capturable == null or not is_instance_valid(current_capturable):
 				current_state = AI_State.LOOKING
 				return
