@@ -79,14 +79,11 @@ func _on_recruitment_gui_input(event: InputEvent) -> void:
 	if value != 200:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if !%EconomyUI.spend(100):
-			return
-		var soldier_instance = soldier_scene.instantiate()
-		var dimensions: Vector2 = size
-		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
-		soldier_instance.position = global_position + random_variation
-		soldier_instance.economyui = economyui
-		_sortable_node.add_child(soldier_instance)
+		print("mouse click on recruit symbol")
+		if event.shift_pressed:
+			for i in range(9):
+				_recruit()
+		_recruit()
 
 func enemy_recruitment() -> void: 
 		if !%EconomyUI.enemy_spend(100):
@@ -99,3 +96,13 @@ func enemy_recruitment() -> void:
 		soldier_instance.economyui = economyui
 		_sortable_node.add_child(soldier_instance)
 	
+
+func _recruit() -> void:
+		if !%EconomyUI.spend(100):
+			return
+		var soldier_instance = soldier_scene.instantiate()
+		var dimensions: Vector2 = size
+		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
+		soldier_instance.position = global_position + random_variation
+		soldier_instance.economyui = economyui
+		_sortable_node.add_child(soldier_instance)

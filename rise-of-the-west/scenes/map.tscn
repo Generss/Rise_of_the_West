@@ -518,6 +518,10 @@ Balance = 5000000
 Income = 500
 Units = 4
 MaxPop = 999
+EnemyBalance = 1000
+EnemyIncome = 500
+EnemyUnits = 4
+EnemyMaxPop = 50
 
 [node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=63628358]
 layout_mode = 2
