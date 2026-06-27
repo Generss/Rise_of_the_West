@@ -43,3 +43,9 @@ func set_faction(new_faction : String) -> void:
 
 func _on_lifetime_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.get_collision_layer_value(2):
+		queue_free()
+	

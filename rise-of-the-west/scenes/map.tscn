@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://db1wur5scgpm8" path="res://scenes/Selection/selection_controller.tscn" id="1_8d3bm"]
 [ext_resource type="Texture2D" uid="uid://dmg28fmjfg6vb" path="res://assets/textures/terrain/dirt.png" id="1_c7s6e"]
+[ext_resource type="PackedScene" uid="uid://djadyjo332twv" path="res://scenes/A_I_Controller.tscn" id="1_mkblt"]
 [ext_resource type="Texture2D" uid="uid://drolgeoh2exc4" path="res://assets/textures/terrain/dirtrock2.png" id="2_e0an3"]
 [ext_resource type="Script" uid="uid://boa5scnw8xkf7" path="res://scripts/scene-scripts/Camera/camera_2d.gd" id="2_wijl4"]
 [ext_resource type="Texture2D" uid="uid://cdeogptvkhais" path="res://assets/textures/terrain/dirtrock1.png" id="3_p5pve"]
@@ -273,12 +274,17 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
+size = Vector2(94, 86)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fk5sa"]
 vertices = PackedVector2Array(-547.78906, 613.90625, -497.52344, 608.84375, -145, 614.14844, -422.71875, 616.46875, -54.890625, -264.52344, -58.117188, 3.2109375, -62.632813, -45.523438, -48.296875, 149.0625, 651, -17.078125, 908.2422, -14.90625, 2557.961, 2262.8672, -145, 271.17188, -113.39844, 179.82813, -150.46094, 40.632813, -186.03125, 48.65625, -475.0625, 31.25, -215.50781, 19.429688, -71.61719, -5.703125, -75.32031, -83.59375, 566.1406, -686.0781, 2541.0313, -2571.039, 912.09375, -458.90625, 674.78125, -460.9922, 651, -464.65625, -237.60938, 83.421875, 909.9922, -216.5625, 904.03125, -195.70313, -344.96094, -19.078125, -243.78125, -56.0625, -251.14063, -32.046875, -108.39844, -114.3125, 562.8594, -451.96094, 225.03906, -482.4375, 279.90625, -683.9219, 282.09375, -453.03906, 223.96094, -235.82813, -410.21094, 247.85938, -214.03125, 187.40625, -417.9375, 263.14844, -242.22656, 145.72656, -506.04688, 96.8125, -191, -112.03125, -230.71094, -102.953125, -224.6875, -198.67969, 175.0625, -485.3125, 178.17969, -500.9297, -491.5, 492, -550.2031, 497, -549.10156, 398.14063, -508.90625, 389.96094, -248.53906, -3.4375, -771.8281, 497, -770.15625, 395.1328, -285.90625, 390.95313, -285.07813, 492, -510.10156, 264.8203, -547.89844, 274.0625, -533.8906, 225.53906, -3060.6328, -2598.9531, -27.710938, -502.04688, -34.71875, -265.52344, -3376.3203, 2190.1172, -529.7578, 726.6719, 199.96094, -2.2109375, 200.96094, -233.82813, -403.65625, -64.71875, -348.28125, -62.382813, -417.8828, -33.257813, -81.36719, 64.03125, -536.1406, 157.59375, -657.9922, 78.09375, -661.85156, 252.14844, -904.0625, 271.9375, -417.71875, 655.96875, -413.29688, 623.52344, -129.1875, 7.8515625, -503.28906, -42.75, -495.75, -18.203125, -528.2969, -112.07031, -531.9531, -47.359375, -555.4375, -96.36719, -653.7969, 267.2578, -151.21875, -111.00781, -724.6719, 0, -668.71094, 36.257813, -282.20313, -242.92188, -382.21875, -277.3125, -480.97656, -259.2578, -508.35156, -230.70313, -610.9531, -124.6875, -713.1328, -95.8125, -901.9375, 617.09375, -531.4375, 665.2422, -649.9922, 623.53125, -647.6172, 659.0078)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10, 2, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 6, 5), PackedInt32Array(4, 6, 18), PackedInt32Array(19, 20, 21, 22, 23), PackedInt32Array(15, 14, 24), PackedInt32Array(21, 20, 10, 25), PackedInt32Array(26, 25, 10, 9), PackedInt32Array(27, 28, 29), PackedInt32Array(4, 18, 30), PackedInt32Array(31, 19, 23, 8), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(36, 37, 12, 11, 38), PackedInt32Array(15, 39, 37, 36, 40), PackedInt32Array(41, 42, 43), PackedInt32Array(32, 44, 45, 33), PackedInt32Array(46, 1, 0, 47, 48, 49), PackedInt32Array(27, 29, 50, 15), PackedInt32Array(47, 51, 52, 48), PackedInt32Array(53, 54, 46, 49), PackedInt32Array(55, 49, 48, 56, 57), PackedInt32Array(58, 20, 19, 33), PackedInt32Array(58, 33, 45, 59), PackedInt32Array(59, 60, 4), PackedInt32Array(2, 10, 61, 62), PackedInt32Array(63, 64, 35, 8), PackedInt32Array(65, 66, 27, 67), PackedInt32Array(8, 7, 68, 63), PackedInt32Array(15, 24, 39), PackedInt32Array(40, 36, 69), PackedInt32Array(70, 40, 69, 71, 72), PackedInt32Array(73, 74, 2), PackedInt32Array(34, 31, 8, 35), PackedInt32Array(5, 63, 68, 13), PackedInt32Array(17, 5, 13, 75), PackedInt32Array(16, 75, 13), PackedInt32Array(50, 16, 15), PackedInt32Array(76, 67, 27, 15, 77), PackedInt32Array(78, 76, 77, 79, 80), PackedInt32Array(38, 11, 55), PackedInt32Array(57, 38, 55), PackedInt32Array(81, 57, 56), PackedInt32Array(81, 56, 72), PackedInt32Array(71, 81, 72), PackedInt32Array(82, 41, 43, 59, 4, 30), PackedInt32Array(83, 84, 70, 72, 61), PackedInt32Array(59, 43, 85, 58), PackedInt32Array(58, 85, 86), PackedInt32Array(58, 86, 87), PackedInt32Array(58, 87, 88, 89, 90), PackedInt32Array(78, 80, 89, 88), PackedInt32Array(61, 58, 90, 83), PackedInt32Array(61, 72, 91), PackedInt32Array(3, 92, 93, 0), PackedInt32Array(2, 74, 3), PackedInt32Array(91, 0, 93), PackedInt32Array(91, 93, 94, 61), PackedInt32Array(61, 94, 62), PackedInt32Array(2, 62, 73)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3070, -2609, 2551, -2581, 2568, 2273, -3387, 2200)])
 
 [node name="Map" type="Node2D" unique_id=298777452]
+
+[node name="AIController" parent="." unique_id=316290714 instance=ExtResource("1_mkblt")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=825612523]
 position = Vector2(225, 191)
@@ -432,6 +438,14 @@ faction = "Enemy"
 
 [node name="TestingDummy" parent="Sortable" unique_id=1829828116 instance=ExtResource("21_30iet")]
 position = Vector2(423, -758)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sortable" unique_id=205627600]
+position = Vector2(-159, 107)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sortable/StaticBody2D" unique_id=1539725942]
+position = Vector2(5, 10)
+shape = SubResource("RectangleShape2D_fk5sa")
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)

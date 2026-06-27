@@ -84,3 +84,14 @@ func _on_recruitment_gui_input(event: InputEvent) -> void:
 		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
 		soldier_instance.position = global_position + random_variation
 		_sortable_node.add_child(soldier_instance)
+
+func enemy_recruitment() -> void: 
+		if !%EconomyUI.enemy_spend(100):
+			return
+		var soldier_instance: UnitBody = soldier_scene.instantiate()
+		var dimensions: Vector2 = size
+		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
+		soldier_instance.position = global_position + random_variation
+		soldier_instance.faction = "Enemy"
+		_sortable_node.add_child(soldier_instance)
+		soldier_instance.capturable_controller = get_tree().current_scene.get_node("CapturableController")

@@ -1,3 +1,4 @@
+class_name CapturableController
 extends Node2D
 
 var _capturable_count = 0
@@ -5,6 +6,7 @@ var _player_capturables = 0
 @onready var capturables: Array[capturable] = []
 @onready var ally_capturables: Array[capturable] = []
 @onready var enemy_capturables: Array[capturable] = []
+@onready var economy_ui: EconomyUI = %EconomyUI
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +31,7 @@ func _on_capturable_faction_change(location: capturable) -> void:
 		else:
 			print("Enemy lost location")
 			enemy_capturables.erase(location)
+			economy_ui.lose_ememy_town(location)
 			return
 	elif location.faction == "Ally":
 		print("Ally gained location")
@@ -36,4 +39,5 @@ func _on_capturable_faction_change(location: capturable) -> void:
 		%EconomyUI.new_town(location)
 	else:
 		print("Enemy gained location")
+		%EconomyUI.new_enemy_town(location)
 		enemy_capturables.append(location)

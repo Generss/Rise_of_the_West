@@ -77,6 +77,8 @@ func deselect_all(selected_units: Array[Unit]) -> void:
 
 
 func select_unit(unit: Unit) -> void:
+	if unit.faction == "Enemy":
+		return
 	clean_unit_arrays()
 	if not is_instance_valid(unit):
 		return

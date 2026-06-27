@@ -2,7 +2,7 @@ class_name Unit
 extends Area2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var faction: String = "Ally"
+@export var faction: String
 
 
 

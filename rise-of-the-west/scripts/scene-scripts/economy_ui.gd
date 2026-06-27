@@ -1,3 +1,4 @@
+class_name EconomyUI
 extends Control
 
 @export var Balance: int
@@ -7,6 +8,16 @@ extends Control
 @export var Forts: int
 @export var Units: int
 @export var MaxPop: int
+
+
+@export var EnemyBalance: int
+@export var EnemyIncome: int
+@export var EnemyTowns: int
+@export var EnemyMines: int
+@export var EnemyForts: int
+@export var EnemyUnits: int
+@export var EnemyMaxPop: int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +40,19 @@ func set_values(values: Array[int]):
 			continue
 		child.text = child.name + ": " + str(values[num])
 		pass
+
+func new_enemy_town(location: capturable):
+	match location.type:
+		"Town":
+			EnemyTowns += 1
+			EnemyMaxPop += 5
+		"Fort":
+			EnemyForts += 1
+			EnemyMaxPop += 15
+		"Mine":
+			EnemyMines += 1
+	EnemyIncome += location.income
+
 
 func new_town(location: capturable):
 	match location.type:
@@ -66,6 +90,21 @@ func lose_town(location: capturable):
 	Income -= location.income
 	get_node("Income").text = "Income: "+str(Income)
 
+func lose_ememy_town(location: capturable):
+	match location.type:
+		"Town":
+			EnemyTowns -= 1
+			EnemyMaxPop -= 5
+
+		"Fort":
+			EnemyForts -= 1
+			EnemyMaxPop -= 15
+
+		"Mine":
+			EnemyMines -= 1
+	EnemyIncome -= location.income
+
+
 func spend(money: int) -> bool:
 	if Balance - money > 0 and MaxPop > Units:
 		Units += 1
@@ -76,10 +115,20 @@ func spend(money: int) -> bool:
 	else:
 		return false
 
+func enemy_spend(money: int) -> bool:
+	if EnemyBalance - money > 0 and EnemyMaxPop > EnemyUnits:
+		EnemyUnits += 1
+		EnemyBalance -= money
+		return true
+	else:
+		return false
+
+
 func lost_unit():
 	Units -= 1
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 
 func _on_income_timer_timeout() -> void:
 	Balance += Income
+	EnemyBalance += EnemyIncome
 	get_node("Balance").text = "Balance: " + str(Balance)
