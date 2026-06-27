@@ -101,7 +101,7 @@ func _on_selection_box_delete_unit(unit: Unit) -> void:
 	selected.erase(unit)
 	
 	if selected_ui != null:
-		selected_ui.remove_unit(unit)
+		selected_ui.remove_unit(unit.get_parent())
 	
 	%EconomyUI.lost_unit()
 	

@@ -3,6 +3,13 @@ extends Control
 
 @export var new_texture = preload("res://assets/CapturableAssets/PistolInfantryRecruitSymbol.png")
 @export var health : int = 100
+@export var unit: UnitBody
+
+func _process(delta: float) -> void:
+	if !is_instance_valid(unit):
+		queue_free()
+		return
+	%HealthBar.value = unit.current_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

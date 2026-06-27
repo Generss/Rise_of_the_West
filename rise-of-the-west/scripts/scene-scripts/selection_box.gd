@@ -87,7 +87,7 @@ func select_unit(unit: Unit) -> void:
 	unit.set_outline(2.0)
 	
 	if selected_ui != null:
-		selected_ui.add_unit(unit)
+		selected_ui.add_unit(unit.get_parent())
 
 func deselect_unit(unit: Unit) -> void:
 	clean_unit_arrays()
