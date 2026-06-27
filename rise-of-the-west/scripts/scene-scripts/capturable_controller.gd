@@ -6,7 +6,7 @@ var _player_capturables = 0
 @onready var capturables: Array[capturable] = []
 @onready var ally_capturables: Array[capturable] = []
 @onready var enemy_capturables: Array[capturable] = []
-@onready var economy_ui: EconomyUI = %EconomyUI
+@onready var economy_ui: Node = %EconomyUI
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +26,7 @@ func _on_capturable_faction_change(location: capturable) -> void:
 		if location in ally_capturables:
 			print("Ally lost location")
 			ally_capturables.erase(location)
-			%EconomyUI.lose_town(location)
+			economy_ui.lose_town(location)
 			return
 		else:
 			print("Enemy lost location")
@@ -36,8 +36,8 @@ func _on_capturable_faction_change(location: capturable) -> void:
 	elif location.faction == "Ally":
 		print("Ally gained location")
 		ally_capturables.append(location)
-		%EconomyUI.new_town(location)
+		economy_ui.new_town(location)
 	else:
 		print("Enemy gained location")
-		%EconomyUI.new_enemy_town(location)
+		economy_ui.new_enemy_town(location)
 		enemy_capturables.append(location)

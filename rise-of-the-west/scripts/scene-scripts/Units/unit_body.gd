@@ -19,6 +19,7 @@ var current_state : AI_State = AI_State.LOOKING
 @export var max_health: int = 100
 @export var fire_rate: float = 2    # per second
 @export var move_and_shoot: bool = true
+@export var economyui : Node
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var vision_shape: CollisionShape2D = $RangeArea/CollisionShape2D
@@ -32,7 +33,6 @@ var fire_load_time : float = 0 # the time since last fire
 var frame_counter : int = 0 # to count frames for things that we don't want to run every update
 var next_position : Vector2
 var direction : Vector2
-
 
 
 var combat_target : UnitBody = null
@@ -90,9 +90,9 @@ func _physics_process(_delta: float) -> void:
 
 func die() -> void:
 	if faction == "Ally":
-		%EconomyUI.lost_unit()
+		economyui.lost_unit()
 	elif faction == "Enemy":
-		%EconomyUI.enemy_lost_unit()
+		economyui.enemy_lost_unit()
 	set_physics_process(false)
 	call_deferred("queue_free")
 

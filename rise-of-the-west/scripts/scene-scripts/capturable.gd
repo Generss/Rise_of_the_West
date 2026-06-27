@@ -20,6 +20,8 @@ var soldier_scene = load("res://scenes/Units/unit_body.tscn")
 
 signal faction_change(location: capturable)
 
+@export var economyui : Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
@@ -83,6 +85,7 @@ func _on_recruitment_gui_input(event: InputEvent) -> void:
 		var dimensions: Vector2 = size
 		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
 		soldier_instance.position = global_position + random_variation
+		soldier_instance.economyui = economyui
 		_sortable_node.add_child(soldier_instance)
 
 func enemy_recruitment() -> void: 
@@ -93,5 +96,6 @@ func enemy_recruitment() -> void:
 		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
 		soldier_instance.position = global_position + random_variation
 		soldier_instance.faction = "Enemy"
+		soldier_instance.economyui = economyui
 		_sortable_node.add_child(soldier_instance)
 	

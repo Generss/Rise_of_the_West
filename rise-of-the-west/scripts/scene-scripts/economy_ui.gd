@@ -20,7 +20,6 @@ extends Control
 
 var EndUnitsRecruited: int
 var EndUnitsRecruitedEnemy: int
-var End: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -133,15 +132,15 @@ func lost_unit():
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 	if Units == 0 and Towns + Forts == 0:
 		print("Defeat")
-		%EndGameScreen.get_node("Message").text = "Defeat"
-		%EndGameScreen.visible = true
+		#%EndGameScreen.get_node("Message").text = "Defeat"
+		#%EndGameScreen.visible = true
 
 func enemy_lost_unit():
 	EnemyUnits -= 1
 	if EnemyUnits == 0 and EnemyTowns + Forts == 0:
 		print("Victory")
-		%EndGameScreen.get_node("Message").label = "Victory"
-		%EndGameScreen.visible = true
+		#%EndGameScreen.get_node("Message").label = "Victory"
+		#%EndGameScreen.visible = true
 
 
 func _on_income_timer_timeout() -> void:
