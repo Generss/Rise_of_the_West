@@ -10,6 +10,10 @@ var faction: String = "Ally"
 var target: UnitBody = null
 
 
+
+func _ready() -> void:
+	$WeaponSound.pitch_scale = randf_range(0.7,1.0)
+
 func _process(delta: float) -> void:
 	if not active:
 		return
@@ -35,6 +39,8 @@ func fire_weapon() -> void:
 
 	var direction := global_position.direction_to(target.global_position)
 	projectile.activate_projectile(direction)
+	
+	$WeaponSound.play()
 
 
 func activate(new_target: UnitBody) -> void:

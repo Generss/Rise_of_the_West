@@ -94,4 +94,4 @@ func enemy_recruitment() -> void:
 		soldier_instance.position = global_position + random_variation
 		soldier_instance.faction = "Enemy"
 		_sortable_node.add_child(soldier_instance)
-		#soldier_instance.capturable_controller = get_tree().current_scene.get_node("CapturableController")
+	

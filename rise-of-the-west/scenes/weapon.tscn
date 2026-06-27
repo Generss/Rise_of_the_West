@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bgcrwqg14xfwo" path="res://scripts/weapon.gd" id="1_xasec"]
 [ext_resource type="PackedScene" uid="uid://h52ymkpdbsip" path="res://scenes/projectile.tscn" id="2_uxn4k"]
+[ext_resource type="AudioStream" uid="uid://blkeg2h4dvb8" path="res://assets/audio/sound_effects/laserShoot.wav" id="3_bmw2d"]
 
 [node name="Weapon" type="Node2D" unique_id=2087610711]
 script = ExtResource("1_xasec")
 projectile_scene = ExtResource("2_uxn4k")
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=1316974528]
+stream = ExtResource("3_bmw2d")
+pitch_scale = 0.5
+bus = &"SFX"

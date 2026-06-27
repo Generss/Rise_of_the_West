@@ -327,6 +327,8 @@ selected_ui = NodePath("../CanvasLayer/InGameUI/SelectedContainer/SelectedHolder
 [node name="Camera2D" type="Camera2D" parent="." unique_id=55014958]
 script = ExtResource("2_wijl4")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1905174628]
+
 [node name="Sortable" type="Node2D" parent="." unique_id=348796899]
 unique_name_in_owner = true
 y_sort_enabled = true
