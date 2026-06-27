@@ -34,6 +34,7 @@ var frame_counter : int = 0 # to count frames for things that we don't want to r
 var next_position : Vector2
 var direction : Vector2
 
+var queued_clean : bool = false
 
 var combat_target : UnitBody = null
 var UnitNode : Unit
@@ -89,9 +90,14 @@ func _physics_process(_delta: float) -> void:
 
 
 func die() -> void:
+	if queued_clean:
+		return
+	queued_clean = true
 	if faction == "Ally":
+		print("Dead Ally function")
 		economyui.lost_unit()
 	elif faction == "Enemy":
+		print("Dead Enemy function")
 		economyui.enemy_lost_unit()
 	set_physics_process(false)
 	call_deferred("queue_free")
