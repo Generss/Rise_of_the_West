@@ -66,19 +66,32 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		deselect_unit(area as Unit)
 		units_in_box.erase(area)
 
-func deselect_all(selected_units: Array[Unit]):
+func deselect_all(selected_units: Array[Unit]) -> void:
+	clean_unit_arrays()
 	for unit in selected_units:
-		deselect_unit(unit)
-	selected_ui.remove_units()
+		if is_instance_valid(unit):
+			deselect_unit(unit)
+	selected_units.clear()
+	if selected_ui != null:
+		selected_ui.remove_units()
 
 
 func select_unit(unit: Unit) -> void:
-		unit.selected = true
-		unit.set_outline(2.0)
+	clean_unit_arrays()
+	if not is_instance_valid(unit):
+		return
+	
+	unit.selected = true
+	unit.set_outline(2.0)
+	
+	if selected_ui != null:
 		selected_ui.add_unit(unit)
 
-
 func deselect_unit(unit: Unit) -> void:
+	clean_unit_arrays()
+	if not is_instance_valid(unit):
+		return
+		
 	unit.selected = false
 	unit.set_outline(0.0)
 	
@@ -89,3 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			for unit in selected:
 				delete_unit.emit(unit)
 			selected.clear()
+
+func clean_unit_arrays() -> void:
+	selected = selected.filter(func(unit): return is_instance_valid(unit))
+	units_in_box = units_in_box.filter(func(unit): return is_instance_valid(unit))
