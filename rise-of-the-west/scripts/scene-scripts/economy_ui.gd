@@ -20,6 +20,10 @@ extends Control
 
 var EndUnitsRecruited: int
 var EndUnitsRecruitedEnemy: int
+var EndMoney: int
+var EndMoneyEnemy: int
+var GameTime: float
+var GameOver: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,7 +37,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	GameTime += delta
 
 func set_values(values: Array[int]):
 	var num: int = 0
@@ -91,6 +95,8 @@ func lose_town(location: capturable):
 			get_node("Mines").text = "Mines: "+str(Mines)
 	Income -= location.income
 	get_node("Income").text = "Income: "+str(Income)
+	if Units == 0 and Towns + Forts == 0:
+		end_game(false)
 
 func lose_ememy_town(location: capturable):
 	match location.type:
@@ -105,6 +111,8 @@ func lose_ememy_town(location: capturable):
 		"Mine":
 			EnemyMines -= 1
 	EnemyIncome -= location.income
+	if EnemyUnits == 0 and EnemyTowns + Forts == 0:
+		end_game(true)
 
 
 func spend(money: int) -> bool:
@@ -113,6 +121,7 @@ func spend(money: int) -> bool:
 		Balance -= money
 		get_node("Balance").text = "Balance: " + str(Balance)
 		get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
+		EndUnitsRecruited += 1
 		return true
 	else:
 		return false
@@ -121,6 +130,7 @@ func enemy_spend(money: int) -> bool:
 	if EnemyBalance - money > 0 and EnemyMaxPop > EnemyUnits:
 		EnemyUnits += 1
 		EnemyBalance -= money
+		EndUnitsRecruitedEnemy += 1
 		return true
 	else:
 		return false
@@ -131,19 +141,33 @@ func lost_unit():
 	Units -= 1
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 	if Units == 0 and Towns + Forts == 0:
-		print("Defeat")
-		#%EndGameScreen.get_node("Message").text = "Defeat"
-		#%EndGameScreen.visible = true
+		end_game(false)
 
 func enemy_lost_unit():
 	EnemyUnits -= 1
 	if EnemyUnits == 0 and EnemyTowns + Forts == 0:
-		print("Victory")
-		#%EndGameScreen.get_node("Message").label = "Victory"
-		#%EndGameScreen.visible = true
+		end_game(true)
 
+func end_game(PlayerWin:bool):
+	if GameOver:
+		return
+	GameOver = true
+	if PlayerWin:
+		%WinMessage.text = "Victory"
+	else:
+		%WinMessage.text = "Defeat"
+	var minutes: int = int(GameTime) / 60
+	var seconds: int = int(GameTime) % 60
+	var statsstring : String = "Time: " + str(minutes)+" minutes " + str(seconds) +" seconds\n"
+	statsstring += "Player Units Recruited: "+str(EndUnitsRecruited) + "\nEnemy Units Recruited: "+str(EndUnitsRecruitedEnemy)+"\n"
+	statsstring += "Money Earned by Player: "+str(EndMoney)+"\nMoney Earned by Enemy: "+str(EndMoneyEnemy)
+	%Stats.text = statsstring
+	%WinMessage.visible = true
+	%Stats.visible = true
 
 func _on_income_timer_timeout() -> void:
 	Balance += Income
+	EndMoney += Income
 	EnemyBalance += EnemyIncome
+	EndMoneyEnemy += EnemyIncome
 	get_node("Balance").text = "Balance: " + str(Balance)

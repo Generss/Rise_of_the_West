@@ -79,7 +79,6 @@ func _on_recruitment_gui_input(event: InputEvent) -> void:
 	if value != 200:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("mouse click on recruit symbol")
 		if event.shift_pressed:
 			for i in range(9):
 				_recruit()
