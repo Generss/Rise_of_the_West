@@ -16,7 +16,11 @@ var _dark = load("res://assets/CapturableAssets/darkbox.png")
 var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 
 var soldier_scene = load("res://scenes/Units/unit_body.tscn")
+var rifle_scene = load("res://scenes/Units/unit_rifleman.tscn")
+var cavalry_scene = load("res://scenes/Units/unit_calvary.tscn")
+var tnt_scene = load("res://scenes/Units/unit_dynamite.tscn")
 var cannon_scene = load("res://scenes/Units/unit_cannon.tscn")
+var gatling_scene = load("res://scenes/Units/unit_gatling.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
 signal faction_change(location: capturable)
@@ -78,55 +82,66 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		elif area.faction == "Enemy":
 			enemy_units_in_box.append(area)
 
-
-func _on_recruitment_gui_input(event: InputEvent) -> void:
-	if value != 200:
-		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.shift_pressed:
-			for i in range(9):
-				_recruit()
-		_recruit()
-
 func enemy_recruitment() -> void: 
-		if !%EconomyUI.enemy_spend(100):
-			return
-		var soldier_instance: UnitBody = soldier_scene.instantiate()
-		var dimensions: Vector2 = size
-		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
-		soldier_instance.position = global_position + random_variation
-		soldier_instance.faction = "Enemy"
-		soldier_instance.economyui = economyui
-		_sortable_node.add_child(soldier_instance)
-	
-
-func _recruit() -> void:
-		if !%EconomyUI.spend(100):
-			return
-		var soldier_instance = soldier_scene.instantiate()
-		var dimensions: Vector2 = size
-		var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
-		soldier_instance.position = global_position + random_variation
-		soldier_instance.economyui = economyui
-		_sortable_node.add_child(soldier_instance)
-
-
-func _on_cannon_recruitment_gui_input(event: InputEvent) -> void:
-	if value != 200:
+	if !%EconomyUI.enemy_spend(100):
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.shift_pressed:
-			for i in range(9):
-				_recruit_cannon()
-		_recruit_cannon()
-	
-func _recruit_cannon():
-	print("Recruiting a cannon")
-	if !%EconomyUI.spend(1000):
-		return
-	var cannon_instance = cannon_scene.instantiate()
+	var soldier_instance: UnitBody = soldier_scene.instantiate()
 	var dimensions: Vector2 = size
 	var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
-	cannon_instance.position = global_position + random_variation
-	cannon_instance.economyui = economyui
-	_sortable_node.add_child(cannon_instance)
+	soldier_instance.position = global_position + random_variation
+	soldier_instance.faction = "Enemy"
+	soldier_instance.economyui = economyui
+	_sortable_node.add_child(soldier_instance)
+
+func _on_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, soldier_scene)
+
+func _on_cannon_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, cannon_scene)
+
+
+func _on_rifle_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, rifle_scene)
+
+
+func _on_cavalry_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, cavalry_scene)
+
+
+func _on_tnt_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, tnt_scene)
+
+
+func _on_gatling_recruitment_gui_input(event: InputEvent) -> void:
+	_recruit_handle(event, gatling_scene)
+
+func _recruit(scene: PackedScene):
+	var price: int = 100
+	match scene:
+		soldier_scene:
+			price = 100
+		rifle_scene:
+			price = 100
+		cavalry_scene:
+			price = 200
+		tnt_scene:
+			price = 500
+		cannon_scene:
+			price = 1000
+		gatling_scene:
+			price = 1200
+	if !%EconomyUI.spend(price):
+		return
+	var instance = scene.instantiate()
+	var dimensions: Vector2 = size
+	var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
+	instance.position = global_position + random_variation
+	instance.economyui = economyui
+	_sortable_node.add_child(instance)
+
+func _recruit_handle(event: InputEvent, scene:PackedScene) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.shift_pressed:
+			for i in range(9):
+				_recruit(scene)
+		_recruit(scene)

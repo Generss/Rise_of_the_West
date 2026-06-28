@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://dtmlcdg4ral63" path="res://scripts/scene-scripts/capturable.gd" id="1_cot13"]
 [ext_resource type="Texture2D" uid="uid://cey6mhfokhrly" path="res://assets/CapturableAssets/neutralbox.png" id="1_wj3w4"]
 [ext_resource type="Texture2D" uid="uid://dbu0ogayk01q3" path="res://assets/CapturableAssets/PistolInfantryRecruitSymbol.png" id="3_vpnhh"]
-[ext_resource type="Script" uid="uid://em7tej1wetgf" path="res://scripts/scene-scripts/recruitment.gd" id="4_cot13"]
 [ext_resource type="Texture2D" uid="uid://153ww7gytlwv" path="res://assets/textures/cannonrecruitment.png" id="5_5ef0u"]
+[ext_resource type="Texture2D" uid="uid://drginn3jnga5p" path="res://assets/CapturableAssets/RifleInfantryRecruitSymbol -.png" id="5_onoqq"]
+[ext_resource type="Texture2D" uid="uid://d2qw328bwpp82" path="res://assets/CapturableAssets/CavalryRecruitSymbol.png" id="6_1ma4y"]
+[ext_resource type="Texture2D" uid="uid://mg443lvqbmd3" path="res://assets/textures/gatlingrecruitment.png" id="7_6tedt"]
+[ext_resource type="Texture2D" uid="uid://b6dxwjumqpy18" path="res://assets/CapturableAssets/TNTRecruitSymbol.png" id="7_781b5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbcbn"]
 size = Vector2(136, 126)
@@ -51,32 +54,70 @@ max_value = 200.0
 step = 1.0
 show_percentage = false
 
-[node name="Recruitment" type="TextureRect" parent="." unique_id=39027847]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=372550199]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 66.0
+offset_left = 1.9999999
+offset_top = 1.9999999
+offset_right = 134.0
 offset_bottom = 66.0
-scale = Vector2(0.22694121, 0.22694121)
-texture = ExtResource("3_vpnhh")
-expand_mode = 1
-stretch_mode = 2
-script = ExtResource("4_cot13")
+scale = Vector2(0.4, 0.4)
+columns = 4
 
-[node name="CannonRecruitment" type="TextureRect" parent="." unique_id=1887662434]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 2.0
-offset_right = 82.0
-offset_bottom = 66.0
-scale = Vector2(0.22694121, 0.22694121)
-texture = ExtResource("5_5ef0u")
-expand_mode = 1
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="GridContainer" unique_id=1442786525]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Recruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer" unique_id=39027847]
+layout_mode = 2
+texture = ExtResource("3_vpnhh")
 stretch_mode = 2
-script = ExtResource("4_cot13")
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="GridContainer" unique_id=623344906]
+layout_mode = 2
+
+[node name="GatlingRecruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer3" unique_id=1307606674]
+layout_mode = 2
+texture = ExtResource("7_6tedt")
+stretch_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="GridContainer" unique_id=1496899757]
+layout_mode = 2
+
+[node name="CannonRecruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer4" unique_id=1887662434]
+layout_mode = 2
+texture = ExtResource("5_5ef0u")
+stretch_mode = 2
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="GridContainer" unique_id=1277573439]
+layout_mode = 2
+
+[node name="RifleRecruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer5" unique_id=575910348]
+layout_mode = 2
+texture = ExtResource("5_onoqq")
+stretch_mode = 2
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="GridContainer" unique_id=2245451]
+layout_mode = 2
+
+[node name="TNTRecruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer2" unique_id=392814659]
+layout_mode = 2
+texture = ExtResource("7_781b5")
+stretch_mode = 2
+
+[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="GridContainer" unique_id=1901157227]
+layout_mode = 2
+
+[node name="CavalryRecruitment" type="TextureRect" parent="GridContainer/AspectRatioContainer6" unique_id=643883381]
+layout_mode = 2
+texture = ExtResource("6_1ma4y")
+stretch_mode = 2
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="gui_input" from="Recruitment" to="." method="_on_recruitment_gui_input"]
-[connection signal="gui_input" from="CannonRecruitment" to="." method="_on_cannon_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer/Recruitment" to="." method="_on_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer3/GatlingRecruitment" to="." method="_on_gatling_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer4/CannonRecruitment" to="." method="_on_cannon_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer5/RifleRecruitment" to="." method="_on_rifle_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer2/TNTRecruitment" to="." method="_on_tnt_recruitment_gui_input"]
+[connection signal="gui_input" from="GridContainer/AspectRatioContainer6/CavalryRecruitment" to="." method="_on_cavalry_recruitment_gui_input"]

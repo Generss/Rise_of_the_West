@@ -3,20 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="1_8t6bo"]
 [ext_resource type="PackedScene" uid="uid://fv8ftxvd860e" path="res://scenes/weapons/weapon_gatling.tscn" id="2_ory78"]
 [ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="2_wf5dr"]
-[ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="3_ory78"]
+[ext_resource type="Texture2D" uid="uid://b3uyisr78ki1d" path="res://assets/textures/gatling_gun.png" id="4_wf5dr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpp8d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ory78"]
 resource_local_to_scene = true
 shader = ExtResource("2_wf5dr")
 shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
 shader_parameter/outline_width = 2.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3n06f"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpp8d"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ory78")
+"texture": ExtResource("4_wf5dr")
 }],
 "loop": 1,
 "name": &"default",
@@ -32,5 +32,5 @@ move_and_shoot = false
 unit_type = "Gatling"
 
 [node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
-material = SubResource("ShaderMaterial_qpp8d")
-sprite_frames = SubResource("SpriteFrames_3n06f")
+material = SubResource("ShaderMaterial_ory78")
+sprite_frames = SubResource("SpriteFrames_qpp8d")

@@ -155,6 +155,7 @@ func enemy_lost_unit():
 		end_game(true)
 
 func end_game(PlayerWin:bool):
+	print("Game ended")
 	if GameOver:
 		return
 	GameOver = true

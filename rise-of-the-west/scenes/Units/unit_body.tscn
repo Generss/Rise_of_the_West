@@ -41,7 +41,13 @@ radius = 149.08386
 [node name="UnitBody" type="RigidBody2D" unique_id=763515188]
 physics_material_override = SubResource("PhysicsMaterial_sslqg")
 script = ExtResource("1_sslqg")
+speed = null
 weapon_scene = ExtResource("2_ncyc6")
+vision_range = null
+faction = null
+max_health = null
+move_and_shoot = null
+unit_type = null
 
 [node name="Unit" type="Area2D" parent="." unique_id=162373335]
 script = ExtResource("2_amlfv")
