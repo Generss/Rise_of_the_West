@@ -2,7 +2,11 @@ class_name WeaponCannon
 extends Weapon
 
 var loaded : bool = true
+var camera : MapCamera 
 
+func _ready() -> void:
+	if camera == null:
+		camera = get_tree().root.find_child("Camera2D",true,false) as MapCamera
 
 func _process(delta: float) -> void:
 	if not active:
@@ -19,5 +23,6 @@ func _process(delta: float) -> void:
 		loaded = true
 	
 	if loaded:
+		camera.shake()
 		fire_weapon()
 		loaded = false
