@@ -462,7 +462,8 @@ collision_layer = 3
 position = Vector2(5, 10)
 shape = SubResource("RectangleShape2D_fk5sa")
 
-[node name="UnitBody9" parent="Sortable" unique_id=901384048 instance=ExtResource("23_4o3w1")]
+[node name="UnitBody9" parent="Sortable" unique_id=901384048 node_paths=PackedStringArray("economyui") instance=ExtResource("23_4o3w1")]
+economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)
@@ -521,11 +522,11 @@ script = ExtResource("18_mo32q")
 Balance = 5000000
 Income = 500
 Units = 4
-MaxPop = 999
-EnemyBalance = 1000
-EnemyIncome = 500
+MaxPop = 200
+EnemyBalance = 400
+EnemyIncome = 5
 EnemyUnits = 4
-EnemyMaxPop = 50
+EnemyMaxPop = 200
 
 [node name="Balance" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=63628358]
 layout_mode = 2

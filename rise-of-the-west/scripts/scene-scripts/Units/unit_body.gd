@@ -224,7 +224,14 @@ func run_AI() -> void:
 			if current_capturable == null or not is_instance_valid(current_capturable):
 				current_state = AI_State.LOOKING
 				return
-				
+
+			var capture_rect := current_capturable.get_global_rect()
+
+			if not capture_rect.has_point(global_position):
+				current_capturable = null
+				current_state = AI_State.LOOKING
+				return
+
 			if current_capturable.faction == "Enemy":
 				current_state = AI_State.LOOKING
 	

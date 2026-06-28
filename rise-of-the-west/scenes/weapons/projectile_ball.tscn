@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bj62q5n51hbr5"]
 
 [ext_resource type="Script" uid="uid://cbte5ab2jy3b8" path="res://scripts/projectile_ball.gd" id="1_vjnn4"]
-[ext_resource type="Texture2D" uid="uid://c2g76emmtd3h3" path="res://assets/textures/bullet.png" id="2_dewx2"]
+[ext_resource type="Texture2D" uid="uid://bcdohf2thpr2m" path="res://assets/textures/ball.png" id="2_vjnn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
 size = Vector2(8, 2)
@@ -10,7 +10,7 @@ size = Vector2(8, 2)
 collision_mask = 3
 script = ExtResource("1_vjnn4")
 speed = 500.0
-pushing_power = 500.0
+pushing_power = 2500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268998248]
 shape = SubResource("RectangleShape2D_fk5sa")
@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_fk5sa")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487114063]
 position = Vector2(-0.25000006, -0.25000006)
 scale = Vector2(0.9615385, 0.90000004)
-texture = ExtResource("2_dewx2")
+texture = ExtResource("2_vjnn4")
 
 [node name="Lifetime_Timer" type="Timer" parent="." unique_id=592678387]
 wait_time = 20.0
