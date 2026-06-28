@@ -177,3 +177,53 @@ func _on_income_timer_timeout() -> void:
 	EnemyBalance += EnemyIncome
 	EndMoneyEnemy += EnemyIncome
 	get_node("Balance").text = "Balance: " + str(Balance)
+
+
+func _on_console_text_submitted(new_text: String) -> void:
+	%Console.clear()
+	match new_text:
+		"money":
+			Balance += 1000
+			get_node("Balance").text = "Balance: " + str(Balance)
+		"moneymoney":
+			Balance += 10000
+			get_node("Balance").text = "Balance: " + str(Balance)
+		"moneymoneymoney":
+			Balance += 100000
+			get_node("Balance").text = "Balance: " + str(Balance)
+		"win":
+			end_game(true)
+		"lose":
+			end_game(false)
+		"killall":
+			for unit in %Sortable.get_children():
+				if unit is UnitBody:
+					unit.die()
+		"killallenemy":
+			for unit in %Sortable.get_children():
+				if unit is UnitBody and unit.faction == "Enemy":
+					unit.die()
+		"killallplayer":
+			for unit in %Sortable.get_children():
+				if unit is UnitBody and unit.faction == "Ally":
+					unit.die()
+		"decap":
+			for capturable in %CapturableController.get_children():
+				if capturable.value == 200.0:
+					lose_town(capturable)
+				elif capturable.value == 0.0:
+					lose_ememy_town(capturable)
+				capturable.faction = "Neutral"
+				capturable.value = 100.0
+		"decapplayer":
+			for capturable in %CapturableController.get_children():
+				if capturable.value == 200.0:
+					lose_town(capturable)
+					capturable.faction = "Neutral"
+					capturable.value = 100.0
+		"decapenemy":
+			for capturable in %CapturableController.get_children():
+				if capturable.value == 0.0:
+					lose_town(capturable)
+					capturable.faction = "Neutral"
+					capturable.value = 100.0

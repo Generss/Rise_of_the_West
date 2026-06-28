@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://2i40l6ds35ry"]
 
-[ext_resource type="Script" uid="uid://xxwo7hhdx2jf" path="res://scenes/map.gd" id="1_6ek7f"]
+[ext_resource type="Script" uid="uid://xxwo7hhdx2jf" path="res://scripts/scene-scripts/map.gd" id="1_6ek7f"]
 [ext_resource type="PackedScene" uid="uid://db1wur5scgpm8" path="res://scenes/Selection/selection_controller.tscn" id="1_8d3bm"]
 [ext_resource type="Texture2D" uid="uid://dmg28fmjfg6vb" path="res://assets/textures/terrain/dirt.png" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://djadyjo332twv" path="res://scenes/A_I_Controller.tscn" id="1_mkblt"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://jp8dvo8ilvd7" path="res://scenes/testing/testing_dummy.tscn" id="21_30iet"]
 [ext_resource type="PackedScene" uid="uid://d0lbre7h6rs0" path="res://scenes/Units/unit_cannon.tscn" id="23_4o3w1"]
 [ext_resource type="Script" uid="uid://dgaffy8is2xpq" path="res://scripts/scene-scripts/sub_viewport.gd" id="25_5u2yt"]
+[ext_resource type="Theme" uid="uid://b5fobmja6sb3l" path="res://theme.tres" id="27_4qxv8"]
+[ext_resource type="Script" uid="uid://c6oljyhgh5tmw" path="res://scenes/console.gd" id="31_fq663"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
 texture = ExtResource("1_c7s6e")
@@ -483,6 +485,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("27_4qxv8")
 
 [node name="SelectedContainer" type="MarginContainer" parent="CanvasLayer/InGameUI" unique_id=1698209993]
 layout_mode = 0
@@ -537,7 +540,6 @@ theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.188235
 theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Balance:"
 
 [node name="Income" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1577619839]
 layout_mode = 2
@@ -546,7 +548,6 @@ theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.188235
 theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Balance:"
 
 [node name="Towns" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1202877466]
 layout_mode = 2
@@ -555,7 +556,6 @@ theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.188235
 theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Balance:"
 
 [node name="Mines" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1625693081]
 layout_mode = 2
@@ -564,7 +564,6 @@ theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.188235
 theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Balance:"
 
 [node name="Forts" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1314766911]
 layout_mode = 2
@@ -573,7 +572,6 @@ theme_override_colors/font_shadow_color = Color(0.16078432, 0.16862746, 0.188235
 theme_override_colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Balance:"
 
 [node name="Population" type="Label" parent="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" unique_id=1718884745]
 layout_mode = 2
@@ -628,7 +626,18 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Console" type="LineEdit" parent="CanvasLayer" unique_id=1105731630]
+unique_name_in_owner = true
+visible = false
+offset_left = 160.0
+offset_right = 460.0
+offset_bottom = 32.0
+scale = Vector2(1.08, 1)
+theme = ExtResource("27_4qxv8")
+script = ExtResource("31_fq663")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1179282085]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_fk5sa")
 
 [node name="Polygon2D" type="Polygon2D" parent="NavigationRegion2D" unique_id=820930046]
@@ -679,3 +688,4 @@ visible = false
 polygon = PackedVector2Array(-182, 58, -228, 89, -232, 143, -209, 177, -116, 170, -61, 144, -89, 72, -151, 51)
 
 [connection signal="timeout" from="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI/IncomeTimer" to="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" method="_on_income_timer_timeout"]
+[connection signal="text_submitted" from="CanvasLayer/Console" to="CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI" method="_on_console_text_submitted"]
