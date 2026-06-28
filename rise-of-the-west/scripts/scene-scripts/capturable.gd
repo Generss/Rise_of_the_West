@@ -16,6 +16,7 @@ var _dark = load("res://assets/CapturableAssets/darkbox.png")
 var _neutral = load("res://assets/CapturableAssets/neutralbox.png")
 
 var soldier_scene = load("res://scenes/Units/unit_body.tscn")
+var cannon_scene = load("res://scenes/Units/unit_cannon.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
 signal faction_change(location: capturable)
@@ -105,3 +106,25 @@ func _recruit() -> void:
 		soldier_instance.position = global_position + random_variation
 		soldier_instance.economyui = economyui
 		_sortable_node.add_child(soldier_instance)
+
+
+func _on_cannon_recruitment_gui_input(event: InputEvent) -> void:
+	if value != 200:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.shift_pressed:
+			for i in range(9):
+				_recruit_cannon()
+		_recruit_cannon()
+	
+func _recruit_cannon():
+	print("Recruiting a cannon")
+	if !%EconomyUI.spend(1000):
+		return
+	var cannon_instance = cannon_scene.instantiate()
+	var dimensions: Vector2 = size
+	var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
+	cannon_instance.position = global_position + random_variation
+	cannon_instance.economyui = economyui
+	cannon_instance.unit_type = "Cannon"
+	_sortable_node.add_child(cannon_instance)

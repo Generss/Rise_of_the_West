@@ -1,11 +1,8 @@
 class_name UnitBody
 extends RigidBody2D
 
-
 var steering_strength: float = 6.0
 var max_steering_force: float = 1200.0
-
-
 
 var weapon : Weapon
 
@@ -28,8 +25,6 @@ var current_state : AI_State = AI_State.LOOKING
 @onready var current_health = max_health
 @onready var unit : Unit = $Unit
 
-
-
 var current_capturable : capturable = null
 var fire_load_time : float = 0 # the time since last fire
 var frame_counter : int = 0 # to count frames for things that we don't want to run every update
@@ -42,7 +37,6 @@ var combat_target : UnitBody = null
 var UnitNode : Unit
 
 func _ready() -> void:
-	
 	
 	weapon = weapon_scene.instantiate()
 	add_child(weapon)
