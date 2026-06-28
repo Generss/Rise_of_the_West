@@ -23,7 +23,8 @@ var cannon_scene = load("res://scenes/Units/unit_cannon.tscn")
 var gatling_scene = load("res://scenes/Units/unit_gatling.tscn")
 @onready var _sortable_node: Node2D = %Sortable
 
-var fort_choices : Array[PackedScene] = [soldier_scene, rifle_scene, cannon_scene, gatling_scene]
+var infantry_choices: Array[PackedScene] = [soldier_scene, rifle_scene,]
+var artillery_choices : Array[PackedScene] = [cannon_scene, gatling_scene]
 var town_choices : Array[PackedScene] = [soldier_scene, cavalry_scene]
 
 signal faction_change(location: capturable)
@@ -32,6 +33,7 @@ signal faction_change(location: capturable)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	$Timer.start()
 	$ProgressBar.value = value
 	if type == "Fort":
@@ -94,7 +96,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func enemy_recruitment() -> void: 
 	var choice: PackedScene
 	if type == "Fort":
-		choice = fort_choices.pick_random()
+		var random_int = randi_range(0,100)
+		if random_int % 10 == 0:
+			choice = artillery_choices.pick_random()
+		else:
+			choice = infantry_choices.pick_random()
 	elif type == "Town":
 		choice = town_choices.pick_random()
 	elif type == "Mine":
