@@ -68,6 +68,7 @@ shape = SubResource("CircleShape2D_fk5sa")
 debug_color = Color(0.6589242, 0.5156477, 3.85046e-07, 0.41960785)
 
 [node name="CheckEnemiesTimer" type="Timer" parent="." unique_id=16374750]
+wait_time = 0.25
 autostart = true
 
 [connection signal="damge_taken" from="Unit" to="." method="_on_unit_damge_taken"]

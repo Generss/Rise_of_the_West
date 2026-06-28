@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://fv8ftxvd860e"]
+
+[ext_resource type="PackedScene" uid="uid://dc3pbahcqyx6o" path="res://scenes/weapons/weapon.tscn" id="1_y60e0"]
+[ext_resource type="PackedScene" uid="uid://b8p6m77gbm66" path="res://scenes/weapons/projectile_gatling.tscn" id="2_ieb0u"]
+
+[node name="Weapon" unique_id=2087610711 instance=ExtResource("1_y60e0")]
+projectile_scene = ExtResource("2_ieb0u")
+fire_rate = 6.0

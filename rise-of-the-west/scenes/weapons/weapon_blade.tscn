@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vxyjv7ash0ca"]
+
+[ext_resource type="PackedScene" uid="uid://dc3pbahcqyx6o" path="res://scenes/weapons/weapon.tscn" id="1_6do5u"]
+[ext_resource type="Script" uid="uid://dd6ww8wo1pien" path="res://scripts/scene-scripts/blade.gd" id="2_7u6y2"]
+
+[node name="Weapon" unique_id=2087610711 instance=ExtResource("1_6do5u")]
+script = ExtResource("2_7u6y2")
+damage = 15
+push_force = 600.0
+hit_cooldown = 0.75
+projectile_scene = null
+
+[node name="Timer" type="Timer" parent="." index="1" unique_id=42190793]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

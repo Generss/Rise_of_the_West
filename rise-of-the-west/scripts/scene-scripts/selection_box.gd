@@ -57,9 +57,19 @@ func update_collision_shape(rect_size: Vector2) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area is Unit and visible:
-		select_unit(area as Unit)
-		units_in_box.append(area)
+	if not visible:
+		return
+	
+	if area is not Unit:
+		return
+	
+	var unit := area as Unit
+	
+	if unit.faction == "Enemy":
+		return
+		
+	select_unit(unit)
+	units_in_box.append(unit)
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area is Unit and visible:

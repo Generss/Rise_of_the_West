@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8p6m77gbm66"]
+
+[ext_resource type="PackedScene" uid="uid://h52ymkpdbsip" path="res://scenes/weapons/projectile.tscn" id="1_fx4u0"]
+
+[node name="Projectile" unique_id=650861888 instance=ExtResource("1_fx4u0")]
+speed = 900.0
+damage = 15
+pushing_power = 5.0

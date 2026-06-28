@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://7bfwpbay1lxo"]
+
+[ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="1_e5skt"]
+[ext_resource type="Script" uid="uid://8sg024t1v2ec" path="res://scripts/unit_dynamite.gd" id="2_reanc"]
+[ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="2_ug83h"]
+[ext_resource type="PackedScene" uid="uid://bxdq1dh4llti3" path="res://scenes/weapons/weapon_dynamite.tscn" id="3_reanc"]
+[ext_resource type="Texture2D" uid="uid://o5sv0pe728f7" path="res://assets/textures/TNT.png" id="4_ug83h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgav4"]
+resource_local_to_scene = true
+shader = ExtResource("2_ug83h")
+shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05ik3"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ug83h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UnitBody" unique_id=763515188 instance=ExtResource("1_e5skt")]
+script = ExtResource("2_reanc")
+weapon_scene = ExtResource("3_reanc")
+vision_range = 800.0
+
+[node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
+material = SubResource("ShaderMaterial_tgav4")
+sprite_frames = SubResource("SpriteFrames_05ik3")

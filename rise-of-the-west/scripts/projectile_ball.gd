@@ -26,3 +26,4 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_already_hit_timeout() -> void:
 	if not units_hit.is_empty():
 		units_hit.pop_front()
+		

@@ -15,7 +15,7 @@ var current_state : AI_State = AI_State.LOOKING
 @export var faction: String = "Ally"
 @export var max_health: int = 100
 @export var move_and_shoot: bool = true
-@export var economyui : Node
+@export var economyui : EconomyUI
 @export var unit_type: String = "RevolverInfantry"
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -48,10 +48,12 @@ func _ready() -> void:
 	lock_rotation = true
 	linear_damp = 6
 	#can_sleep = false
+	vision_shape.shape = vision_shape.shape.duplicate()
+
 	var circle := vision_shape.shape as CircleShape2D
 	circle.radius = vision_range
 	UnitNode = get_node("Unit")
-	UnitNode.faction = faction
+	UnitNode.apply_faction(faction)
 
 
 func _process(_delta: float) -> void:
@@ -98,10 +100,12 @@ func die() -> void:
 	queued_clean = true
 	if faction == "Ally":
 		print("Dead Ally function")
-		economyui.lost_unit()
+		if economyui != null and is_instance_valid(economyui):
+			economyui.lost_unit()
 	elif faction == "Enemy":
 		print("Dead Enemy function")
-		economyui.enemy_lost_unit()
+		if economyui != null:
+			economyui.enemy_lost_unit()
 	set_physics_process(false)
 	call_deferred("queue_free")
 
@@ -123,6 +127,11 @@ func _on_check_enemies_timer_timeout() -> void:
 			combat_target = null
 			weapon.deactivate()
 		else:
+			if not navigation_agent.is_navigation_finished() and not move_and_shoot:
+				weapon.deactivate()
+				return
+			
+			weapon.activate(combat_target)
 			return
 			
 	var in_range: Array[Node2D] = range_area.get_overlapping_bodies()
@@ -206,7 +215,9 @@ func run_AI() -> void:
 				return
 				
 			current_state = AI_State.GOING
-			_on_unit_movement_initiated(current_capturable.get_global_rect().get_center())
+			var variation: float = 120.0
+			var random_variation: Vector2 = Vector2(randf_range(-variation,variation),randf_range(-variation,variation))
+			_on_unit_movement_initiated(current_capturable.get_global_rect().get_center() + random_variation)
 			
 		AI_State.GOING:
 			#print("GOING")

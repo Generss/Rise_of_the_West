@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://12gdrqorj6p5"]
+
+[ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="1_8mhff"]
+[ext_resource type="Script" uid="uid://dbjtuo3cyu1yq" path="res://scripts/scene-scripts/Units/unit_cavalry.gd" id="2_7mplf"]
+[ext_resource type="PackedScene" uid="uid://vxyjv7ash0ca" path="res://scenes/weapons/weapon_blade.tscn" id="3_7mplf"]
+[ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="3_wkwvf"]
+[ext_resource type="Texture2D" uid="uid://bui7d8gpy0fn0" path="res://assets/textures/cavalry.png" id="5_wkwvf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7mplf"]
+resource_local_to_scene = true
+friction = 0.1
+bounce = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkwvf"]
+resource_local_to_scene = true
+shader = ExtResource("3_wkwvf")
+shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uq7oj"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wkwvf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UnitBody" unique_id=763515188 instance=ExtResource("1_8mhff")]
+physics_material_override = SubResource("PhysicsMaterial_7mplf")
+contact_monitor = true
+max_contacts_reported = 50
+script = ExtResource("2_7mplf")
+acceleration = 300.0
+deceleration = 450.0
+turn_slowdown_strength = 0.9
+minimum_turn_speed_percent = 0.45
+speed = 500.0
+weapon_scene = ExtResource("3_7mplf")
+vision_range = 0.0
+max_health = 300
+unit_type = "Cavalry"
+
+[node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
+material = SubResource("ShaderMaterial_wkwvf")
+sprite_frames = SubResource("SpriteFrames_uq7oj")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1920399080]
+position = Vector2(-4, 9.000001)
+scale = Vector2(2.16, 1.8799994)
+
+[node name="CheckEnemiesTimer" parent="." index="4" unique_id=16374750]
+wait_time = 0.1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

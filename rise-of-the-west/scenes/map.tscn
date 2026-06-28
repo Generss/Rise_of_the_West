@@ -26,8 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="20_2cfcp"]
 [ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="20_5u2yt"]
 [ext_resource type="PackedScene" uid="uid://cvm0drhvpf6y5" path="res://scenes/buildings/Town1.tscn" id="20_y2ir2"]
-[ext_resource type="PackedScene" uid="uid://jp8dvo8ilvd7" path="res://scenes/testing/testing_dummy.tscn" id="21_30iet"]
 [ext_resource type="PackedScene" uid="uid://d0lbre7h6rs0" path="res://scenes/Units/unit_cannon.tscn" id="23_4o3w1"]
+[ext_resource type="PackedScene" uid="uid://7bfwpbay1lxo" path="res://scenes/Units/unit_dynamite.tscn" id="24_4qxv8"]
+[ext_resource type="PackedScene" uid="uid://12gdrqorj6p5" path="res://scenes/Units/unit_calvary.tscn" id="24_6ek7f"]
+[ext_resource type="PackedScene" uid="uid://dho4opy2duemn" path="res://scenes/Units/unit_gatling.tscn" id="25_4qxv8"]
 [ext_resource type="Script" uid="uid://dgaffy8is2xpq" path="res://scripts/scene-scripts/sub_viewport.gd" id="25_5u2yt"]
 [ext_resource type="Theme" uid="uid://b5fobmja6sb3l" path="res://theme.tres" id="27_4qxv8"]
 [ext_resource type="Script" uid="uid://c6oljyhgh5tmw" path="res://scenes/console.gd" id="31_fq663"]
@@ -278,6 +280,11 @@ sources/2 = SubResource("TileSetAtlasSource_urblq")
 sources/3 = SubResource("TileSetAtlasSource_05x41")
 sources/4 = SubResource("TileSetAtlasSource_gqbix")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fq663"]
+resource_local_to_scene = true
+friction = 0.1
+bounce = 0.5
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5sa"]
 size = Vector2(94, 86)
 
@@ -341,6 +348,10 @@ current = true
 [node name="Sortable" type="Node2D" parent="." unique_id=348796899]
 unique_name_in_owner = true
 y_sort_enabled = true
+
+[node name="UnitBody10" parent="Sortable" unique_id=763515188 node_paths=PackedStringArray("economyui") instance=ExtResource("24_6ek7f")]
+physics_material_override = SubResource("PhysicsMaterial_fq663")
+economyui = NodePath("../../CanvasLayer/InGameUI/SelectedContainer/SelectedHolder/SelectedUI")
 
 [node name="Fortress5" type="Sprite2D" parent="Sortable" unique_id=1825466663]
 position = Vector2(-728, 329)
@@ -419,7 +430,7 @@ texture = ExtResource("20_2cfcp")
 [node name="Building1" parent="Sortable" unique_id=73986305 instance=ExtResource("20_y2ir2")]
 position = Vector2(416, -601)
 
-[node name="UnitBody" parent="Sortable" unique_id=763515188 node_paths=PackedStringArray("economyui") instance=ExtResource("20_5u2yt")]
+[node name="UnitBody" parent="Sortable" unique_id=516304068 node_paths=PackedStringArray("economyui") instance=ExtResource("20_5u2yt")]
 position = Vector2(-57, 80)
 economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
@@ -450,14 +461,6 @@ position = Vector2(-400, 64)
 faction = "Enemy"
 economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
-[node name="UnitBody8" parent="Sortable" unique_id=220525900 node_paths=PackedStringArray("economyui") instance=ExtResource("20_5u2yt")]
-position = Vector2(-384, 48)
-faction = "Enemy"
-economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
-
-[node name="TestingDummy" parent="Sortable" unique_id=1829828116 instance=ExtResource("21_30iet")]
-position = Vector2(423, -758)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="Sortable" unique_id=205627600]
 position = Vector2(-159, 107)
 collision_layer = 3
@@ -466,8 +469,11 @@ collision_layer = 3
 position = Vector2(5, 10)
 shape = SubResource("RectangleShape2D_fk5sa")
 
-[node name="UnitBody9" parent="Sortable" unique_id=901384048 node_paths=PackedStringArray("economyui") instance=ExtResource("23_4o3w1")]
-economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
+[node name="UnitBody8" parent="Sortable" unique_id=671555157 instance=ExtResource("23_4o3w1")]
+
+[node name="UnitBody9" parent="Sortable" unique_id=632680794 instance=ExtResource("24_4qxv8")]
+
+[node name="UnitBody11" parent="Sortable" unique_id=453999227 instance=ExtResource("25_4qxv8")]
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)

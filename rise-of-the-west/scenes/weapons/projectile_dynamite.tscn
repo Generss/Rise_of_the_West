@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cdav54ghm0lvj"]
+
+[ext_resource type="PackedScene" uid="uid://h52ymkpdbsip" path="res://scenes/weapons/projectile.tscn" id="1_j4p3a"]
+[ext_resource type="Script" uid="uid://biq56jie5dmgv" path="res://scripts/scene-scripts/projectile_dynamite.gd" id="2_wflq5"]
+[ext_resource type="Texture2D" uid="uid://b7kxyusqaeoci" path="res://assets/textures/dynamite.png" id="3_wflq5"]
+[ext_resource type="AudioStream" uid="uid://p12lfom7mbxo" path="res://assets/audio/sound_effects/tick.wav" id="4_o0unj"]
+[ext_resource type="AudioStream" uid="uid://kdkm4611hl8w" path="res://assets/audio/sound_effects/explosion.wav" id="5_rpbm0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fk5sa"]
+radius = 43.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7h5w"]
+radius = 181.22362
+
+[node name="Projectile" unique_id=650861888 instance=ExtResource("1_j4p3a")]
+script = ExtResource("2_wflq5")
+max_arc_scale = 3.0
+stop_distance = 8.0
+detonation_delay = 3.0
+speed = 500.0
+pushing_power = 350.0
+
+[node name="Sprite2D" parent="." index="1" unique_id=1487114063]
+texture = ExtResource("3_wflq5")
+
+[node name="Lifetime_Timer" parent="." index="2" unique_id=592678387]
+wait_time = 60.0
+
+[node name="InnerBlastZone" type="Area2D" parent="." index="3" unique_id=1923391981]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerBlastZone" index="0" unique_id=512527768]
+shape = SubResource("CircleShape2D_fk5sa")
+
+[node name="OutterBlastZone" type="Area2D" parent="." index="4" unique_id=1566183893]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutterBlastZone" index="0" unique_id=1496702514]
+shape = SubResource("CircleShape2D_v7h5w")
+debug_color = Color(0.6493502, 0, 0.19539273, 0.41960785)
+
+[node name="TickingAudio" type="AudioStreamPlayer2D" parent="." index="5" unique_id=499061849]
+stream = ExtResource("4_o0unj")
+bus = &"SFX"
+
+[node name="ExplosionAudio" type="AudioStreamPlayer2D" parent="." index="6" unique_id=774834905]
+stream = ExtResource("5_rpbm0")
+pitch_scale = 0.4
+bus = &"SFX"

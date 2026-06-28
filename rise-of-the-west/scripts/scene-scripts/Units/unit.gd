@@ -14,12 +14,8 @@ signal movement_initiated(new_target: Vector2)
 signal damge_taken(damage: int) 
 signal get_pushed(direction : Vector2, magnitude: float)
 
-func _ready() -> void:
-	if animated_sprite.material != null:
-		animated_sprite.material = animated_sprite.material.duplicate()
-		shader_material = animated_sprite.material as ShaderMaterial
-	set_outline(0.0)
 
+		
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -46,4 +42,18 @@ func push_unit(new_direction : Vector2, magnitude: float) -> void:
 	
 func take_damage(new_damage: int) -> void:
 	damge_taken.emit(new_damage)
+
+func apply_faction(new_faction : String) -> void:
+	faction = new_faction
+	#if faction == "Enemy":
+		#var enemy_shader := load("res://shaders/inverse.gdshader") as Shader
+		#shader_material = ShaderMaterial.new()
+		#shader_material.shader = enemy_shader
+		#animated_sprite.material = shader_material
 	
+	#else:
+	if animated_sprite.material != null:
+		animated_sprite.material = animated_sprite.material.duplicate()
+		shader_material = animated_sprite.material as ShaderMaterial
+		
+	set_outline(0.0)
