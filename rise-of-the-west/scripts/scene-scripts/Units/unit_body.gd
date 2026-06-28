@@ -6,7 +6,7 @@ var max_steering_force: float = 1200.0
 
 var weapon : Weapon
 
-enum AI_State {LOOKING,GOING, CAPTURING}
+enum AI_State {LOOKING,GOING, STOP_AND_SHOOT, CAPTURING}
 var current_state : AI_State = AI_State.LOOKING
 
 @export var speed: float = 200.0
@@ -187,6 +187,11 @@ func run_AI() -> void:
 			print("WHOOPS! Could not find CapturableController")
 			return
 
+	_on_check_enemies_timer_timeout()
+	if move_and_shoot == false and combat_target != null:
+		current_state = AI_State.STOP_AND_SHOOT
+	else:
+		current_state = AI_State.LOOKING
 		
 	match current_state:
 		AI_State.LOOKING:
@@ -239,5 +244,7 @@ func run_AI() -> void:
 
 			if current_capturable.faction == "Enemy":
 				current_state = AI_State.LOOKING
-	
+		
+		AI_State.STOP_AND_SHOOT:
+			_on_unit_movement_initiated(self.global_position)
 	
