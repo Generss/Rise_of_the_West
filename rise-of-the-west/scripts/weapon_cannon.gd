@@ -23,6 +23,9 @@ func _process(delta: float) -> void:
 		loaded = true
 	
 	if loaded:
+		if camera == null:
+			return
+		
 		camera.shake()
 		fire_weapon()
 		loaded = false
