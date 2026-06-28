@@ -27,6 +27,9 @@ signal faction_change(location: capturable)
 func _ready() -> void:
 	$Timer.start()
 	$ProgressBar.value = value
+	return # Remove this to restrict recruitment
+	if type != "Fort":
+		get_node("CannonRecruitment").visible = false
 
 # Should only emit faction change signal WHEN IT CHANGES
 func _on_timer_timeout() -> void:
@@ -126,5 +129,4 @@ func _recruit_cannon():
 	var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
 	cannon_instance.position = global_position + random_variation
 	cannon_instance.economyui = economyui
-	cannon_instance.unit_type = "Cannon"
 	_sortable_node.add_child(cannon_instance)

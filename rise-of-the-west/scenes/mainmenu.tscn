@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ctymgmopoog64" path="res://assets/grabberheld.png" id="3_r3g3c"]
 [ext_resource type="Texture2D" uid="uid://cwjgysk6i460m" path="res://assets/unchecked.png" id="3_s5g8n"]
 [ext_resource type="Texture2D" uid="uid://wtxctdve7wh8" path="res://assets/selectarrow.png" id="4_7yvfd"]
-[ext_resource type="Script" uid="uid://cdf0mve7wbls6" path="res://scenes/full_screen.gd" id="4_dfy5j"]
-[ext_resource type="Script" uid="uid://dnh5f6wcm0jht" path="res://scenes/resolution.gd" id="6_85riq"]
-[ext_resource type="Script" uid="uid://dd4chdsv7xwrw" path="res://scenes/volume.gd" id="7_wf3n4"]
+[ext_resource type="Script" uid="uid://cdf0mve7wbls6" path="res://scripts/full_screen.gd" id="4_dfy5j"]
+[ext_resource type="Script" uid="uid://dnh5f6wcm0jht" path="res://scripts/resolution.gd" id="6_85riq"]
+[ext_resource type="Script" uid="uid://dd4chdsv7xwrw" path="res://scripts/volume.gd" id="7_wf3n4"]
 
 [sub_resource type="Theme" id="Theme_7q3kq"]
 Button/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
@@ -200,7 +200,6 @@ text = "Exit"
 
 [node name="Options" type="MarginContainer" parent="Menu" unique_id=563020433]
 unique_name_in_owner = true
-visible = false
 visibility_layer = 2
 layout_mode = 2
 

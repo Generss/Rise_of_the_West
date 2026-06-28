@@ -145,7 +145,7 @@ func lost_unit():
 
 func enemy_lost_unit():
 	EnemyUnits -= 1
-	if EnemyUnits == 0 and EnemyTowns + Forts == 0:
+	if EnemyUnits == 0 and EnemyTowns + EnemyForts == 0:
 		end_game(true)
 
 func end_game(PlayerWin:bool):
