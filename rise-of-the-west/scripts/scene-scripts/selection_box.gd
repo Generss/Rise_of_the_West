@@ -7,6 +7,8 @@ signal selected_chosen(selected_list : Array[Unit])
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
+@onready var sortable: Node
+
 var selected_ui: Node
 
 var selecting := false
@@ -114,6 +116,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			for unit in selected:
 				delete_unit.emit(unit)
 			selected.clear()
+		return
+	if Input.is_action_just_pressed("select_all"):
+		for unit in sortable.get_children():
+			if unit is UnitBody and unit.faction == "Ally":
+				select_unit(unit.unit)
+				units_in_box.append(unit.unit)
+				selected = units_in_box.duplicate()
+				selected_chosen.emit(selected.duplicate())
+		return
 
 func clean_unit_arrays() -> void:
 	selected = selected.filter(func(unit): return is_instance_valid(unit))

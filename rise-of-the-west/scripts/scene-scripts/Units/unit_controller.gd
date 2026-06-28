@@ -3,6 +3,7 @@ extends Node2D
 var selected: Array[Unit] = []
 
 @export var selected_ui: Node
+@export var sortable: Node
 
 @export var max_variation: int = 25 # you should keep this below 40
 @export var do_shuffle: bool = false
@@ -13,11 +14,11 @@ var pressed := false
 
 func _ready() -> void:
 	get_node("SelectionBox").selected_ui = selected_ui
+	get_node("SelectionBox").sortable = sortable
 
 
 func _process(_delta: float) -> void:
 	clean_selected()
-
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and selected.size() != 0:
 		if not pressed:
 			move_selected_units(get_global_mouse_position())
@@ -27,6 +28,8 @@ func _process(_delta: float) -> void:
 
 
 func move_selected_units(center: Vector2) -> void:
+	print("move")
+	print(str(selected.size()))
 	clean_selected()
 
 	var movable_units: Array[Unit] = []
