@@ -27,11 +27,17 @@ var GameOver: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var scene_root = owner 
+	if owner.DeathMatch:
+		Balance = 20000
+		EnemyBalance = 20000
 	get_node("Balance").text = "Balance: "+str(Balance)
 	get_node("Income").text = "Income: "+str(Income)
 	get_node("Towns").text = "Towns: "+str(Towns)
 	get_node("Mines").text = "Mines: "+str(Mines)
 	get_node("Forts").text = "Forts: "+str(Forts)
+	MaxPop = owner.PopulationBase
+	EnemyMaxPop = MaxPop
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 
 

@@ -10,6 +10,12 @@
 [ext_resource type="Script" uid="uid://dnh5f6wcm0jht" path="res://scripts/resolution.gd" id="6_85riq"]
 [ext_resource type="Script" uid="uid://dd4chdsv7xwrw" path="res://scripts/volume.gd" id="7_wf3n4"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xoxrf"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vwvp"]
+bg_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+
 [sub_resource type="Theme" id="Theme_7q3kq"]
 Button/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 Button/colors/font_focus_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
@@ -26,6 +32,24 @@ Button/font_sizes/font_size = 24
 Label/colors/font_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
 Label/colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
 Label/font_sizes/font_size = 48
+LineEdit/colors/caret_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/clear_button_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/font_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/font_outline_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/font_placeholder_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/font_selected_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/colors/selection_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_xoxrf")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_7vwvp")
+SpinBox/colors/down_disabled_icon_modulate = Color(0.16078432, 0.16862746, 0.1882353, 1)
+SpinBox/colors/down_hover_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
+SpinBox/colors/down_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
+SpinBox/colors/down_pressed_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
+SpinBox/colors/up_disabled_icon_modulate = Color(0.16078432, 0.16862746, 0.1882353, 1)
+SpinBox/colors/up_hover_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
+SpinBox/colors/up_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
+SpinBox/colors/up_pressed_icon_modulate = Color(0.8117647, 0.67058825, 0.2901961, 1)
 
 [sub_resource type="Theme" id="Theme_5mbse"]
 
@@ -200,6 +224,7 @@ text = "Exit"
 
 [node name="Options" type="MarginContainer" parent="Menu" unique_id=563020433]
 unique_name_in_owner = true
+visible = false
 visibility_layer = 2
 layout_mode = 2
 
@@ -263,6 +288,37 @@ theme_override_icons/checked = ExtResource("2_3vvtq")
 theme_override_icons/unchecked = ExtResource("3_s5g8n")
 text = "Full Screen"
 script = ExtResource("4_dfy5j")
+
+[node name="DeathMatch" type="CheckBox" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1338782319]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_colors/font_disabled_color = Color(0.8117647, 0.67058825, 0.2901961, 1)
+theme_override_icons/checked = ExtResource("2_3vvtq")
+theme_override_icons/unchecked = ExtResource("3_s5g8n")
+text = "Death Match"
+
+[node name="PopulationLabel" type="Label" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1316810086]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Base Population"
+
+[node name="Population" type="SpinBox" parent="Menu/Options/MenuButtons/Control/Window" unique_id=103955026]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 10.0
+max_value = 1000.0
+value = 30.0
+
+[node name="IncomeBonusLabel" type="Label" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1648512540]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Raise Income"
+
+[node name="IncomeBonus" type="SpinBox" parent="Menu/Options/MenuButtons/Control/Window" unique_id=862518941]
+visible = false
+layout_mode = 2
 
 [node name="ResolutionLabel" type="Label" parent="Menu/Options/MenuButtons/Control/Window" unique_id=1748730672]
 visible = false
@@ -367,6 +423,8 @@ value = 1.0
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Menu/Options/MenuButtons/Control/BoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Menu/Options/MenuButtons/Control/Window/FullScreen" to="Menu/Options/MenuButtons/Control/Window/FullScreen" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Options/MenuButtons/Control/Window/DeathMatch" to="." method="_on_death_match_pressed"]
+[connection signal="value_changed" from="Menu/Options/MenuButtons/Control/Window/Population" to="." method="_on_population_value_changed"]
 [connection signal="item_selected" from="Menu/Options/MenuButtons/Control/Window/Resolution" to="Menu/Options/MenuButtons/Control/Window/Resolution" method="_on_item_selected"]
 [connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/MasterVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/SFXVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_sfx_volume_value_changed"]

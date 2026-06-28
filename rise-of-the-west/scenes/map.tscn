@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://2i40l6ds35ry"]
 
+[ext_resource type="Script" uid="uid://xxwo7hhdx2jf" path="res://scenes/map.gd" id="1_6ek7f"]
 [ext_resource type="PackedScene" uid="uid://db1wur5scgpm8" path="res://scenes/Selection/selection_controller.tscn" id="1_8d3bm"]
 [ext_resource type="Texture2D" uid="uid://dmg28fmjfg6vb" path="res://assets/textures/terrain/dirt.png" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://djadyjo332twv" path="res://scenes/A_I_Controller.tscn" id="1_mkblt"]
@@ -284,6 +285,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-3070, -2609, 2551, -2581, 2568, 2273, -3387, 2200)])
 
 [node name="Map" type="Node2D" unique_id=298777452]
+script = ExtResource("1_6ek7f")
 
 [node name="AIController" parent="." unique_id=316290714 instance=ExtResource("1_mkblt")]
 

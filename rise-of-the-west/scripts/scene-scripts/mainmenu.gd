@@ -3,6 +3,8 @@ extends Control
 @export var map_scene: PackedScene
 var map_instance
 var _active_game : bool = false
+@onready var base_population:int = %Population.value
+@onready var deathmatch: bool = false
 
 func _ready() -> void:
 	$Menu/MenuButtons/Control/BoxContainer/Resume.hide()
@@ -41,6 +43,9 @@ func _on_play_pressed() -> void:
 		
 func _new_game():
 	map_instance = map_scene.instantiate()
+	map_instance.PopulationBase = base_population
+	if(deathmatch):
+		map_instance.DeathMatch = true
 	var grandparent_node = get_parent().get_parent()
 	grandparent_node.add_child(map_instance)
 	toggle_menu()
@@ -54,3 +59,11 @@ func _cleanup_game():
 func _on_back_pressed() -> void:
 	%Options.visible = false
 	%MenuButtons.visible=true
+
+
+func _on_population_value_changed(value: float) -> void:
+	base_population = int(value)
+
+
+func _on_death_match_pressed() -> void:
+	deathmatch = !deathmatch
