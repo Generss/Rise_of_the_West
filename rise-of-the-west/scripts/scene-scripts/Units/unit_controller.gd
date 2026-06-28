@@ -26,6 +26,16 @@ func _process(_delta: float) -> void:
 	else:
 		pressed = false
 
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("cancel_move"):
+		var movable_units: Array[Unit] = []
+		for unit in selected:
+			if is_instance_valid(unit):
+				movable_units.append(unit)
+		if movable_units.is_empty():
+			return
+		for unit in movable_units:
+			unit.move_to_target(unit.global_position)
 
 func move_selected_units(center: Vector2) -> void:
 	print("move")

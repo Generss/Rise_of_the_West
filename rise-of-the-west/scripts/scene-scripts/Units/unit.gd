@@ -45,11 +45,11 @@ func take_damage(new_damage: int) -> void:
 
 func apply_faction(new_faction : String) -> void:
 	faction = new_faction
-	#if faction == "Enemy":
-		#var enemy_shader := load("res://shaders/inverse.gdshader") as Shader
-		#shader_material = ShaderMaterial.new()
-		#shader_material.shader = enemy_shader
-		#animated_sprite.material = shader_material
+	if faction == "Enemy":
+		var enemy_shader := load("res://shaders/inverse.gdshader") as Shader
+		shader_material = ShaderMaterial.new()
+		shader_material.shader = enemy_shader
+		animated_sprite.material = shader_material
 	
 	#else:
 	if animated_sprite.material != null:
