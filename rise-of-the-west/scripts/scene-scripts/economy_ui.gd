@@ -101,7 +101,7 @@ func lose_town(location: capturable):
 			get_node("Mines").text = "Mines: "+str(Mines)
 	Income -= location.income
 	get_node("Income").text = "Income: "+str(Income)
-	if Units == 0 and Towns + Forts == 0:
+	if Units == 0 and Towns + Forts + Mines == 0:
 		end_game(false)
 
 func lose_ememy_town(location: capturable):
@@ -117,7 +117,7 @@ func lose_ememy_town(location: capturable):
 		"Mine":
 			EnemyMines -= 1
 	EnemyIncome -= location.income
-	if EnemyUnits == 0 and EnemyTowns + Forts == 0:
+	if EnemyUnits == 0 and EnemyTowns + EnemyForts + EnemyMines == 0:
 		end_game(true)
 
 
@@ -146,12 +146,12 @@ func lost_unit():
 	print("lost")
 	Units -= 1
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
-	if Units == 0 and Towns + Forts == 0:
+	if Units == 0 and Towns + Forts + Mines == 0:
 		end_game(false)
 
 func enemy_lost_unit():
 	EnemyUnits -= 1
-	if EnemyUnits == 0 and EnemyTowns + EnemyForts == 0:
+	if EnemyUnits == 0 and EnemyTowns + EnemyForts + EnemyMines == 0:
 		end_game(true)
 
 func end_game(PlayerWin:bool):

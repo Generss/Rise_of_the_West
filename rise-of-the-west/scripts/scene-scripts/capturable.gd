@@ -115,7 +115,7 @@ func _on_tnt_recruitment_gui_input(event: InputEvent) -> void:
 func _on_gatling_recruitment_gui_input(event: InputEvent) -> void:
 	_recruit_handle(event, gatling_scene)
 
-func _recruit(scene: PackedScene):
+func _recruit(scene: PackedScene, enemy: bool = false):
 	var price: int = 100
 	match scene:
 		soldier_scene:
@@ -137,6 +137,8 @@ func _recruit(scene: PackedScene):
 	var random_variation = Vector2(randi_range(0, dimensions.x), randi_range(0, dimensions.y))
 	instance.position = global_position + random_variation
 	instance.economyui = economyui
+	if enemy:
+		instance.faction = "Enemy"
 	_sortable_node.add_child(instance)
 
 func _recruit_handle(event: InputEvent, scene:PackedScene) -> void:

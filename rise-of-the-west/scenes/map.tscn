@@ -312,11 +312,8 @@ offset_left = -443.0
 offset_top = -13.0
 offset_right = -305.0
 offset_bottom = 115.0
-value = null
 income = 30
-income_fixed = null
 type = "Mine"
-faction = null
 economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
 [node name="Fort" parent="CapturableController" unique_id=955849362 node_paths=PackedStringArray("economyui") instance=ExtResource("6_mlgqr")]
@@ -325,11 +322,8 @@ offset_top = 386.00003
 offset_right = -464.0
 offset_bottom = 514.0
 scale = Vector2(0.96000135, 0.99999887)
-value = null
 income = 0
-income_fixed = null
 type = "Fort"
-faction = null
 economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
 [node name="Town" parent="CapturableController" unique_id=994216503 node_paths=PackedStringArray("economyui") instance=ExtResource("6_mlgqr")]
@@ -338,11 +332,7 @@ offset_top = -451.0
 offset_right = 445.0
 offset_bottom = -322.99997
 scale = Vector2(1.6020858, 3.2794623)
-value = null
 income = 100
-income_fixed = null
-type = null
-faction = null
 economyui = NodePath("../../CanvasLayer/InGameUI/IncomeContainer/IncomeHolder/EconomyUI")
 
 [node name="SelectionController" parent="." unique_id=1705481236 node_paths=PackedStringArray("selected_ui", "sortable") instance=ExtResource("1_8d3bm")]
@@ -485,6 +475,11 @@ position = Vector2(552, -144)
 
 [node name="UnitBody9" parent="Sortable" unique_id=632680794 instance=ExtResource("24_4qxv8")]
 position = Vector2(552, -144)
+speed = 200.0
+faction = "Ally"
+max_health = 100
+move_and_shoot = true
+unit_type = "RevolverInfantry"
 
 [node name="UnitBody11" parent="Sortable" unique_id=453999227 instance=ExtResource("25_4qxv8")]
 
@@ -545,7 +540,7 @@ vertical = true
 script = ExtResource("18_mo32q")
 Balance = 5000000
 Income = 500
-Units = 5
+Units = 4
 MaxPop = 200
 EnemyBalance = 400
 EnemyIncome = 5

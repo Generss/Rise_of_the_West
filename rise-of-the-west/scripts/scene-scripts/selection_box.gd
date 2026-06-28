@@ -17,7 +17,7 @@ var starting_position: Vector2
 @onready var selected: Array[Unit] = []
 @onready var units_in_box: Array[Unit] = []
 
-signal delete_unit(unit: Unit)
+signal delete_unit(unit: UnitBody)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
