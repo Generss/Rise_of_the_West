@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvvw7qtyxbqv8" path="res://scripts/scene-scripts/Units/unit_body.gd" id="1_sslqg"]
 [ext_resource type="Script" uid="uid://dxui63avffb3" path="res://scripts/scene-scripts/Units/unit.gd" id="2_amlfv"]
-[ext_resource type="PackedScene" uid="uid://dc3pbahcqyx6o" path="res://scenes/weapon.tscn" id="2_ncyc6"]
+[ext_resource type="PackedScene" uid="uid://dc3pbahcqyx6o" path="res://scenes/weapons/weapon.tscn" id="2_ncyc6"]
 [ext_resource type="Shader" uid="uid://jfv160b2w1ln" path="res://shaders/outline.gdshader" id="3_ncyc6"]
 [ext_resource type="Texture2D" uid="uid://b70gsgf5ero3g" path="res://assets/textures/placeholder_cowboy.png" id="4_6ga2b"]
 

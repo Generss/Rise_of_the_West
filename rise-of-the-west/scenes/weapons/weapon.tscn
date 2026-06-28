@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dc3pbahcqyx6o"]
+
+[ext_resource type="Script" uid="uid://bgcrwqg14xfwo" path="res://scripts/weapon.gd" id="1_0rtie"]
+[ext_resource type="PackedScene" uid="uid://h52ymkpdbsip" path="res://scenes/weapons/projectile.tscn" id="2_4uykt"]
+[ext_resource type="AudioStream" uid="uid://blkeg2h4dvb8" path="res://assets/audio/sound_effects/laserShoot.wav" id="3_b37ah"]
+
+[node name="Weapon" type="Node2D" unique_id=2087610711]
+script = ExtResource("1_0rtie")
+projectile_scene = ExtResource("2_4uykt")
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=1316974528]
+stream = ExtResource("3_b37ah")
+pitch_scale = 0.5
+max_distance = 1200.0
+bus = &"SFX"

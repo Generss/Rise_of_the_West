@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhm7lvykvulc" path="res://scenes/Units/unit_body.tscn" id="20_5u2yt"]
 [ext_resource type="PackedScene" uid="uid://cvm0drhvpf6y5" path="res://scenes/buildings/Town1.tscn" id="20_y2ir2"]
 [ext_resource type="PackedScene" uid="uid://jp8dvo8ilvd7" path="res://scenes/testing/testing_dummy.tscn" id="21_30iet"]
+[ext_resource type="PackedScene" uid="uid://d0lbre7h6rs0" path="res://scenes/Units/unit_cannon.tscn" id="23_4o3w1"]
 [ext_resource type="Script" uid="uid://dgaffy8is2xpq" path="res://scripts/scene-scripts/sub_viewport.gd" id="25_5u2yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wijl4"]
@@ -331,6 +332,7 @@ selected_ui = NodePath("../CanvasLayer/InGameUI/SelectedContainer/SelectedHolder
 script = ExtResource("2_wijl4")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1905174628]
+current = true
 
 [node name="Sortable" type="Node2D" parent="." unique_id=348796899]
 unique_name_in_owner = true
@@ -459,6 +461,8 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sortable/StaticBody2D" unique_id=1539725942]
 position = Vector2(5, 10)
 shape = SubResource("RectangleShape2D_fk5sa")
+
+[node name="UnitBody9" parent="Sortable" unique_id=901384048 instance=ExtResource("23_4o3w1")]
 
 [node name="TopLeftMark" type="Node2D" parent="." unique_id=835661531]
 position = Vector2(-1248, -1248)

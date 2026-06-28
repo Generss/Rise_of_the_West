@@ -17,9 +17,9 @@ var current_state : AI_State = AI_State.LOOKING
 @export var vision_range: float = 500.0
 @export var faction: String = "Ally"
 @export var max_health: int = 100
-@export var fire_rate: float = 2    # per second
 @export var move_and_shoot: bool = true
 @export var economyui : Node
+@export var unit_type: String = "RevolverInfantry"
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var vision_shape: CollisionShape2D = $RangeArea/CollisionShape2D
@@ -27,6 +27,8 @@ var current_state : AI_State = AI_State.LOOKING
 @onready var capturable_controller : CapturableController = null
 @onready var current_health = max_health
 @onready var unit : Unit = $Unit
+
+
 
 var current_capturable : capturable = null
 var fire_load_time : float = 0 # the time since last fire
@@ -64,8 +66,15 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	frame_counter += 1
-	if navigation_agent.is_navigation_finished():
+	
+	var is_moving := not navigation_agent.is_navigation_finished()
+	
+	if is_moving and not move_and_shoot:
+		weapon.deactivate()
+	
+	if not is_moving:
 		return
+	
 		
 	next_position = navigation_agent.get_next_path_position()
 	direction = global_position.direction_to(next_position)
@@ -151,11 +160,11 @@ func _on_unit_damge_taken(damage: int) -> void:
 		current_health -= damage 
 
 
-func _on_unit_get_pushed(direction: Vector2, magnitude: float) -> void:
-	if direction == Vector2.ZERO:
+func _on_unit_get_pushed(new_direction: Vector2, magnitude: float) -> void:
+	if new_direction == Vector2.ZERO:
 		return
 	sleeping = false
-	var impulse := direction.normalized() * magnitude
+	var impulse := new_direction.normalized() * magnitude
 	apply_central_impulse(impulse)
 
 func check_sight(los_target: Vector2) -> bool:

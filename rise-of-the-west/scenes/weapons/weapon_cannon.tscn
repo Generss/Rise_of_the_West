@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://basxn06jv02xj"]
+
+[ext_resource type="Script" uid="uid://cfhhyp0d1uu1" path="res://scripts/weapon_cannon.gd" id="1_3mgyw"]
+[ext_resource type="AudioStream" uid="uid://kdkm4611hl8w" path="res://assets/audio/sound_effects/explosion.wav" id="2_ibrei"]
+[ext_resource type="PackedScene" uid="uid://bj62q5n51hbr5" path="res://scenes/weapons/projectile_ball.tscn" id="2_qbav4"]
+
+[node name="WeaponCannon" type="Node2D" unique_id=940690736]
+script = ExtResource("1_3mgyw")
+projectile_scene = ExtResource("2_qbav4")
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=669860525]
+stream = ExtResource("2_ibrei")
