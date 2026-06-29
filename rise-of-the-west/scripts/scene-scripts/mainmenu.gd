@@ -67,3 +67,13 @@ func _on_population_value_changed(value: float) -> void:
 
 func _on_death_match_pressed() -> void:
 	deathmatch = !deathmatch
+
+
+func _on_guide_pressed() -> void:
+	%MenuButtons.visible=false
+	%Guide.visible = true
+
+
+func _on_guide_back_pressed() -> void:
+	%MenuButtons.visible=true
+	%Guide.visible = false

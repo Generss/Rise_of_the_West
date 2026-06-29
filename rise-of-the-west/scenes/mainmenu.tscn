@@ -214,6 +214,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4hago")
 theme_override_styles/hover = SubResource("StyleBoxFlat_85riq")
 text = "Options"
 
+[node name="Guide" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=1999873148]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3g3c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4hago")
+theme_override_styles/hover = SubResource("StyleBoxFlat_85riq")
+text = "Guide"
+
 [node name="Exit" type="Button" parent="Menu/MenuButtons/Control/BoxContainer" unique_id=2104332644]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
@@ -417,9 +425,97 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
+[node name="Guide" type="MarginContainer" parent="Menu" unique_id=1051244817]
+unique_name_in_owner = true
+visible = false
+visibility_layer = 2
+layout_mode = 2
+
+[node name="MainMenuBackGround" type="ColorRect" parent="Menu/Guide" unique_id=1797307025]
+layout_mode = 2
+color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+
+[node name="MenuButtons" type="MarginContainer" parent="Menu/Guide" unique_id=310048799]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Menu/Guide/MenuButtons" unique_id=1202341547]
+layout_mode = 2
+
+[node name="BoxContainer2" type="BoxContainer" parent="Menu/Guide/MenuButtons/Control" unique_id=1100538692]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+vertical = true
+
+[node name="TitleText" type="Label" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=1710621725]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+text = "Guide"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=630263917]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=681917460]
+layout_mode = 2
+alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer" unique_id=2054875651]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Controls" type="Label" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer/BoxContainer" unique_id=197460854]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Controls
+WASD to move camera.
+Shift + WASD to move quickly.
+Hold LMB and drag over units to select.
+Right click to order selected units to move.
+Backspace to cancel movement.
+Press 1 to select all units.
+Press ` to open console.
+Click on recruitment icons to recruit units.
+Shift + click recruits up to 10 units at a time."
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer" unique_id=1819797262]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="BoxContainer2" type="BoxContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer" unique_id=924869789]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Controls" type="Label" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer/BoxContainer2" unique_id=767060089]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Game Rules
+The game ends when one team
+can no longer recruit new units
+and has no way to capture
+objectives.
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=1705905202]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="GuideBack" type="Button" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=1859828639]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.16078432, 0.16862746, 0.1882353, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3vvtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gjjcl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wf3n4")
+text = "Back"
+
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Guide" to="." method="_on_guide_pressed"]
 [connection signal="pressed" from="Menu/MenuButtons/Control/BoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Menu/Options/MenuButtons/Control/BoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Menu/Options/MenuButtons/Control/Window/FullScreen" to="Menu/Options/MenuButtons/Control/Window/FullScreen" method="_on_pressed"]
@@ -429,3 +525,4 @@ value = 1.0
 [connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/MasterVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/SFXVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_sfx_volume_value_changed"]
 [connection signal="value_changed" from="Menu/Options/MenuButtons/Control/VolumeContainer/MusicVolume" to="Menu/Options/MenuButtons/Control/VolumeContainer" method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Menu/Guide/MenuButtons/Control/BoxContainer2/GuideBack" to="." method="_on_guide_back_pressed"]
