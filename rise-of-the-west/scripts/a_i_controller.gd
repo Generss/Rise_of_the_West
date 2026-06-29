@@ -1,14 +1,21 @@
 extends Node2D
 
 @onready var capture_controller : CapturableController = %CapturableController
+@onready var DeathMatch: bool
 
 var time: float = 0
+var frequency: float = 5
+
+func _ready() -> void:
+	DeathMatch = get_parent().DeathMatch
+	if DeathMatch:
+		frequency = 2.5
 
 # Called when the node enters the scene tree for the first time.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time += delta
-	if time > 5:
+	if time > frequency:
 		print(str(time))
 		time = 0
 	else:
