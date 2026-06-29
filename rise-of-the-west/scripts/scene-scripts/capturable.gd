@@ -95,16 +95,22 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func enemy_recruitment() -> void: 
 	var choice: PackedScene
+	var random_int = randi_range(0,100)
 	if type == "Fort":
-		var random_int = randi_range(0,100)
 		if random_int % 10 == 0:
 			choice = artillery_choices.pick_random()
 		else:
 			choice = infantry_choices.pick_random()
 	elif type == "Town":
-		choice = town_choices.pick_random()
+		if random_int % 10 == 0:
+			choice = cavalry_scene
+		else:
+			choice = soldier_scene
 	elif type == "Mine":
-		choice = tnt_scene
+		if random_int % 20 == 0:
+			choice = tnt_scene
+		else:
+			return
 	_recruit(choice, true)
 
 func _on_recruitment_gui_input(event: InputEvent) -> void:

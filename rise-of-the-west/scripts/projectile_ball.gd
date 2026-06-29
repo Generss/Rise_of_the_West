@@ -4,6 +4,7 @@ extends Projectile
 
 var units_hit : Array[Unit] 
 
+
 func _process(delta: float) -> void:
 	calculate_motion(delta)
 

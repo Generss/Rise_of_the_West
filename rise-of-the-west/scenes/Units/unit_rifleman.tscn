@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bf15fkkralc1d" path="res://scenes/weapons/weapon_rifle.tscn" id="2_tnmeu"]
 [ext_resource type="Texture2D" uid="uid://bjhu1pnv3impi" path="res://assets/textures/rifleman.png" id="3_uya3u"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cuba"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k6ef"]
 resource_local_to_scene = true
 shader = ExtResource("2_2k6ef")
 shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
 shader_parameter/outline_width = 2.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_syly2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnmeu"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -26,10 +26,11 @@ animations = [{
 [node name="UnitBody" unique_id=763515188 instance=ExtResource("1_uya3u")]
 speed = 190.0
 weapon_scene = ExtResource("2_tnmeu")
-vision_range = 600.0
+vision_range = 800.0
 max_health = 130
+move_and_shoot = false
 unit_type = "Rifleman"
 
 [node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
-material = SubResource("ShaderMaterial_3cuba")
-sprite_frames = SubResource("SpriteFrames_syly2")
+material = SubResource("ShaderMaterial_2k6ef")
+sprite_frames = SubResource("SpriteFrames_tnmeu")

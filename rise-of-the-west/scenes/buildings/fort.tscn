@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cjkwh20pxxybl"]
+
+[ext_resource type="Texture2D" uid="uid://clbmovk0uvbw8" path="res://assets/textures/fortress_3.png" id="1_fgyry"]
+[ext_resource type="Texture2D" uid="uid://ca1pb2yaq21xf" path="res://assets/textures/fortress_2.png" id="2_miqht"]
+[ext_resource type="Texture2D" uid="uid://ccpxcfd7u151j" path="res://assets/textures/fortress_1.png" id="3_vormq"]
+[ext_resource type="Texture2D" uid="uid://lkqwoqf2ic24" path="res://assets/textures/fortress_triangle_1.png" id="4_req1h"]
+[ext_resource type="Texture2D" uid="uid://b8pe0w2j656q0" path="res://assets/textures/fortress_triangle_2.png" id="5_8846g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgyry"]
+size = Vector2(104, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qrnp"]
+size = Vector2(312, 88)
+
+[node name="Fort" type="Node2D" unique_id=180549829]
+
+[node name="FortressTriangle2" type="Sprite2D" parent="." unique_id=499675605]
+position = Vector2(8, -272)
+texture = ExtResource("5_8846g")
+
+[node name="NorthWall1" type="Sprite2D" parent="." unique_id=931329846]
+position = Vector2(-189, -125)
+texture = ExtResource("1_fgyry")
+
+[node name="NorthWall2" type="Sprite2D" parent="." unique_id=575462783]
+position = Vector2(211, -128)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+texture = ExtResource("1_fgyry")
+
+[node name="EastWall" type="Sprite2D" parent="." unique_id=553693896]
+position = Vector2(317, -15)
+texture = ExtResource("2_miqht")
+
+[node name="WestWall" type="Sprite2D" parent="." unique_id=550301742]
+position = Vector2(-292, -12)
+texture = ExtResource("2_miqht")
+
+[node name="SouthWall1" type="Sprite2D" parent="." unique_id=313991102]
+position = Vector2(208, 95)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+texture = ExtResource("3_vormq")
+
+[node name="SouthWall2" type="Sprite2D" parent="." unique_id=701399846]
+position = Vector2(-187, 101)
+texture = ExtResource("3_vormq")
+
+[node name="SouthTriangle" type="Sprite2D" parent="." unique_id=83769546]
+position = Vector2(8, 240)
+texture = ExtResource("4_req1h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=859741209]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1199823497]
+position = Vector2(-28, 48)
+shape = SubResource("RectangleShape2D_fgyry")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1733568288]
+position = Vector2(-264, -48)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2128708033]
+position = Vector2(584, 40)
+shape = SubResource("RectangleShape2D_fgyry")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1053623480]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=476024736]
+position = Vector2(-188, -116)
+shape = SubResource("RectangleShape2D_6qrnp")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1913717376]
+position = Vector2(400, 0)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=628151038]
+position = Vector2(-188, -116)
+shape = SubResource("RectangleShape2D_6qrnp")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." unique_id=379954337]
+position = Vector2(400, 224)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" unique_id=258842804]
+position = Vector2(-188, -116)
+shape = SubResource("RectangleShape2D_6qrnp")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." unique_id=593765446]
+position = Vector2(0, 224)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6" unique_id=1513552619]
+position = Vector2(-188, -116)
+shape = SubResource("RectangleShape2D_6qrnp")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="." unique_id=717110953]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7" unique_id=626017662]
+position = Vector2(0, 32)
+polygon = PackedVector2Array(112, 208, 8, 272, -96, 208, -96, 176, 0, 232, 112, 176)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="." unique_id=270893468]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D8" unique_id=982276200]
+position = Vector2(0, -48)
+polygon = PackedVector2Array(8, -232, 104, -176, 112, -216, 8, -280, -96, -216, -96, -176)

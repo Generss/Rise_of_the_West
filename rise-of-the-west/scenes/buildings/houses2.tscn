@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d4myl1usbc5n2"]
+
+[ext_resource type="Texture2D" uid="uid://ey4ljjhxnkiy" path="res://assets/textures/shop_1.png" id="1_0s2g4"]
+
+[node name="Node2D" type="Node2D" unique_id=1459999124]
+
+[node name="Shop2" type="Sprite2D" parent="." unique_id=1818670312]
+position = Vector2(-319, -170)
+texture = ExtResource("1_0s2g4")
+
+[node name="Shop1" type="Sprite2D" parent="." unique_id=723482902]
+position = Vector2(-343, 65)
+texture = ExtResource("1_0s2g4")
+
+[node name="Shop3" type="Sprite2D" parent="." unique_id=370728179]
+position = Vector2(316, 49)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+texture = ExtResource("1_0s2g4")
+
+[node name="Shop4" type="Sprite2D" parent="." unique_id=1723955954]
+position = Vector2(321, -142)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+texture = ExtResource("1_0s2g4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1796730814]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=60043652]
+polygon = PackedVector2Array(-192, -241, -8, -249, -8, 7, -32, 7, -32, 255, -224, 255, -224, -9, -192, -9)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1871903970]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=729150958]
+position = Vector2(728, 31)
+polygon = PackedVector2Array(-192, -248, 0, -248, 0, 16, 0, 16, -8, 208, -192, 208, -192, 16, -192, 16)

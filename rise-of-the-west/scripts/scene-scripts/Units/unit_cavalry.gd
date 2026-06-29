@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		UnitNode.scale.x = -abs(scale.x)
 		
-	print("desired: ", current_move_speed, " adjusted: ", adjusted_move_speed, " actual: ", linear_velocity.length())
+	#print("desired: ", current_move_speed, " adjusted: ", adjusted_move_speed, " actual: ", linear_velocity.length())
 
 func _on_check_enemies_timer_timeout() -> void:
 	pass

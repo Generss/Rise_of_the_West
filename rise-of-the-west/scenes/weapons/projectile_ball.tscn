@@ -9,7 +9,7 @@ size = Vector2(8, 2)
 [node name="ProjectileBall" type="Area2D" unique_id=650861888]
 collision_mask = 3
 script = ExtResource("1_vjnn4")
-speed = 500.0
+speed = 3000.0
 pushing_power = 2500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268998248]

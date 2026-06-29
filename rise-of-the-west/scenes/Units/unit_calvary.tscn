@@ -41,9 +41,7 @@ minimum_turn_speed_percent = 0.45
 speed = 500.0
 weapon_scene = ExtResource("3_7mplf")
 vision_range = 0.0
-faction = "Ally"
-max_health = 300
-move_and_shoot = true
+max_health = 350
 unit_type = "Cavalry"
 
 [node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://fya3cn0njw3n"]
+
+[ext_resource type="Texture2D" uid="uid://cyxt67h4ttiih" path="res://assets/textures/mining_2.png" id="1_600g2"]
+[ext_resource type="Texture2D" uid="uid://d4e5u8iaxs3lh" path="res://assets/textures/mining_3.png" id="2_oy70k"]
+
+[node name="Node2D" type="Node2D" unique_id=1170698521]
+
+[node name="Mining2" type="Sprite2D" parent="." unique_id=467996048]
+position = Vector2(201, -63)
+texture = ExtResource("1_600g2")
+
+[node name="Mining3" type="Sprite2D" parent="." unique_id=1615485019]
+position = Vector2(206, 106)
+texture = ExtResource("2_oy70k")
+
+[node name="Mining4" type="Sprite2D" parent="." unique_id=924900162]
+position = Vector2(-265, -51)
+texture = ExtResource("2_oy70k")
+
+[node name="Mining5" type="Sprite2D" parent="." unique_id=608643555]
+position = Vector2(-212, 13)
+texture = ExtResource("2_oy70k")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=304834982]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=342685850]
+position = Vector2(232, 223)
+polygon = PackedVector2Array(184, -40, 184, -88, 240, -112, 296, -96, 304, -64, 296, -32, 240, -24)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1896052677]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3" unique_id=447132946]
+position = Vector2(232, 55)
+polygon = PackedVector2Array(160, -32, 160, -72, 176, -104, 240, -96, 280, -112, 304, -88, 312, -48, 264, -40, 200, -32)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=927692387]
+position = Vector2(-264, -47)
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4" unique_id=2055424561]
+position = Vector2(-208, 79)
+polygon = PackedVector2Array(176, -40, 152, -48, 152, -104, 208, -136, 256, -112, 272, -64, 312, -48, 328, -16, 320, 24, 216, 24, 200, 8, 208, -40)
