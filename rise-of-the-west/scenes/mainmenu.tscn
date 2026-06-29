@@ -477,7 +477,7 @@ Shift + WASD to move quickly.
 Hold LMB and drag over units to select.
 Right click to order selected units to move.
 Backspace to cancel movement.
-Press 1 to select all units.
+Tab to select all units.
 Press ` to open console.
 Click on recruitment icons to recruit units.
 Shift + click recruits up to 10 units at a time."
@@ -491,7 +491,7 @@ layout_mode = 2
 alignment = 1
 vertical = true
 
-[node name="Controls" type="Label" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer/BoxContainer2" unique_id=767060089]
+[node name="Game" type="Label" parent="Menu/Guide/MenuButtons/Control/BoxContainer2/HBoxContainer/BoxContainer2" unique_id=767060089]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Game Rules
