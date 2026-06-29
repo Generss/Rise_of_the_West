@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bxdq1dh4llti3" path="res://scenes/weapons/weapon_dynamite.tscn" id="3_reanc"]
 [ext_resource type="Texture2D" uid="uid://o5sv0pe728f7" path="res://assets/textures/TNT.png" id="4_ug83h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgav4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_reanc"]
 resource_local_to_scene = true
 shader = ExtResource("2_ug83h")
 shader_parameter/outline_color = Color(0.8118, 0.6706, 0.2902, 1)
 shader_parameter/outline_width = 2.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_05ik3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgav4"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -28,7 +28,8 @@ animations = [{
 script = ExtResource("2_reanc")
 weapon_scene = ExtResource("3_reanc")
 vision_range = 800.0
+max_health = 125
 
 [node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
-material = SubResource("ShaderMaterial_tgav4")
-sprite_frames = SubResource("SpriteFrames_05ik3")
+material = SubResource("ShaderMaterial_reanc")
+sprite_frames = SubResource("SpriteFrames_tgav4")

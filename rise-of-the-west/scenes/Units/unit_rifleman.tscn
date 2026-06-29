@@ -26,8 +26,8 @@ animations = [{
 [node name="UnitBody" unique_id=763515188 instance=ExtResource("1_uya3u")]
 speed = 190.0
 weapon_scene = ExtResource("2_tnmeu")
-vision_range = 800.0
-max_health = 130
+vision_range = 900.0
+max_health = 150
 move_and_shoot = false
 unit_type = "Rifleman"
 

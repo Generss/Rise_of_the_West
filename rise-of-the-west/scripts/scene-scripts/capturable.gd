@@ -97,17 +97,17 @@ func enemy_recruitment() -> void:
 	var choice: PackedScene
 	var random_int = randi_range(0,100)
 	if type == "Fort":
-		if random_int % 10 == 0:
+		if random_int % 5 == 0:
 			choice = artillery_choices.pick_random()
 		else:
 			choice = infantry_choices.pick_random()
 	elif type == "Town":
-		if random_int % 10 == 0:
+		if random_int % 5 == 0:
 			choice = cavalry_scene
 		else:
 			choice = soldier_scene
 	elif type == "Mine":
-		if random_int % 20 == 0:
+		if random_int % 10 == 0:
 			choice = tnt_scene
 		else:
 			return
@@ -144,23 +144,23 @@ func _recruit(scene: PackedScene, enemy: bool = false):
 	var price: int = 100
 	match scene:
 		soldier_scene:
-			price = 100
+			price = 50
 		rifle_scene:
-			price = 100
+			price = 80
 		cavalry_scene:
-			price = 200
+			price = 120
 		tnt_scene:
-			price = 500
+			price = 100
 		cannon_scene:
-			price = 1000
+			price = 200
 		gatling_scene:
-			price = 1200
+			price = 200
 	if !enemy:
 		print("ally")
 		if !%EconomyUI.spend(price):
 			return
 	else:
-		price = 200 # Handicap for enemy, otherwise they'll never recruit advanced units
+		price = 125 # Handicap for enemy, otherwise they'll never recruit advanced units
 		if !%EconomyUI.enemy_spend(price):
 			return
 	var instance = scene.instantiate()

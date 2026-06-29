@@ -27,6 +27,7 @@ animations = [{
 speed = 100.0
 weapon_scene = ExtResource("2_3jbt8")
 vision_range = 1000.0
+max_health = 125
 move_and_shoot = false
 unit_type = "Cannon"
 

@@ -471,6 +471,7 @@ vertical = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Controls
+Escape to open menu.
 WASD to move camera.
 Shift + WASD to move quickly.
 Hold LMB and drag over units to select.
@@ -497,8 +498,7 @@ text = "Game Rules
 The game ends when one team
 can no longer recruit new units
 and has no way to capture
-objectives.
-"
+objectives."
 
 [node name="MarginContainer2" type="MarginContainer" parent="Menu/Guide/MenuButtons/Control/BoxContainer2" unique_id=1705905202]
 custom_minimum_size = Vector2(50, 50)

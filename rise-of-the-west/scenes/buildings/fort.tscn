@@ -47,7 +47,7 @@ position = Vector2(-187, 101)
 texture = ExtResource("3_vormq")
 
 [node name="SouthTriangle" type="Sprite2D" parent="." unique_id=83769546]
-position = Vector2(8, 240)
+position = Vector2(8, 256)
 texture = ExtResource("4_req1h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=859741209]
@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_6qrnp")
 collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7" unique_id=626017662]
-position = Vector2(0, 32)
+position = Vector2(0, 48)
 polygon = PackedVector2Array(112, 208, 8, 272, -96, 208, -96, 176, 0, 232, 112, 176)
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="." unique_id=270893468]

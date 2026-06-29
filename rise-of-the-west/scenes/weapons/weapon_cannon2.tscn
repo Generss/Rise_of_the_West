@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dcbwg3evuik86"]
+
+[ext_resource type="Script" uid="uid://rvwnvcbbvtrj" path="res://scripts/weapon_cannon2.gd" id="1_o7g1s"]
+[ext_resource type="PackedScene" uid="uid://b3yuel8ehbcsy" path="res://scenes/weapons/projectile_ball2.tscn" id="2_7ivo0"]
+[ext_resource type="AudioStream" uid="uid://kdkm4611hl8w" path="res://assets/audio/sound_effects/explosion.wav" id="3_53d1p"]
+[ext_resource type="AudioStream" uid="uid://blkeg2h4dvb8" path="res://assets/audio/sound_effects/laserShoot.wav" id="4_t45so"]
+
+[node name="WeaponCannon2" type="Node2D" unique_id=940690736]
+script = ExtResource("1_o7g1s")
+projectile_scene = ExtResource("2_7ivo0")
+fire_rate = 12.0
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=669860525]
+stream = ExtResource("4_t45so")
+pitch_scale = 1.61
+attenuation = 0.7071059
+max_polyphony = 100
+bus = &"SFX"
+
+[node name="WeaponSound3" type="AudioStreamPlayer2D" parent="." unique_id=1720746420]
+stream = ExtResource("3_53d1p")
+pitch_scale = 1.24
+bus = &"SFX"

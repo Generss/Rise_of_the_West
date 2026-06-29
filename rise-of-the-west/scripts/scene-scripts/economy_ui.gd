@@ -25,6 +25,8 @@ var EndMoneyEnemy: int
 var GameTime: float
 var GameOver: bool
 
+var scene = load("res://scenes/Units/unit_cannon2.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var scene_root = owner 
@@ -228,3 +230,10 @@ func _on_console_text_submitted(new_text: String) -> void:
 					lose_town(capturable)
 					capturable.faction = "Neutral"
 					capturable.value = 100.0
+		"photon man":
+			var instance = scene.instantiate()
+			instance.position = %PlayerTown.global_position
+			instance.economyui = self
+			instance.faction = "Ally"
+			spend(0)
+			%Sortable.add_child(instance)

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b3yuel8ehbcsy"]
+
+[ext_resource type="Script" uid="uid://jvfbbaojrbwj" path="res://scripts/projectile_ball2.gd" id="1_vei4y"]
+[ext_resource type="Texture2D" uid="uid://bcdohf2thpr2m" path="res://assets/textures/ball.png" id="2_vei4y"]
+[ext_resource type="AudioStream" uid="uid://kdkm4611hl8w" path="res://assets/audio/sound_effects/explosion.wav" id="3_vei4y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cco2b"]
+radius = 8.0
+
+[node name="ProjectileBall2" type="Area2D" unique_id=650861888]
+collision_mask = 3
+script = ExtResource("1_vei4y")
+speed = 3000.0
+damage = 125
+pushing_power = 2500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268998248]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_cco2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487114063]
+position = Vector2(-0.25000006, -0.25000006)
+scale = Vector2(2, 1.871)
+texture = ExtResource("2_vei4y")
+
+[node name="Lifetime_Timer" type="Timer" parent="." unique_id=592678387]
+wait_time = 20.0
+autostart = true
+
+[node name="AlreadyHit" type="Timer" parent="." unique_id=363492175]
+wait_time = 0.25
+autostart = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=1977862904]
+stream = ExtResource("3_vei4y")
+pitch_scale = 0.01
+autoplay = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Lifetime_Timer" to="." method="_on_lifetime_timer_timeout"]
+[connection signal="timeout" from="AlreadyHit" to="." method="_on_already_hit_timeout"]

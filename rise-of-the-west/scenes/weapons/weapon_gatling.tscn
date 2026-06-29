@@ -5,4 +5,4 @@
 
 [node name="Weapon" unique_id=2087610711 instance=ExtResource("1_y60e0")]
 projectile_scene = ExtResource("2_ieb0u")
-fire_rate = 6.0
+fire_rate = 12.0

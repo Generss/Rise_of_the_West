@@ -4,5 +4,4 @@
 
 [node name="Projectile" unique_id=650861888 instance=ExtResource("1_fx4u0")]
 speed = 900.0
-damage = 15
 pushing_power = 5.0

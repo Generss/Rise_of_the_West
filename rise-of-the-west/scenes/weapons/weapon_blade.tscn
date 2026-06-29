@@ -5,9 +5,9 @@
 
 [node name="Weapon" unique_id=2087610711 instance=ExtResource("1_6do5u")]
 script = ExtResource("2_7u6y2")
-damage = 15
+damage = 75
 push_force = 600.0
-hit_cooldown = 0.75
+hit_cooldown = 0.33
 projectile_scene = null
 
 [node name="Timer" type="Timer" parent="." index="1" unique_id=42190793]
