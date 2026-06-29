@@ -193,6 +193,13 @@ func _on_console_text_submitted(new_text: String) -> void:
 		"moneymoneymoney":
 			Balance += 100000
 			get_node("Balance").text = "Balance: " + str(Balance)
+		"cheese steak jimmy’s":
+			Balance += 1000000000
+			get_node("Balance").text = "Balance: " + str(Balance)
+		"my cpu can handle it":
+			EnemyMaxPop += 1000
+			MaxPop += 1000
+			get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 		"win":
 			end_game(true)
 		"lose":
