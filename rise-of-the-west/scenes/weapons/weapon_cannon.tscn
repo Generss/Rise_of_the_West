@@ -11,3 +11,4 @@ fire_rate = 0.5
 
 [node name="WeaponSound" type="AudioStreamPlayer2D" parent="." unique_id=669860525]
 stream = ExtResource("2_ibrei")
+bus = &"SFX"
