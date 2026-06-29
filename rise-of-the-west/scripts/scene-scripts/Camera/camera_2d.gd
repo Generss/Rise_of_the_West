@@ -1,8 +1,8 @@
 class_name MapCamera
 extends Camera2D
 
-@export var speed: float = 600.0
-@export var fastspeed: float = 1200.0
+@export var speed: float = 1000.0
+@export var fastspeed: float = 2500.0
 
 @onready var TopLeftMark = $"../TopLeftMark"
 @onready var BottomRightMark = $"../BottomRightMark"
