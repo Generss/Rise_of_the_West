@@ -58,7 +58,7 @@ func _on_timer_timeout() -> void:
 	if value == 0.0 and unit_count <= 0:
 		return
 	
-	var potential = value + unit_count * 8
+	var potential = value + unit_count * 2
 	if potential < 200.0 and potential > 0.0:
 		if faction == "Ally" or faction == "Enemy":
 			faction = "Neutral"
@@ -136,6 +136,11 @@ func _on_gatling_recruitment_gui_input(event: InputEvent) -> void:
 	_recruit_handle(event, gatling_scene)
 
 func _recruit(scene: PackedScene, enemy: bool = false):
+	if value<200 and !enemy:
+		return
+	if value >0 and enemy:
+		return
+	
 	var price: int = 100
 	match scene:
 		soldier_scene:
@@ -155,7 +160,7 @@ func _recruit(scene: PackedScene, enemy: bool = false):
 		if !%EconomyUI.spend(price):
 			return
 	else:
-		price = 100 # Handicap for enemy, otherwise they'll never recruit advanced units
+		price = 200 # Handicap for enemy, otherwise they'll never recruit advanced units
 		if !%EconomyUI.enemy_spend(price):
 			return
 	var instance = scene.instantiate()
