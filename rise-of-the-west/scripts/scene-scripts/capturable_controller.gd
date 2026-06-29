@@ -17,7 +17,6 @@ func _ready() -> void:
 				child.faction_change.connect(_on_capturable_faction_change)
 			_capturable_count += 1
 			capturables.append(child)
-	print("Needed points: ", _capturable_count)
 
 # This should only be called WHEN THE FACTION CHANGES
 func _on_capturable_faction_change(location: capturable) -> void:

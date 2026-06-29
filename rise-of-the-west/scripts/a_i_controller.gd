@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time += delta
 	if time > frequency:
-		print(str(time))
 		time = 0
 	else:
 		return

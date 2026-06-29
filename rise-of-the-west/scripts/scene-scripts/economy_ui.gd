@@ -145,7 +145,6 @@ func enemy_spend(money: int) -> bool:
 
 
 func lost_unit():
-	print("lost")
 	Units -= 1
 	get_node("Population").text = "Pop: "+str(Units) +"/" +str(MaxPop)
 	if Units == 0 and Towns + Forts + Mines == 0:

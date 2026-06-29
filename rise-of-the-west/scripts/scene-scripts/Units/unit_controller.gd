@@ -38,7 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			unit.move_to_target(unit.global_position)
 
 func move_selected_units(center: Vector2) -> void:
-	print("move")
 	print(str(selected.size()))
 	clean_selected()
 

@@ -156,7 +156,6 @@ func _recruit(scene: PackedScene, enemy: bool = false):
 		gatling_scene:
 			price = 200
 	if !enemy:
-		print("ally")
 		if !%EconomyUI.spend(price):
 			return
 	else:
