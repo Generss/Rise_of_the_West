@@ -29,6 +29,7 @@ script = ExtResource("2_reanc")
 weapon_scene = ExtResource("3_reanc")
 vision_range = 800.0
 max_health = 125
+unit_type = "Dynamite"
 
 [node name="AnimatedSprite2D" parent="Unit" parent_id_path=PackedInt32Array(162373335) index="0" unique_id=1527859584]
 material = SubResource("ShaderMaterial_reanc")

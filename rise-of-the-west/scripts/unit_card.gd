@@ -2,6 +2,12 @@ class_name UnitCard
 extends Control
 
 @export var new_texture = preload("res://assets/CapturableAssets/PistolInfantryRecruitSymbol.png")
+@export var revolverinfantry = preload("res://assets/CapturableAssets/PistolInfantryRecruitSymbol.png")
+@export var cavalry = preload("res://assets/CapturableAssets/CavalryRecruitSymbol.png")
+@export var dynamite = preload("res://assets/CapturableAssets/TNTRecruitSymbol.png")
+@export var cannon = preload("res://assets/textures/ball.png")
+@export var rifleman = preload("res://assets/CapturableAssets/RifleInfantryRecruitSymbol -.png")
+@export var gatling = preload("res://assets/textures/gatlingrecruitment.png")
 @export var health : int = 100
 @export var unit: UnitBody
 

@@ -17,6 +17,20 @@ func add_unit(unit: UnitBody) -> void:
 	
 	var unitcard: UnitCard = card_scene.instantiate()
 	unitcard.unit = unit
+	match unit.unit_type:
+		"Rifleman":
+			unitcard.new_texture = unitcard.rifleman
+		"Cannon":
+			unitcard.new_texture = unitcard.cannon
+		"Dynamite":
+			unitcard.new_texture = unitcard.dynamite
+		"Cavalry":
+			unitcard.new_texture = unitcard.cavalry
+		"RevolverInfantry":
+			unitcard.new_texture = unitcard.revolverinfantry
+		"Gatling":
+			unitcard.new_texture = unitcard.gatling
+	#unitcard.new_texture = 
 	gridbox.add_child(unitcard)
 	
 	update_layout()
